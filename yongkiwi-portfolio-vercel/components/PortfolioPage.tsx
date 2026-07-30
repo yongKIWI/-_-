@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ContactEmail } from "@/components/ContactEmail";
 import { SiteHeader } from "@/components/SiteHeader";
 import {
   careers,
@@ -196,7 +197,12 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
 
             <div className="project-list">
               {orderedProjects.map((project, index) => (
-                <article className="project-card" key={project.slug}>
+                <Link
+                  aria-label={`${project.shortTitle} 상세 보기`}
+                  className="project-card"
+                  href={`/projects/${project.slug}`}
+                  key={project.slug}
+                >
                   <div className="project-card-number">
                     {String(index + 1).padStart(2, "0")}
                   </div>
@@ -213,14 +219,11 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                   <div className="project-card-proof">
                     <span>{project.cardMetric.label}</span>
                     <strong>{project.cardMetric.value}</strong>
-                    <Link
-                      aria-label={`${project.shortTitle} 상세 보기`}
-                      href={`/projects/${project.slug}`}
-                    >
+                    <span className="project-card-cta">
                       상세 보기 →
-                    </Link>
+                    </span>
                   </div>
-                </article>
+                </Link>
               ))}
             </div>
 
@@ -252,6 +255,9 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 반복될 때까지 운영하는 것이 제 일입니다.”
               </blockquote>
             </div>
+            <p className="process-swipe-hint" aria-hidden="true">
+              옆으로 넘겨 5단계 보기 →
+            </p>
             <ol className="process-grid">
               {processSteps.map((step, index) => (
                 <li key={step.title}>
@@ -370,9 +376,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               고객의 목표를 이해하는 기획력과 필요한 실행체계를 직접 만드는
               오너십으로 기여하겠습니다.
             </p>
-            <a className="contact-mail" href="mailto:tag.y603@gmail.com">
-              tag.y603@gmail.com <span aria-hidden="true">↗</span>
-            </a>
+            <ContactEmail />
             <div className="contact-role-links">
               <Link href="/">광고기획 관점</Link>
               <Link href="/performance-ae">퍼포먼스 관점</Link>

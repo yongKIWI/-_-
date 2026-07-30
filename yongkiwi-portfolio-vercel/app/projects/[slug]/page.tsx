@@ -14,6 +14,28 @@ type ProjectPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+const projectSections = [
+  { id: "problem", label: "문제" },
+  { id: "decision", label: "실행" },
+  { id: "change", label: "변화" },
+  { id: "result", label: "결과" },
+  { id: "measurement", label: "측정" },
+  { id: "learning", label: "배운 점" },
+] as const;
+
+function ProjectToc({ className }: { className: string }) {
+  return (
+    <nav aria-label="프로젝트 목차" className={className}>
+      <span>PROJECT INDEX</span>
+      {projectSections.map((section, index) => (
+        <a href={`#${section.id}`} key={section.id}>
+          {String(index + 1).padStart(2, "0")} {section.label}
+        </a>
+      ))}
+    </nav>
+  );
+}
+
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
@@ -106,10 +128,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <span>사용 도구</span>
               <strong>{project.tools.join(" · ")}</strong>
             </div>
+            <ProjectToc className="project-toc" />
           </aside>
 
+          <ProjectToc className="project-mobile-toc" />
+
           <article className="project-article">
-            <section>
+            <section id="problem">
               <p className="section-index">01 · PROBLEM</p>
               <h2>문제 상황</h2>
               <ul className="article-list">
@@ -121,7 +146,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             <blockquote>{project.judgment}</blockquote>
 
-            <section>
+            <section id="decision">
               <p className="section-index">02 · DECISION</p>
               <h2>분석과 실행</h2>
               <ol className="process-list">
@@ -134,7 +159,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </ol>
             </section>
 
-            <section className="evidence-panel">
+            <section className="evidence-panel" id="change">
               <div>
                 <p className="section-index">BEFORE → AFTER</p>
                 <h2>업무 방식의 변화</h2>
@@ -151,7 +176,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
             </section>
 
-            <section>
+            <section id="result">
               <p className="section-index">03 · RESULT</p>
               <h2>결과와 성과</h2>
               <ul className="result-list">
@@ -161,13 +186,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </ul>
             </section>
 
-            <section className="proof-note">
+            <section className="proof-note" id="measurement">
               <p className="section-index">MEASUREMENT NOTE</p>
               <h2>성과 측정 기준</h2>
               <p>{project.measurement}</p>
             </section>
 
-            <section>
+            <section id="learning">
               <p className="section-index">04 · LEARNING</p>
               <h2>배운 점과 후속 개선</h2>
               <p>{project.learning}</p>
