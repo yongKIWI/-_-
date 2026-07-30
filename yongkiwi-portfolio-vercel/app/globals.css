@@ -938,7 +938,7 @@ footer p {
 .project-hero h1 {
   max-width: 1100px;
   margin: 0;
-  font-size: clamp(44px, 6vw, 82px);
+  font-size: clamp(40px, 6vw, 68px);
   letter-spacing: -0.07em;
   line-height: 1.06;
 }
@@ -1179,7 +1179,7 @@ footer p {
 
 .next-project-link {
   display: block;
-  padding: 90px 0;
+  padding: 72px 0;
   transition: background 180ms ease;
 }
 
@@ -1483,7 +1483,7 @@ footer p {
   }
 
   .project-hero h1 {
-    font-size: 46px;
+    font-size: clamp(36px, 10.2vw, 42px);
   }
 
   .project-metric-row {
@@ -1534,6 +1534,10 @@ footer p {
 
   .next-project span {
     font-size: 35px;
+  }
+
+  .next-project-link {
+    padding: 50px 0;
   }
 }
 
