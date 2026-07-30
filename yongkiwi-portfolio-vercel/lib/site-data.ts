@@ -5,8 +5,8 @@ export const commonMetrics = [
     project: "operations-transformation",
   },
   {
-    value: "2,000 → 7,200",
-    label: "월간 콘텐츠 발행량 3.6배 확대",
+    value: "2,000 → 8,200",
+    label: "월 최고 콘텐츠 발행량 4.1배 확대",
     project: "operations-transformation",
   },
   {
@@ -102,18 +102,18 @@ export const projects: Project[] = [
   {
     slug: "operations-transformation",
     category: "MARKETING OPERATIONS · AI AUTOMATION",
-    shortTitle: "월 7,200건을 혼자 운영하는 콘텐츠 오퍼레이션",
+    shortTitle: "월 최고 8,200건을 혼자 운영하는 콘텐츠 오퍼레이션",
     title: "야근을 버티지 않고, 야근을 만드는 구조를 바꿨습니다.",
     summary:
-      "2~3명이 야근하며 운영하던 월 2,000건의 업무를 1인이 월 7,200건까지 운영할 수 있는 체계로 전환했습니다.",
+      "2~3명이 야근하며 운영하던 월 2,000건의 업무를 1인이 월 최고 8,200건까지 운영할 수 있는 체계로 전환했습니다.",
     role: "콘텐츠 운영 · 프로세스 설계 · 내부 도구 개발",
     contribution: "개선 프로젝트 기획·개발·운영·유지보수 100%",
     tools: ["GPT·Codex", "Google Sheets", "Apps Script", "내부 업무용 GUI"],
     tags: ["Workflow Design", "Client Operations", "AI Automation"],
-    cardMetric: { label: "월 발행량", value: "2,000 → 7,200" },
+    cardMetric: { label: "월 최고 발행량", value: "2,000 → 8,200" },
     metrics: [
       { label: "운영 인원", value: "2~3명 → 1명" },
-      { label: "월 발행량", value: "2,000 → 7,200" },
+      { label: "월 최고 발행량", value: "2,000 → 8,200" },
       { label: "90건 제작", value: "4시간 → 50분" },
       { label: "야근", value: "주 3~4회 → 0회" },
     ],
@@ -135,11 +135,11 @@ export const projects: Project[] = [
     evidence: [
       { label: "운영 인원", before: "2~3명", after: "1명" },
       { label: "운영 고객사", before: "20~30개", after: "50~60개" },
-      { label: "월 발행량", before: "약 2,000건", after: "약 7,200건" },
+      { label: "월 최고 발행량", before: "약 2,000건", after: "8,200건" },
       { label: "90건 제작", before: "4시간", after: "50분" },
     ],
     results: [
-      "월 발행량을 약 3.6배 확대하고 운영 고객사를 약 2배로 늘렸습니다.",
+      "월 최고 발행량을 약 4.1배 확대하고 운영 고객사를 약 2배로 늘렸습니다.",
       "90건 제작시간을 79.2% 줄여 시간당 생산성을 약 4.8배 높였습니다.",
       "주 3~4회 발생하던 야근을 없앴습니다.",
       "확보한 시간을 고객 관리, 세부 요청 반영, 신규 고객 온보딩과 노출 전략 개선에 재투자했습니다.",

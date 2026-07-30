@@ -27,16 +27,16 @@ const roleCopy = {
       </>
     ),
     description:
-      "2~3인이 월 2,000건을 운영하던 체계를 1인·월 7,200건으로 전환하고, 상위 7위 노출률을 30~40%에서 70~80%로 개선했습니다.",
+      "2~3인이 월 2,000건을 운영하던 체계를 1인·월 최고 8,200건까지 운영 가능한 구조로 전환하고, 상위 7위 노출률을 30~40%에서 70~80%로 개선했습니다.",
     statement:
       "AI로 업무를 줄인 사람이 아니라, 확보한 시간을 고객 성과에 다시 투자했습니다.",
     measurement: [
-      "월 발행량은 최근 실제 월 운영 기준",
+      "월 최고 발행량은 실제 월 운영 기록 기준",
       "노출률은 네이버 통합검색 상위 7위 기준",
     ],
     switchHref: "/performance-ae",
-    switchLabel: "퍼포먼스 AE 관점으로 보기",
-    resumeLabel: "광고기획 AE 경력 요약",
+    switchLabel: "퍼포먼스 관점으로 보기",
+    resumeLabel: "이용택 AE 이력서",
     projectOrder: [
       "operations-transformation",
       "keyword-performance",
@@ -62,9 +62,9 @@ const roleCopy = {
       "누적 조사량은 10개월 실제 운영 빈도 기반 추정",
       "노출률은 네이버 통합검색 상위 7위 기준",
     ],
-    switchHref: "/advertising-ae",
-    switchLabel: "광고기획 AE 관점으로 보기",
-    resumeLabel: "퍼포먼스 AE 경력 요약",
+    switchHref: "/",
+    switchLabel: "광고기획 관점으로 보기",
+    resumeLabel: "이용택 AE 이력서",
     projectOrder: [
       "keyword-performance",
       "rank-monitoring",
@@ -82,7 +82,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
   return (
     <>
       <SiteHeader />
-      <main id="top">
+      <main id="main-content">
         <section className="hero">
           <div className="hero-grid container">
             <div className="hero-copy">
@@ -109,17 +109,17 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 </Link>
               </div>
               <Link className="role-switch" href={copy.switchHref}>
-                {copy.switchLabel} <span>↗</span>
+                {copy.switchLabel} <span aria-hidden="true">→</span>
               </Link>
             </div>
 
             <div className="hero-visual" aria-label="핵심 성과 요약">
               <div className="visual-label">BEFORE → AFTER</div>
               <div className="visual-row visual-row-primary">
-                <span>월 발행량</span>
+                <span>월 최고 발행량</span>
                 <strong>2,000</strong>
                 <b>→</b>
-                <strong>7,200</strong>
+                <strong>8,200</strong>
               </div>
               <div className="visual-row">
                 <span>운영 인원</span>
@@ -180,7 +180,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                   <span>0{index + 1}</span>
                   <strong>{metric.value}</strong>
                   <p>{metric.label}</p>
-                  <b>프로젝트 보기 ↗</b>
+                  <b>프로젝트 보기 →</b>
                 </Link>
               ))}
             </div>
@@ -217,7 +217,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                       aria-label={`${project.shortTitle} 상세 보기`}
                       href={`/projects/${project.slug}`}
                     >
-                      상세 보기 ↗
+                      상세 보기 →
                     </Link>
                   </div>
                 </article>
@@ -231,7 +231,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               <span>ADDITIONAL CASE</span>
               <strong>촬영 의존도를 낮춘 이미지 운영체계</strong>
               <p>촬영 주기 1~2개월 → 3~6개월</p>
-              <b>↗</b>
+              <b aria-hidden="true">→</b>
             </Link>
           </div>
         </section>
@@ -371,11 +371,11 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               오너십으로 기여하겠습니다.
             </p>
             <a className="contact-mail" href="mailto:tag.y603@gmail.com">
-              tag.y603@gmail.com <span>↗</span>
+              tag.y603@gmail.com <span aria-hidden="true">↗</span>
             </a>
             <div className="contact-role-links">
-              <Link href="/advertising-ae">광고기획 AE 포트폴리오</Link>
-              <Link href="/performance-ae">퍼포먼스 AE 포트폴리오</Link>
+              <Link href="/">광고기획 관점</Link>
+              <Link href="/performance-ae">퍼포먼스 관점</Link>
             </div>
           </div>
         </section>

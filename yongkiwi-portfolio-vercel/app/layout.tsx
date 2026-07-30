@@ -1,6 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { JsonLd } from "@/components/JsonLd";
+import { createSocialMetadata } from "@/lib/site-meta";
 import { siteUrl } from "@/lib/site-url";
+import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import "./globals.css";
+
+const description =
+  "AI와 자동화를 활용해 고객사 콘텐츠 운영체계와 검색 노출 성과를 개선한 마케팅 AE 이용택의 포트폴리오입니다.";
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
@@ -8,28 +15,44 @@ export const metadata: Metadata = {
     default: "이용택 포트폴리오 | 광고기획 AE",
     template: "%s | 이용택 포트폴리오",
   },
-  description:
-    "AI와 자동화를 활용해 고객사 콘텐츠 운영체계와 검색 노출 성과를 개선한 마케팅 AE 이용택의 포트폴리오입니다.",
-  openGraph: {
-    title: "이용택 포트폴리오 | Marketing AE",
-    description:
-      "2~3인·월 2,000건의 운영을 1인·월 7,200건 체계로 바꾸고, 상위 7위 노출률을 70~80%까지 높였습니다.",
-    type: "website",
-    locale: "ko_KR",
-    images: [
-      {
-        url: "/og.png",
-        alt: "이용택 마케팅 AE 포트폴리오 — 월간 콘텐츠 발행량 2,000에서 7,200으로",
-      },
-    ],
+  description,
+  authors: [{ name: "이용택" }],
+  creator: "이용택",
+  ...createSocialMetadata({
+    title: "광고기획 AE | 이용택 포트폴리오",
+    description,
+    path: "/",
+    card: "advertising",
+  }),
+};
+
+export const viewport: Viewport = {
+  colorScheme: "light",
+  themeColor: "#f4f3ed",
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "이용택",
+  url: siteUrl.toString(),
+  jobTitle: "광고기획 AE · 퍼포먼스 마케팅 AE",
+  worksFor: {
+    "@type": "Organization",
+    name: "웨이팅리스트",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "이용택 포트폴리오 | Marketing AE",
-    description:
-      "고객 성과를 가로막는 병목을 발견하고, 반복 가능한 운영체계로 바꾸는 마케팅 AE.",
-    images: ["/og.png"],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "한남대학교",
   },
+  knowsAbout: [
+    "광고기획",
+    "퍼포먼스 마케팅",
+    "콘텐츠 운영",
+    "키워드 전략",
+    "마케팅 자동화",
+    "웹 자동화",
+  ],
 };
 
 export default function RootLayout({
@@ -39,7 +62,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <JsonLd data={personJsonLd} />
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

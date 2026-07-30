@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteHeader } from "@/components/SiteHeader";
 import { projects } from "@/lib/site-data";
+import {
+  createSocialMetadata,
+  type SocialCardKey,
+} from "@/lib/site-meta";
+import { siteUrl } from "@/lib/site-url";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -25,9 +31,12 @@ export async function generateMetadata({
   return {
     title: project.shortTitle,
     description: project.summary,
-    alternates: {
-      canonical: `/projects/${project.slug}`,
-    },
+    ...createSocialMetadata({
+      title: `${project.shortTitle} | 이용택 포트폴리오`,
+      description: project.summary,
+      path: `/projects/${project.slug}`,
+      card: project.slug as SocialCardKey,
+    }),
   };
 }
 
@@ -41,11 +50,25 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   const nextProject = projects[(projectIndex + 1) % projects.length];
+  const projectJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.shortTitle,
+    headline: project.title,
+    description: project.summary,
+    url: new URL(`/projects/${project.slug}`, siteUrl).toString(),
+    creator: {
+      "@type": "Person",
+      name: "이용택",
+    },
+    keywords: project.tags,
+  };
 
   return (
     <>
+      <JsonLd data={projectJsonLd} />
       <SiteHeader compact />
-      <main className="project-page">
+      <main className="project-page" id="main-content">
         <section className="project-hero">
           <div className="container">
             <Link className="back-link" href="/#projects">
@@ -162,7 +185,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <p className="eyebrow">NEXT PROJECT</p>
             <Link href={`/projects/${nextProject.slug}`}>
               <span>{nextProject.shortTitle}</span>
-              <b>↗</b>
+              <b aria-hidden="true">→</b>
             </Link>
           </div>
         </section>

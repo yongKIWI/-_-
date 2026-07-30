@@ -4,7 +4,7 @@ import { siteUrl } from "@/lib/site-url";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteUrl.origin;
-  const staticRoutes = ["", "/advertising-ae", "/performance-ae"];
+  const staticRoutes = ["", "/performance-ae"];
 
   return [
     ...staticRoutes.map((route) => ({

@@ -25,4 +25,5 @@ npm run check
 - 메인 화면 구성: `components/PortfolioPage.tsx`
 - 상세 프로젝트 화면: `app/projects/[slug]/page.tsx`
 - 디자인: `app/globals.css`
-- 대표 공유 이미지: `public/og.png`
+- 페이지별 공유 이미지: `app/og/[key]/route.tsx`
+- 공유·검색 메타데이터: `lib/site-meta.ts`
