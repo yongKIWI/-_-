@@ -21,7 +21,7 @@ function useActiveProjectSection() {
     let frame = 0;
 
     const updateActiveSection = () => {
-      const marker = window.scrollY + 180;
+      const marker = window.scrollY + 240;
       let current: ProjectSectionId = "problem";
 
       projectSections.forEach((item) => {
