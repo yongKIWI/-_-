@@ -61,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html data-scroll-behavior="smooth" lang="ko">
       <body>
         <JsonLd data={personJsonLd} />
         {children}

@@ -20,9 +20,9 @@ const roleCopy = {
     title: (
       <>
         광고 운영의 병목을 찾고,
-        <br />
+        <br />{" "}
         고객 성과가 반복되는 구조로 바꾸는
-        <br />
+        <br />{" "}
         <em>AE 이용택입니다.</em>
       </>
     ),
@@ -48,10 +48,10 @@ const roleCopy = {
     title: (
       <>
         측정할 수 없던 콘텐츠 운영에
-        <br />
+        <br />{" "}
         KPI와 데이터 수집체계를 만든
-        <br />
-        <em>퍼포먼스 AE 이용택입니다.</em>
+        <br />{" "}
+        <em>AE 이용택입니다.</em>
       </>
     ),
     description:

@@ -181,13 +181,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
 
         <section className="next-project">
-          <div className="container">
-            <p className="eyebrow">NEXT PROJECT</p>
-            <Link href={`/projects/${nextProject.slug}`}>
-              <span>{nextProject.shortTitle}</span>
-              <b aria-hidden="true">→</b>
-            </Link>
-          </div>
+          <Link
+            className="next-project-link"
+            href={`/projects/${nextProject.slug}`}
+          >
+            <div className="container">
+              <p className="eyebrow">NEXT PROJECT</p>
+              <div className="next-project-row">
+                <span>{nextProject.shortTitle}</span>
+                <b aria-hidden="true">→</b>
+              </div>
+            </div>
+          </Link>
         </section>
       </main>
     </>

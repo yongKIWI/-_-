@@ -1169,15 +1169,25 @@ footer p {
 }
 
 .next-project {
-  padding: 90px 0;
   background: var(--kiwi);
+  border: 1px solid var(--ink);
 }
 
 .next-project .eyebrow {
   color: var(--ink);
 }
 
-.next-project a {
+.next-project-link {
+  display: block;
+  padding: 90px 0;
+  transition: background 180ms ease;
+}
+
+.next-project-link:hover {
+  background: var(--kiwi-soft);
+}
+
+.next-project-row {
   display: flex;
   justify-content: space-between;
   gap: 28px;
@@ -1358,7 +1368,11 @@ footer p {
   }
 
   .hero-marquee {
-    justify-content: flex-start;
+    padding-inline: 16px;
+    justify-content: space-between;
+    gap: 0;
+    font-size: clamp(8px, 2.4vw, 10px);
+    letter-spacing: 0.08em;
   }
 
   .section-heading {
@@ -1534,6 +1548,17 @@ footer p {
 
   .project-metric strong {
     font-size: clamp(21px, 6.5vw, 28px);
+  }
+}
+
+@media (max-width: 340px) {
+  .metric-card {
+    min-width: 0;
+    padding: 24px 12px;
+  }
+
+  .metric-card strong {
+    font-size: 28px;
   }
 }
 
