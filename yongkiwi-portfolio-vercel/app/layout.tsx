@@ -62,7 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html data-scroll-behavior="smooth" lang="ko">
-      <body>
+      <body id="top">
         <JsonLd data={personJsonLd} />
         {children}
         <Analytics />

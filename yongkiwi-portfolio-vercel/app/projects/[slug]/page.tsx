@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
+import { ProjectToc } from "@/components/ProjectToc";
+import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { projects } from "@/lib/site-data";
 import {
@@ -13,28 +15,6 @@ import { siteUrl } from "@/lib/site-url";
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
 };
-
-const projectSections = [
-  { id: "problem", label: "문제" },
-  { id: "decision", label: "실행" },
-  { id: "change", label: "변화" },
-  { id: "result", label: "결과" },
-  { id: "measurement", label: "측정" },
-  { id: "learning", label: "배운 점" },
-] as const;
-
-function ProjectToc({ className }: { className: string }) {
-  return (
-    <nav aria-label="프로젝트 목차" className={className}>
-      <span>PROJECT INDEX</span>
-      {projectSections.map((section, index) => (
-        <a href={`#${section.id}`} key={section.id}>
-          {String(index + 1).padStart(2, "0")} {section.label}
-        </a>
-      ))}
-    </nav>
-  );
-}
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -220,6 +200,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </Link>
         </section>
       </main>
+      <SiteFooter />
     </>
   );
 }

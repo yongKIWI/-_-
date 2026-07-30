@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ContactEmail } from "@/components/ContactEmail";
+import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import {
   careers,
@@ -385,15 +386,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
         </section>
       </main>
 
-      <footer>
-        <div className="container">
-          <div>
-            <b>이용택</b>
-            <span>Marketing AE · YONGKIWI</span>
-          </div>
-          <p>© 2026 Yongtaek Lee. Built around measurable change.</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }
