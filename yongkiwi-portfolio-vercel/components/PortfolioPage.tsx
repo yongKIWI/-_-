@@ -33,7 +33,7 @@ const roleCopy = {
     statement:
       "AI로 업무를 줄인 사람이 아니라, 확보한 시간을 고객 성과에 다시 투자했습니다.",
     measurement: [
-      "월 최고 발행량은 실제 월 운영 기록 기준",
+      "월 최고 발행량은 2025.11 이후 실제 운영 기록 기준",
       "노출률은 네이버 통합검색 상위 7위 기준",
     ],
     switchHref: "/performance-ae",
@@ -62,7 +62,7 @@ const roleCopy = {
       "도구가 없어서 측정하지 못한 것이 아니라, 측정하기 위해 도구를 만들었습니다.",
     measurement: [
       "누적 조사량은 10개월 실제 운영 빈도 기반 추정",
-      "노출률은 네이버 통합검색 상위 7위 기준",
+      "노출률은 2025.11 이후 네이버 통합검색 상위 7위 기준",
     ],
     switchHref: "/",
     switchLabel: "광고기획 관점으로 보기",
@@ -256,9 +256,6 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 반복될 때까지 운영하는 것이 제 일입니다.”
               </blockquote>
             </div>
-            <p className="process-swipe-hint" aria-hidden="true">
-              옆으로 넘겨 5단계 보기 →
-            </p>
             <ol className="process-grid">
               {processSteps.map((step, index) => (
                 <li key={step.title}>

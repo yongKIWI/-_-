@@ -674,10 +674,6 @@ button:focus-visible {
   list-style: none;
 }
 
-.process-swipe-hint {
-  display: none;
-}
-
 .process-grid li {
   min-height: 300px;
   padding: 24px;
@@ -1336,6 +1332,151 @@ footer p {
   background: var(--white);
 }
 
+.project-proof {
+  margin-top: 72px;
+}
+
+.project-proof-heading {
+  margin-bottom: 24px;
+}
+
+.project-proof-heading h3 {
+  margin: 0;
+  font-size: clamp(25px, 2.6vw, 36px);
+  letter-spacing: -0.045em;
+}
+
+.project-proof-heading > p:last-child {
+  max-width: 650px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.project-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.project-proof-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ink);
+  background: var(--white);
+}
+
+.project-proof-card:only-child {
+  grid-column: 1 / -1;
+}
+
+.project-proof-image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-bottom: 1px solid var(--ink);
+  background: #ede7da;
+}
+
+.project-proof-image img {
+  width: 100%;
+  height: 220px;
+  display: block;
+  object-fit: cover;
+  object-position: top left;
+  transition: transform 180ms ease;
+}
+
+.project-proof-image > span {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 7px 9px;
+  border: 1px solid var(--ink);
+  background: var(--kiwi);
+  color: var(--ink);
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.project-proof-image:hover img {
+  transform: scale(1.015);
+}
+
+.project-proof-placeholder {
+  min-height: 220px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-bottom: 1px dashed var(--ink);
+  background:
+    linear-gradient(90deg, var(--line) 1px, transparent 1px),
+    linear-gradient(var(--line) 1px, transparent 1px),
+    var(--paper);
+  background-size: 28px 28px;
+  color: var(--green);
+  text-align: center;
+}
+
+.project-proof-placeholder span {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--ink);
+  background: var(--kiwi);
+  color: var(--ink);
+  font-size: 26px;
+}
+
+.project-proof-placeholder b {
+  padding: 7px 9px;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+.project-proof-copy {
+  padding: 20px;
+}
+
+.project-proof-copy h4 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: -0.035em;
+}
+
+.project-proof-copy > p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.project-proof-copy small {
+  margin-top: 18px;
+  padding-top: 14px;
+  display: block;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+.project-proof-copy small b {
+  margin-bottom: 5px;
+  display: block;
+  color: var(--green);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
 .proof-note p:last-child,
 .project-article section > p:last-child {
   color: var(--muted);
@@ -1635,29 +1776,33 @@ footer p {
     grid-column: 1 / -1;
   }
 
-  .process-swipe-hint {
-    margin: -20px 0 18px;
-    display: block;
-    color: var(--green);
-    font-size: 11px;
-    font-weight: 800;
-    text-align: right;
-  }
-
   .process-grid {
-    grid-template-columns: none;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(270px, 82vw);
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    scroll-snap-type: inline mandatory;
-    scrollbar-color: var(--green) var(--paper-deep);
-    scrollbar-width: thin;
+    grid-template-columns: 1fr;
   }
 
   .process-grid li {
-    min-height: 300px;
-    scroll-snap-align: start;
+    min-height: auto;
+    padding: 22px 20px;
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    column-gap: 14px;
+  }
+
+  .process-grid span {
+    grid-row: 1 / span 3;
+  }
+
+  .process-grid b {
+    margin-top: 0;
+  }
+
+  .process-grid strong {
+    margin-top: 4px;
+  }
+
+  .process-grid p {
+    margin: 12px 0 0;
+    grid-column: 2;
   }
 
   .systems-grid {
@@ -1805,6 +1950,20 @@ footer p {
 
   .project-article .evidence-panel {
     padding: 24px 18px;
+  }
+
+  .project-proof {
+    margin-top: 54px;
+  }
+
+  .project-proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-proof-image img,
+  .project-proof-placeholder {
+    min-height: 0;
+    height: 210px;
   }
 
   .evidence-grid > div {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
@@ -105,6 +106,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <strong>{project.contribution}</strong>
             </div>
             <div>
+              <span>운영 기간</span>
+              <strong>{project.operationPeriod}</strong>
+            </div>
+            <div>
               <span>사용 도구</span>
               <strong>{project.tools.join(" · ")}</strong>
             </div>
@@ -141,7 +146,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             <section className="evidence-panel" id="change">
               <div>
-                <p className="section-index">BEFORE → AFTER</p>
+                <p className="section-index">03 · BEFORE → AFTER</p>
                 <h2>업무 방식의 변화</h2>
               </div>
               <div className="evidence-grid">
@@ -157,23 +162,80 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </section>
 
             <section id="result">
-              <p className="section-index">03 · RESULT</p>
+              <p className="section-index">04 · RESULT</p>
               <h2>결과와 성과</h2>
               <ul className="result-list">
                 {project.results.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+
+              <div className="project-proof">
+                <div className="project-proof-heading">
+                  <p className="section-index">WORKING EVIDENCE</p>
+                  <h3>실제 운영 화면과 증거 자료</h3>
+                  <p>
+                    고객사와 내부 정보를 보호할 수 있는 자료만 공개합니다.
+                    아직 교체가 필요한 화면에는 촬영 기준을 함께 적었습니다.
+                  </p>
+                </div>
+                <div className="project-proof-grid">
+                  {project.proofs.map((proof) => (
+                    <article
+                      className={`project-proof-card${
+                        proof.image ? " has-image" : " is-placeholder"
+                      }`}
+                      key={proof.title}
+                    >
+                      {proof.image ? (
+                        <a
+                          aria-label={`${proof.title} 원본 크기로 보기`}
+                          className="project-proof-image"
+                          href={proof.image.src}
+                          rel="noreferrer"
+                          target="_blank"
+                        >
+                          <Image
+                            alt={proof.image.alt}
+                            height={863}
+                            sizes="(max-width: 720px) calc(100vw - 60px), 390px"
+                            src={proof.image.src}
+                            width={1323}
+                          />
+                          <span>원본 크기로 보기 ↗</span>
+                        </a>
+                      ) : (
+                        <div className="project-proof-placeholder">
+                          <span aria-hidden="true">＋</span>
+                          <b>CAPTURE TO ADD</b>
+                        </div>
+                      )}
+                      <div className="project-proof-copy">
+                        <h4>{proof.title}</h4>
+                        <p>{proof.description}</p>
+                        {proof.image ? (
+                          <small>{proof.image.caption}</small>
+                        ) : (
+                          <small>
+                            <b>촬영 안내</b>
+                            {proof.captureGuide}
+                          </small>
+                        )}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
             </section>
 
             <section className="proof-note" id="measurement">
-              <p className="section-index">MEASUREMENT NOTE</p>
+              <p className="section-index">05 · MEASUREMENT NOTE</p>
               <h2>성과 측정 기준</h2>
               <p>{project.measurement}</p>
             </section>
 
             <section id="learning">
-              <p className="section-index">04 · LEARNING</p>
+              <p className="section-index">06 · LEARNING</p>
               <h2>배운 점과 후속 개선</h2>
               <p>{project.learning}</p>
             </section>
