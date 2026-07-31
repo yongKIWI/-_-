@@ -7,9 +7,6 @@ export function SiteFooter() {
           <span>Marketing AE · YONGKIWI</span>
         </div>
         <div className="footer-meta">
-          <a className="back-to-top" href="#top">
-            ↑ 맨 위로
-          </a>
           <p>© 2026 Yongtaek Lee. Built around measurable change.</p>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { BackToTop } from "@/components/BackToTop";
 import { JsonLd } from "@/components/JsonLd";
 import { createSocialMetadata } from "@/lib/site-meta";
 import { siteUrl } from "@/lib/site-url";
@@ -62,9 +63,10 @@ export default function RootLayout({
 }>) {
   return (
     <html data-scroll-behavior="smooth" lang="ko">
-      <body id="top">
+      <body>
         <JsonLd data={personJsonLd} />
         {children}
+        <BackToTop />
         <Analytics />
       </body>
     </html>
