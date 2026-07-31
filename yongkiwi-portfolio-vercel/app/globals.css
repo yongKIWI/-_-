@@ -1489,6 +1489,39 @@ footer p {
   gap: 22px;
 }
 
+.experiment-protocol {
+  margin-bottom: 22px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+}
+
+.experiment-protocol > div {
+  min-height: 132px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: var(--kiwi-soft);
+}
+
+.experiment-protocol span {
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.experiment-protocol strong {
+  margin-top: 8px;
+  font-size: 13px;
+  letter-spacing: -0.025em;
+  line-height: 1.55;
+}
+
 .experiment-card {
   padding: 30px;
   border: 1px solid var(--ink);
@@ -2145,6 +2178,14 @@ footer p {
     grid-template-columns: 1fr;
   }
 
+  .experiment-protocol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .experiment-protocol > div {
+    min-height: 118px;
+  }
+
   .experiment-variants h5 {
     min-height: 0;
   }
@@ -2348,6 +2389,14 @@ footer p {
 }
 
 @media (max-width: 480px) {
+  .experiment-protocol {
+    grid-template-columns: 1fr;
+  }
+
+  .experiment-protocol > div {
+    min-height: 96px;
+  }
+
   .project-metric-row {
     grid-template-columns: 1fr;
   }

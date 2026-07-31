@@ -216,6 +216,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       사례까지 함께 기록했습니다.
                     </p>
                   </div>
+                  {project.experimentProtocol ? (
+                    <div className="experiment-protocol">
+                      {project.experimentProtocol.map((item) => (
+                        <div key={item.label}>
+                          <span>{item.label}</span>
+                          <strong>{item.value}</strong>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
                   <div className="experiment-log-list">
                     {project.experiments.map((experiment, experimentIndex) => (
                       <article className="experiment-card" key={experiment.title}>
