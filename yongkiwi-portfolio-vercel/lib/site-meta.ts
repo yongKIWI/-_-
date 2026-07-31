@@ -7,6 +7,7 @@ export type SocialCardKey =
   | "operations-transformation"
   | "keyword-performance"
   | "rank-monitoring"
+  | "system-ownership"
   | "image-operations";
 
 type SocialCard = {
@@ -55,6 +56,14 @@ export const socialCards: Record<SocialCardKey, SocialCard> = {
     after: "9,500",
     label: "1회 키워드 조사량",
     note: "10개월 누적 약 52만 건 측정",
+  },
+  "system-ownership": {
+    eyebrow: "MARKETING OPERATIONS · SYSTEM OWNERSHIP",
+    title: "10개월간 실사용·고도화한 마케팅 운영 시스템",
+    before: "수작업",
+    after: "시스템 운영",
+    label: "여러 마케팅 업무 자동화·지속 고도화",
+    note: "기획·개발·테스트·운영·고도화 100%",
   },
   "image-operations": {
     eyebrow: "RESOURCE EFFICIENCY · IMAGE OPERATIONS",

@@ -505,6 +505,10 @@ button:focus-visible {
   white-space: nowrap;
 }
 
+.metric-card.metric-card-compact strong {
+  font-size: clamp(25px, 3.4vw, 48px);
+}
+
 .metric-card p {
   margin: 14px 0 20px;
   font-size: 15px;

@@ -176,7 +176,9 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
             <div className="metric-grid">
               {commonMetrics.map((metric, index) => (
                 <Link
-                  className="metric-card"
+                  className={`metric-card${
+                    metric.compact ? " metric-card-compact" : ""
+                  }`}
                   href={`/projects/${metric.project}`}
                   key={metric.label}
                 >
@@ -231,11 +233,11 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
 
             <Link
               className="support-project"
-              href="/projects/image-operations"
+              href="/projects/system-ownership"
             >
-              <span>ADDITIONAL CASE</span>
-              <strong>촬영 의존도를 낮춘 이미지 운영체계</strong>
-              <p>촬영 주기 1~2개월 → 3~6개월</p>
+              <span>SYSTEM OWNERSHIP</span>
+              <strong>마케팅 운영 시스템 구축·고도화</strong>
+              <p>수작업 → 시스템 운영 · 10개월 실사용</p>
               <b aria-hidden="true">→</b>
             </Link>
           </div>
