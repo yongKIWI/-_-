@@ -102,6 +102,8 @@ export type Project = {
       src: string;
       alt: string;
       caption: string;
+      width: number;
+      height: number;
     };
     captureGuide?: string;
   }[];
@@ -168,6 +170,8 @@ export const projects: Project[] = [
           alt: "사진 분류부터 원고 변환, 검수와 제목 수정까지 다섯 단계로 연결한 KIWI Workflow Suite 대시보드",
           caption:
             "고객사 정보가 포함되지 않은 실제 기본 화면 · 5단계 통합 워크플로",
+          width: 1323,
+          height: 863,
         },
       },
       {
@@ -233,9 +237,15 @@ export const projects: Project[] = [
       {
         title: "키워드 조회수·경쟁도 선별 결과",
         description:
-          "감으로 고르던 키워드를 데이터 기준으로 선별하는 실제 분석 결과가 들어갈 자리입니다.",
-        captureGuide:
-          "포트폴리오용 샘플 키워드 20~30개를 사용해 조회수, 경쟁도와 최종 판정 열이 함께 보이도록 다시 캡처해 주세요. 파일 경로·고객명·실제 업체 키워드는 제외합니다.",
+          "조회수와 경쟁 지표를 기준으로 키워드를 분류하고 최종 사용 여부까지 판단하는 실제 분석 결과입니다.",
+        image: {
+          src: "/evidence/keyword-insight-results.png",
+          alt: "238개 키워드를 분석해 합격, 블로그, 스블과 탈락 항목으로 분류한 블라이 키워드 인사이트 결과 화면",
+          caption:
+            "실제 데이터가 포함된 임시 배치용 화면 · 샘플 데이터 버전으로 교체 예정",
+          width: 1914,
+          height: 1032,
+        },
       },
       {
         title: "플랫폼 변화 대응 전후 추이",
@@ -311,9 +321,15 @@ export const projects: Project[] = [
       {
         title: "복사해서 바로 보고하는 결과물",
         description:
-          "추가 검수나 가공 없이 보고할 수 있도록 만든 최종 출력 형식을 보여줄 자리입니다.",
-        captureGuide:
-          "‘샘플키워드 - 1위’ 형식의 포트폴리오용 결과 엑셀을 10~20행 정도 준비해 캡처해 주세요. 실제 고객사명·블로그명·키워드는 사용하지 않습니다.",
+          "검색·식별·순위 계산을 마친 뒤 추가 가공 없이 보고에 사용하는 실제 엑셀 결과입니다.",
+        image: {
+          src: "/evidence/rank-report-results.png",
+          alt: "키워드, 업체명, 검색 순위와 보고용 문장을 자동으로 정리한 키워드 순위 확인 엑셀 결과 화면",
+          caption:
+            "실제 데이터가 포함된 임시 배치용 화면 · 샘플 또는 블러 처리 버전으로 교체 예정",
+          width: 1246,
+          height: 751,
+        },
       },
     ],
     measurement:
@@ -366,11 +382,43 @@ export const projects: Project[] = [
     ],
     proofs: [
       {
-        title: "대량 이미지 처리 완료 화면",
+        title: "대량 이미지 처리 설정",
         description:
-          "수천 장의 이미지를 폴더 단위로 자동 처리하고 완료 상태를 확인하는 화면이 들어갈 자리입니다.",
-        captureGuide:
-          "포트폴리오용 샘플 이미지 폴더로 실행한 뒤 총 처리 수, 처리 속도, 경과시간과 완료 상태가 함께 보이도록 다시 캡처해 주세요. 실제 업체명·음식명·로컬 경로는 제외하고 내부 처리 방식의 세부 수치는 공개하지 않아도 됩니다.",
+          "폴더별 이미지 수와 처리 계획을 확인하고 대량 작업을 시작하기 전의 실제 설정 화면입니다.",
+        image: {
+          src: "/evidence/image-washing-setup.png",
+          alt: "이미지 폴더별 원본 수와 예상 처리 수, 프로세서 설정을 보여주는 KIWI 이미지 워싱 설정 화면",
+          caption:
+            "실제 데이터가 포함된 임시 배치용 화면 · 샘플 데이터 버전으로 교체 예정",
+          width: 1470,
+          height: 917,
+        },
+      },
+      {
+        title: "대량 이미지 처리 진행",
+        description:
+          "3,073장의 작업 계획을 기준으로 처리량, 속도, 경과시간과 예상 잔여시간을 실시간으로 확인합니다.",
+        image: {
+          src: "/evidence/image-washing-running.png",
+          alt: "3,073장의 이미지 처리 진행률과 초당 처리 속도, 예상 잔여시간을 보여주는 KIWI 이미지 워싱 실행 화면",
+          caption:
+            "실제 데이터가 포함된 임시 배치용 화면 · 샘플 데이터 버전으로 교체 예정",
+          width: 1473,
+          height: 924,
+        },
+      },
+      {
+        title: "대량 이미지 처리 완료",
+        description:
+          "폴더별 처리 상태와 전체 진행률, 최종 처리 속도와 경과시간을 한 화면에서 확인합니다.",
+        image: {
+          src: "/evidence/image-washing-complete.png",
+          alt: "모든 폴더의 이미지 처리가 완료되고 처리 속도와 경과시간이 표시된 KIWI 이미지 워싱 완료 화면",
+          caption:
+            "실제 데이터가 포함된 임시 배치용 화면 · 샘플 데이터 버전으로 교체 예정",
+          width: 1476,
+          height: 922,
+        },
       },
     ],
     measurement:

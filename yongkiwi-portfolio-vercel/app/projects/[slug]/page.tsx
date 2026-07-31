@@ -179,7 +179,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     아직 교체가 필요한 화면에는 촬영 기준을 함께 적었습니다.
                   </p>
                 </div>
-                <div className="project-proof-grid">
+                <div
+                  className={`project-proof-grid proof-count-${project.proofs.length}`}
+                >
                   {project.proofs.map((proof) => (
                     <article
                       className={`project-proof-card${
@@ -197,10 +199,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         >
                           <Image
                             alt={proof.image.alt}
-                            height={863}
+                            height={proof.image.height}
                             sizes="(max-width: 720px) calc(100vw - 60px), 390px"
                             src={proof.image.src}
-                            width={1323}
+                            width={proof.image.width}
                           />
                           <span>원본 크기로 보기 ↗</span>
                         </a>
