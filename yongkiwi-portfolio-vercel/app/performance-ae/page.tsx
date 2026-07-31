@@ -3,7 +3,7 @@ import { PortfolioPage } from "@/components/PortfolioPage";
 import { createSocialMetadata } from "@/lib/site-meta";
 
 const description =
-  "조회수·경쟁도 기반 키워드 전략과 약 52만 건의 검색 순위 측정으로 상위 7위 노출률을 70~80%까지 높인 이용택의 포트폴리오입니다.";
+  "조회수로 검색 수요를 확인하고 경쟁도로 콘텐츠 진입 가능성을 검증한 키워드만 발행해, 통합검색 1~7위 진입률을 70~80%로 높인 이용택의 포트폴리오입니다.";
 
 export const metadata: Metadata = {
   title: "퍼포먼스 마케팅 AE",

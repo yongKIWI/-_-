@@ -29,12 +29,12 @@ const roleCopy = {
       </>
     ),
     description:
-      "2~3인이 월 2,000건을 운영하던 체계를 1인·월 최고 8,200건까지 운영 가능한 구조로 전환하고, 상위 7위 노출률을 30~40%에서 70~80%로 개선했습니다.",
+      "2~3명이 월 약 2,000건을 발행하던 업무를 현재 1인이 월 약 8,200건 실제 운영하는 체계로 전환했습니다. 이 수치는 처리 한도가 아닌 현재 운영량입니다.",
     statement:
-      "AI로 업무를 줄인 사람이 아니라, 확보한 시간을 고객 성과에 다시 투자했습니다.",
+      "90건 제작은 4시간의 수작업에서 약 50분의 무인 자동 실행으로 전환했고, 사람은 그 시간에 고객과 성과를 관리합니다.",
     measurement: [
-      "월 최고 발행량은 2025.11 이후 실제 운영 기록 기준",
-      "노출률은 네이버 통합검색 상위 7위 기준",
+      "월 약 8,200건은 2025.11 이후 실제 운영량",
+      "진입률은 검색 시 우리 콘텐츠가 통합검색 1~7위에 나타난 비율",
     ],
     switchHref: "/performance-ae",
     switchLabel: "퍼포먼스 관점으로 보기",
@@ -57,12 +57,12 @@ const roleCopy = {
       </>
     ),
     description:
-      "조회수·경쟁도 기반의 키워드 전략과 약 52만 건의 검색 순위 측정을 통해 상위 7위 노출률을 30~40%에서 70~80%로 높였습니다.",
+      "실제 조회수가 있는 키워드를 찾고, 경쟁도로 우리 콘텐츠의 진입 가능성까지 검증한 뒤 발행하는 시스템을 구축했습니다.",
     statement:
-      "도구가 없어서 측정하지 못한 것이 아니라, 측정하기 위해 도구를 만들었습니다.",
+      "그 결과 검색 시 우리 콘텐츠가 통합검색 1~7위에 나타난 비율을 30~40%에서 70~80%로 높였습니다.",
     measurement: [
-      "누적 조사량은 10개월 실제 운영 빈도 기반 추정",
-      "노출률은 2025.11 이후 네이버 통합검색 상위 7위 기준",
+      "진입률은 측정 키워드 중 우리 콘텐츠가 통합검색 1~7위에 나타난 비율",
+      "70~80%는 2025.11 이후 실제 운영 수준",
     ],
     switchHref: "/",
     switchLabel: "광고기획 관점으로 보기",
@@ -118,7 +118,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
             <div className="hero-visual" aria-label="핵심 성과 요약">
               <div className="visual-label">BEFORE → AFTER</div>
               <div className="visual-row visual-row-primary">
-                <span>월 최고 발행량</span>
+                <span>월 실제 발행량</span>
                 <strong>2,000</strong>
                 <b>→</b>
                 <strong>8,200</strong>
@@ -130,14 +130,14 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 <strong>1명</strong>
               </div>
               <div className="visual-row">
-                <span>상위 노출률</span>
+                <span>통합검색 1~7위 진입률</span>
                 <strong>30~40%</strong>
                 <b>→</b>
                 <strong>70~80%</strong>
               </div>
               <div className="visual-footer">
                 <span>문제 정의</span>
-                <span>시스템 구축</span>
+                <span>무인 자동화</span>
                 <span>실무 운영</span>
                 <span>성과 검증</span>
               </div>
@@ -168,8 +168,9 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 </h2>
               </div>
               <p>
-                주어진 업무량을 감당하는 데서 멈추지 않고, 더 많은 고객을 더
-                안정적으로 운영하면서 실제 검색 성과까지 높였습니다.
+                현재 월 약 8,200건을 실제 운영하고, 사람을 붙잡던 제작과
+                측정을 무인 자동화로 전환했습니다. 조회수와 경쟁도를 모두
+                검증한 키워드만 발행해 검색 성과도 높였습니다.
               </p>
             </div>
             <div className="metric-grid">
@@ -279,8 +280,9 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 반복 가능한 시스템이 있습니다.
               </h2>
               <p>
-                키워드 선별부터 콘텐츠 제작, 이미지 처리, 품질 검수, 순위
-                측정과 보고까지 마케팅 운영 전 과정을 연결했습니다.
+                조회수·경쟁도 검증을 거친 키워드 선별부터 콘텐츠 제작,
+                이미지 처리, 품질 검수, 순위 측정과 보고까지 마케팅 운영 전
+                과정을 연결했습니다.
               </p>
               <div className="system-note">
                 <strong>약 20분</strong>
@@ -352,6 +354,11 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 사용해야 하는 순위 조사 업무를 하나씩 분석했습니다. 기존
                 도구로 해결할 수 없는 문제는 AI 코딩과 웹 자동화를 공부해
                 직접 시스템으로 만들었습니다.
+              </p>
+              <p>
+                키워드도 감으로 고르지 않았습니다. 조회수로 실제 검색 수요를
+                확인하고, 경쟁도로 우리 콘텐츠가 진입할 가능성까지 검증한
+                키워드만 발행하는 기준을 만들었습니다.
               </p>
               <p className="about-emphasis">
                 저에게 자동화는 사람을 대신하는 기술이 아닙니다. 고객을 더
