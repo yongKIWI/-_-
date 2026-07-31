@@ -142,6 +142,42 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   </li>
                 ))}
               </ol>
+              {project.improvementMethods ? (
+                <div className="improvement-methods">
+                  <div className="improvement-methods-heading">
+                    <p className="section-index">TWO IMPROVEMENT LOOPS</p>
+                    <h3>문제의 성격에 따라 검증 방식을 달리했습니다.</h3>
+                    <p>
+                      성과를 높이는 실험과, 프로그램을 정상화하는 수정은
+                      목적과 판단 기준이 다릅니다.
+                    </p>
+                  </div>
+                  <div className="improvement-method-grid">
+                    {project.improvementMethods.map((method, methodIndex) => (
+                      <article className="improvement-method-card" key={method.title}>
+                        <div className="improvement-method-card-heading">
+                          <span>{String(methodIndex + 1).padStart(2, "0")}</span>
+                          <p>{method.label}</p>
+                        </div>
+                        <h4>{method.title}</h4>
+                        <p>{method.description}</p>
+                        <ol>
+                          {method.steps.map((step, stepIndex) => (
+                            <li key={step}>
+                              <span>{String(stepIndex + 1).padStart(2, "0")}</span>
+                              {step}
+                            </li>
+                          ))}
+                        </ol>
+                        <div className="improvement-method-example">
+                          <b>실제 적용 예시</b>
+                          <p>{method.example}</p>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
             </section>
 
             <section className="evidence-panel" id="change">

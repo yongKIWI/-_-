@@ -1292,6 +1292,131 @@ footer p {
   font-size: 16px;
 }
 
+.improvement-methods {
+  margin-top: 72px;
+}
+
+.improvement-methods-heading {
+  max-width: 690px;
+  margin-bottom: 26px;
+}
+
+.improvement-methods-heading h3 {
+  margin: 0;
+  font-size: clamp(26px, 3vw, 40px);
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+}
+
+.improvement-methods-heading > p:last-child {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.improvement-method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.improvement-method-card {
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid var(--ink);
+  background: var(--white);
+}
+
+.improvement-method-card:nth-child(2) {
+  background: var(--kiwi-soft);
+}
+
+.improvement-method-card-heading {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.improvement-method-card-heading span {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--ink);
+  background: var(--kiwi);
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.improvement-method-card-heading p {
+  margin: 0;
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.improvement-method-card h4 {
+  margin: 22px 0 0;
+  font-size: 24px;
+  letter-spacing: -0.045em;
+}
+
+.improvement-method-card > p {
+  min-height: 92px;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.improvement-method-card > ol {
+  margin: 24px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--ink);
+  list-style: none;
+}
+
+.improvement-method-card > ol li {
+  min-height: 46px;
+  padding: 11px 0;
+  display: grid;
+  grid-template-columns: 27px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.improvement-method-card > ol li span {
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.improvement-method-example {
+  margin-top: 22px;
+  padding: 17px;
+  border-left: 4px solid var(--green);
+  background: var(--paper);
+}
+
+.improvement-method-example b {
+  color: var(--green);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.improvement-method-example p {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
 .project-article .evidence-panel {
   padding: 34px;
   background: var(--ink);
@@ -1815,6 +1940,18 @@ footer p {
   .process-grid p {
     margin: 12px 0 0;
     grid-column: 2;
+  }
+
+  .improvement-method-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .improvement-method-card {
+    padding: 22px 20px;
+  }
+
+  .improvement-method-card > p {
+    min-height: 0;
   }
 
   .systems-grid {
