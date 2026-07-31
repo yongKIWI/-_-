@@ -206,6 +206,71 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 ))}
               </ul>
 
+              {project.experiments ? (
+                <div className="experiment-log">
+                  <div className="experiment-log-heading">
+                    <p className="section-index">CONTENT EXPERIMENT LOG</p>
+                    <h3>대표 실험 3회, 총 1,480건으로 판단했습니다.</h3>
+                    <p>
+                      결과가 좋았던 실험만 고르지 않고, 효과가 미미해 롤백한
+                      사례까지 함께 기록했습니다.
+                    </p>
+                  </div>
+                  <div className="experiment-log-list">
+                    {project.experiments.map((experiment, experimentIndex) => (
+                      <article className="experiment-card" key={experiment.title}>
+                        <div className="experiment-card-topline">
+                          <span>
+                            {String(experimentIndex + 1).padStart(2, "0")} ·{" "}
+                            {experiment.period}
+                          </span>
+                          <b
+                            className={
+                              experiment.status === "채택"
+                                ? "is-adopted"
+                                : "is-rolled-back"
+                            }
+                          >
+                            {experiment.status}
+                          </b>
+                        </div>
+                        <h4>{experiment.title}</h4>
+                        <div className="experiment-context">
+                          <div>
+                            <b>변화 감지</b>
+                            <p>{experiment.signal}</p>
+                          </div>
+                          <div>
+                            <b>가설</b>
+                            <p>{experiment.hypothesis}</p>
+                          </div>
+                        </div>
+                        <p className="experiment-control">
+                          <b>통제 조건</b>
+                          {experiment.control}
+                        </p>
+                        <div className="experiment-variants">
+                          {experiment.variants.map((variant) => (
+                            <div key={`${experiment.title}-${variant.label}`}>
+                              <span>{variant.label}안</span>
+                              <h5>{variant.description}</h5>
+                              <p>
+                                {variant.topSevenCount} / {variant.sampleSize}
+                              </p>
+                              <strong>{variant.rate}</strong>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="experiment-decision">
+                          <strong>{experiment.difference}</strong>
+                          <p>{experiment.decision}</p>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
               <div className="project-proof">
                 <div className="project-proof-heading">
                   <p className="section-index">WORKING EVIDENCE</p>
