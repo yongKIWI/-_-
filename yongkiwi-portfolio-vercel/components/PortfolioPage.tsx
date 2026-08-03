@@ -7,6 +7,7 @@ import {
   commonMetrics,
   processSteps,
   projects,
+  selectedBackground,
   supportingSystems,
 } from "@/lib/site-data";
 
@@ -29,7 +30,7 @@ const roleCopy = {
       </>
     ),
     description:
-      "2~3명이 월 약 2,000건을 발행하던 업무를 현재 1인이 월 약 8,200건 실제 운영하는 체계로 전환했습니다. 이 수치는 처리 한도가 아닌 현재 운영량입니다.",
+      "2~3명이 월 약 2,000건을 발행하던 업무를, 현재 1인이 50~60개 고객사와 직접 소통하며 월 약 8,200건을 운영하는 체계로 전환했습니다.",
     statement:
       "90건 제작은 4시간의 수작업에서 약 50분의 무인 자동 실행으로 전환했고, 사람은 그 시간에 고객과 성과를 관리합니다.",
     measurement: [
@@ -168,10 +169,10 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 </h2>
               </div>
               <p>
-                현재 월 약 8,200건을 실제 운영하고, 사람을 붙잡던 제작과
-                측정을 무인 자동화로 전환했습니다. 검색량·경쟁도로 키워드를
-                선별하고, SERP 분석과 콘텐츠 A/B 테스트를 더해 네이버 콘텐츠
-                SEO 성과를 높였습니다.
+                50~60개 고객사의 대표와 콘텐츠 방향·시즌 키워드·세부
+                요구사항을 직접 조율하면서 현재 월 약 8,200건을 운영합니다.
+                제작과 측정은 무인 자동화하고, SERP 분석과 콘텐츠 A/B
+                테스트로 네이버 콘텐츠 SEO 성과를 높였습니다.
               </p>
             </div>
             <div className="metric-grid">
@@ -325,12 +326,31 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               ))}
             </div>
 
-            <div className="education">
-              <p className="eyebrow">EDUCATION</p>
-              <div>
-                <span>2025.02</span>
-                <h3>한남대학교 졸업</h3>
-                <p>광고홍보학 전공 · 정치언론학 복수전공</p>
+            <div className="background-block" id="background">
+              <div className="background-heading">
+                <p className="eyebrow">SELECTED BACKGROUND</p>
+                <div>
+                  <h3>현재의 성과는, 광고 기획의 기반 위에 쌓였습니다.</h3>
+                  <p>
+                    전공, 캠페인 수상과 실무교육 중 현재의 AE 역량을 설명하는
+                    경험만 선별했습니다.
+                  </p>
+                </div>
+              </div>
+              <div className="career-list background-list">
+                {selectedBackground.map((item) => (
+                  <article key={`${item.period}-${item.title}`}>
+                    <div>
+                      <span>{item.period}</span>
+                      <b>{item.status}</b>
+                    </div>
+                    <div>
+                      <h3>{item.title}</h3>
+                      <p>{item.subtitle}</p>
+                    </div>
+                    <p>{item.description}</p>
+                  </article>
+                ))}
               </div>
             </div>
           </div>
@@ -357,6 +377,12 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 사용해야 하는 순위 조사 업무를 하나씩 분석했습니다. 기존
                 도구로 해결할 수 없는 문제는 AI 코딩과 웹 자동화를 공부해
                 직접 시스템으로 만들었습니다.
+              </p>
+              <p>
+                시스템 뒤에는 고객과의 대화가 있었습니다. 업체 대표와 직접
+                소통하며 블로그에 담을 내용, 원하는 키워드 방향과 시즌별
+                기획을 정하고, 중간 수정과 클레임까지 블로그 운영 전반을
+                책임졌습니다.
               </p>
               <p>
                 키워드도 감으로 고르지 않았습니다. 조회수로 실제 검색 수요를

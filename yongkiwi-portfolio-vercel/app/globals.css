@@ -826,28 +826,35 @@ button:focus-visible {
   font-size: 14px;
 }
 
-.education {
-  margin-top: 68px;
+.background-block {
+  margin-top: 80px;
+}
+
+.background-heading {
+  margin-bottom: 30px;
   display: grid;
   grid-template-columns: 210px 1fr;
   gap: 40px;
+  align-items: end;
 }
 
-.education span {
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.education h3 {
+.background-heading .eyebrow {
   margin: 0;
-  font-size: 22px;
 }
 
-.education p {
-  margin: 5px 0 0;
+.background-heading h3 {
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(26px, 3vw, 38px);
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+}
+
+.background-heading > div > p {
+  max-width: 720px;
+  margin: 12px 0 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .about {
@@ -1944,6 +1951,10 @@ footer p {
     grid-template-columns: 180px 1fr;
   }
 
+  .background-heading {
+    grid-template-columns: 180px 1fr;
+  }
+
   .career-list article > p {
     grid-column: 2;
   }
@@ -2208,9 +2219,13 @@ footer p {
     grid-column: auto;
   }
 
-  .education {
+  .background-heading {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 14px;
+  }
+
+  .background-block {
+    margin-top: 60px;
   }
 
   .about-copy {
