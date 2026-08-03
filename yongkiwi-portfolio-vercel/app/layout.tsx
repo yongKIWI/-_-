@@ -8,7 +8,7 @@ import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import "./globals.css";
 
 const description =
-  "AI와 자동화를 활용해 고객사 콘텐츠 운영체계와 검색 노출 성과를 개선한 마케팅 AE 이용택의 포트폴리오입니다.";
+  "AI 자동화와 네이버 콘텐츠 SEO를 활용해 고객사 콘텐츠 운영체계와 검색 노출 성과를 개선한 마케팅 AE 이용택의 포트폴리오입니다.";
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
@@ -49,6 +49,9 @@ const personJsonLd = {
   knowsAbout: [
     "광고기획",
     "퍼포먼스 마케팅",
+    "네이버 콘텐츠 SEO",
+    "SEO 키워드 리서치",
+    "SERP 분석",
     "콘텐츠 운영",
     "키워드 전략",
     "마케팅 자동화",

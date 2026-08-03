@@ -46,7 +46,7 @@ const roleCopy = {
     ],
   },
   performance: {
-    eyebrow: "PERFORMANCE MARKETING AE · SEARCH CONTENT",
+    eyebrow: "PERFORMANCE MARKETING AE · NAVER CONTENT SEO",
     title: (
       <>
         측정할 수 없던 콘텐츠 운영에
@@ -57,9 +57,9 @@ const roleCopy = {
       </>
     ),
     description:
-      "조회수·경쟁도 기반 키워드 선별, 순위 측정, 콘텐츠 변수 실험을 분리해 설계하고 하나의 개선 사이클로 연결했습니다.",
+      "키워드 리서치, 상위 검색결과(SERP) 분석, 콘텐츠 최적화와 순위 측정을 하나의 네이버 콘텐츠 SEO 사이클로 설계했습니다.",
     statement:
-      "그 결과 네이버 통합검색 콘텐츠 TOP 7 진입률을 30~40%에서 70~80% 수준으로 높였습니다.",
+      "검색량·경쟁도 기반 키워드 선별과 단일 변수 A/B 테스트를 결합해 네이버 통합검색 콘텐츠 TOP 7 진입률을 30~40%에서 70~80% 수준으로 높였습니다.",
     measurement: [
       "TOP 7 진입률은 측정 키워드의 콘텐츠 영역 상위 7개 결과 진입 비율",
       "70~80%는 2025.11 이후 실제 운영 수준",
@@ -130,7 +130,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 <strong>1명</strong>
               </div>
               <div className="visual-row">
-                <span>통합검색 콘텐츠 TOP 7 진입률</span>
+                <span>네이버 콘텐츠 SEO TOP 7 진입률</span>
                 <strong>30~40%</strong>
                 <b>→</b>
                 <strong>70~80%</strong>
@@ -169,9 +169,9 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               </div>
               <p>
                 현재 월 약 8,200건을 실제 운영하고, 사람을 붙잡던 제작과
-                측정을 무인 자동화로 전환했습니다. 조회수·경쟁도로 키워드를
-                선별하고, 콘텐츠 변수 실험과 로직 대응을 더해 검색 성과를
-                높였습니다.
+                측정을 무인 자동화로 전환했습니다. 검색량·경쟁도로 키워드를
+                선별하고, SERP 분석과 콘텐츠 A/B 테스트를 더해 네이버 콘텐츠
+                SEO 성과를 높였습니다.
               </p>
             </div>
             <div className="metric-grid">
@@ -283,9 +283,9 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 반복 가능한 시스템이 있습니다.
               </h2>
               <p>
-                조회수·경쟁도 검증을 거친 키워드 선별부터 콘텐츠 제작,
-                이미지 처리, 품질 검수, 순위 측정과 보고까지 마케팅 운영 전
-                과정을 연결했습니다.
+                네이버 콘텐츠 SEO의 키워드 리서치부터 콘텐츠 제작, 이미지
+                처리, 품질 검수, 순위 측정과 보고까지 대규모 실행 전 과정을
+                연결했습니다.
               </p>
               <div className="system-note">
                 <strong>약 20분</strong>
@@ -361,7 +361,9 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               <p>
                 키워드도 감으로 고르지 않았습니다. 조회수로 실제 검색 수요를
                 확인하고, 경쟁도로 우리 콘텐츠가 진입할 가능성까지 검증한
-                키워드만 발행하는 기준을 만들었습니다.
+                키워드만 발행하는 기준을 만들었습니다. 이를 상위 검색결과
+                분석, 콘텐츠 최적화, 순위 측정과 연결해 네이버 콘텐츠 SEO
+                체계로 발전시켰습니다.
               </p>
               <p className="about-emphasis">
                 저에게 자동화는 사람을 대신하는 기술이 아닙니다. 고객을 더

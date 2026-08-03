@@ -28,11 +28,11 @@ export const socialCards: Record<SocialCardKey, SocialCard> = {
     label: "월 실제 콘텐츠 발행량",
   },
   performance: {
-    eyebrow: "PERFORMANCE MARKETING AE · SEARCH CONTENT",
-    title: "측정 가능한 성과 구조를 만드는 AE",
+    eyebrow: "PERFORMANCE MARKETING AE · NAVER CONTENT SEO",
+    title: "네이버 콘텐츠 SEO 성과 구조를 만든 AE",
     before: "30~40%",
     after: "70~80%",
-    label: "통합검색 콘텐츠 TOP 7 진입률",
+    label: "네이버 콘텐츠 SEO · TOP 7 진입률",
   },
   "operations-transformation": {
     eyebrow: "MARKETING OPERATIONS · AI AUTOMATION",
@@ -43,11 +43,11 @@ export const socialCards: Record<SocialCardKey, SocialCard> = {
     note: "운영 인원 2~3명 → 1명",
   },
   "keyword-performance": {
-    eyebrow: "KEYWORD STRATEGY · CONTENT EXPERIMENTATION",
-    title: "데이터 선별과 통제 실험을 연결한 검색 성과 시스템",
+    eyebrow: "NAVER CONTENT SEO · CONTROLLED EXPERIMENTATION",
+    title: "키워드 리서치와 통제 실험으로 구축한 네이버 콘텐츠 SEO 시스템",
     before: "30~40%",
     after: "70~80%",
-    label: "통합검색 콘텐츠 TOP 7 진입률",
+    label: "네이버 콘텐츠 SEO · TOP 7 진입률",
   },
   "rank-monitoring": {
     eyebrow: "MEASUREMENT SYSTEM · WEB AUTOMATION",
