@@ -59,11 +59,11 @@ export const socialCards: Record<SocialCardKey, SocialCard> = {
   },
   "system-ownership": {
     eyebrow: "MARKETING OPERATIONS · SYSTEM OWNERSHIP",
-    title: "10개월간 실사용·고도화한 마케팅 운영 시스템",
+    title: "10개월간 안정 운영으로 검증된 통합 업무 시스템",
     before: "수작업",
     after: "시스템 운영",
-    label: "여러 마케팅 업무 자동화·지속 고도화",
-    note: "기획·개발·테스트·운영·고도화 100%",
+    label: "콘텐츠·이미지·성과 측정 자동화 · 10개월 안정 운영",
+    note: "기획·개발·배포·운영·변화 대응 100%",
   },
   "image-operations": {
     eyebrow: "RESOURCE EFFICIENCY · IMAGE OPERATIONS",

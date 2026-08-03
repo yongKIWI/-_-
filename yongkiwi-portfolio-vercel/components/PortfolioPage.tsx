@@ -237,7 +237,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               href="/projects/system-ownership"
             >
               <span>SYSTEM OWNERSHIP</span>
-              <strong>마케팅 운영 시스템 구축·고도화</strong>
+              <strong>통합 업무 시스템 구축·안정 운영</strong>
               <p>수작업 → 시스템 운영 · 10개월 실사용</p>
               <b aria-hidden="true">→</b>
             </Link>
