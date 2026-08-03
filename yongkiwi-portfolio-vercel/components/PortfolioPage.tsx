@@ -137,10 +137,10 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 <strong>70~80%</strong>
               </div>
               <div className="visual-footer">
-                <span>문제 정의</span>
-                <span>무인 자동화</span>
-                <span>실무 운영</span>
-                <span>성과 검증</span>
+                <span>고객사 소통</span>
+                <span>방향 기획</span>
+                <span>실행 운영</span>
+                <span>성과 개선</span>
               </div>
             </div>
           </div>
@@ -169,10 +169,10 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 </h2>
               </div>
               <p>
-                50~60개 고객사의 대표와 콘텐츠 방향·시즌 키워드·세부
-                요구사항을 직접 조율하면서 현재 월 약 8,200건을 운영합니다.
-                제작과 측정은 무인 자동화하고, SERP 분석과 콘텐츠 A/B
-                테스트로 네이버 콘텐츠 SEO 성과를 높였습니다.
+                고객의 요구를 듣고 방향을 기획하는 일부터 실행, 수정 대응과
+                성과 개선까지 직접 책임집니다. 50~60개 고객사의 대표와
+                콘텐츠 방향·시즌 키워드·세부 요구사항을 조율하고, 확보한
+                운영 시간을 다시 고객 관리와 SEO 개선에 투자했습니다.
               </p>
             </div>
             <div className="metric-grid">
@@ -215,6 +215,10 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                   <div className="project-card-copy">
                     <p className="project-category">{project.category}</p>
                     <h3>{project.shortTitle}</h3>
+                    <p className="project-card-role">
+                      <span>AE ROLE</span>
+                      {project.role}
+                    </p>
                     <p>{project.summary}</p>
                     <div className="tag-row">
                       {project.tags.map((tag) => (
@@ -308,7 +312,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
           <div className="container">
             <div className="section-heading">
               <p className="eyebrow">EXPERIENCE</p>
-              <h2>마케팅 실무를 직접 운영하며 바꿔 왔습니다.</h2>
+              <h2>고객의 요구를 실행으로, 실행 데이터를 다음 기획으로 연결했습니다.</h2>
             </div>
             <div className="career-list">
               {careers.map((career) => (

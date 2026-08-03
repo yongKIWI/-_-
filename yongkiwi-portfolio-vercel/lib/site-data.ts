@@ -1,5 +1,11 @@
 export const commonMetrics = [
   {
+    value: "20~30개 → 50~60개",
+    label: "업체 대표와 콘텐츠 방향·요구사항을 직접 조율한 담당 고객사",
+    project: "operations-transformation",
+    compact: false,
+  },
+  {
     value: "2,000 → 8,200",
     label: "기존 대비 현재 월 실제 콘텐츠 발행량",
     project: "operations-transformation",
@@ -16,12 +22,6 @@ export const commonMetrics = [
     label: "매주 6~7시간 걸리던 키워드 순위 조사",
     project: "rank-monitoring",
     compact: false,
-  },
-  {
-    value: "수작업 → 시스템 운영",
-    label: "콘텐츠·이미지·성과 측정 전반을 시스템화해 10개월간 안정 운영",
-    project: "system-ownership",
-    compact: true,
   },
 ] as const;
 
@@ -122,6 +122,12 @@ export type Project = {
   shortTitle: string;
   title: string;
   summary: string;
+  brief: {
+    challenge: string;
+    decision: string;
+    ownership: string;
+    outcome: string;
+  };
   role: string;
   contribution: string;
   operationPeriod: string;
@@ -186,6 +192,12 @@ export const projects: Project[] = [
     title: "야근을 버티지 않고, 야근을 만드는 구조를 바꿨습니다.",
     summary:
       "2~3명이 월 약 2,000건을 실제 발행하던 업무를 현재 1인이 50~60개 고객사와 직접 소통하며 월 약 8,200건을 발행·운영하는 체계로 전환했습니다. 이 수치는 처리 한도가 아니라 2025년 11월 이후의 실제 운영량입니다.",
+    brief: {
+      challenge: "인력과 야근을 늘려도 발행이 밀리고, 고객별 수정과 품질 대응에 쓸 시간이 부족했습니다.",
+      decision: "제작 속도만 높이는 대신 고객 협의부터 제작·검수·성과 확인까지 전체 운영 흐름을 다시 설계했습니다.",
+      ownership: "50~60개 고객사 대표와 직접 방향을 협의하고, 개선 체계의 기획·개발·운영·유지보수를 100% 담당했습니다.",
+      outcome: "1인이 월 약 8,200건을 실제 운영하면서 주 3~4회였던 야근을 0회로 줄였습니다.",
+    },
     role: "클라이언트 커뮤니케이션 · 콘텐츠 운영 · 프로세스 설계 · 내부 도구 개발",
     contribution: "개선 프로젝트 기획·개발·운영·유지보수 100%",
     operationPeriod:
@@ -264,6 +276,12 @@ export const projects: Project[] = [
     title: "검색 수요를 찾고 콘텐츠를 실험해, 네이버 상위 노출을 개선했습니다.",
     summary:
       "검색량·경쟁도 기반 키워드 리서치, 상위 검색결과(SERP) 분석, 콘텐츠 최적화, 순위 측정을 하나의 네이버 콘텐츠 SEO 사이클로 구축했습니다. 그 결과 네이버 통합검색 콘텐츠 TOP 7 진입률을 30~40%에서 70~80% 수준으로 높였습니다.",
+    brief: {
+      challenge: "검색 수요와 경쟁도를 확인하지 못한 채 키워드를 사용해 콘텐츠 TOP 7 진입률이 30~40%에 머물렀습니다.",
+      decision: "무엇을 발행할지는 데이터로 선별하고, 어떻게 발행할지는 단일 변수 실험으로 검증하는 기준을 세웠습니다.",
+      ownership: "키워드 전략, SERP 분석, 콘텐츠 실험 설계, 4주 추적과 운영 규칙 반영까지 전 과정을 100% 담당했습니다.",
+      outcome: "대표 실험 3회·변형안 1,480건을 검증하고 콘텐츠 TOP 7 진입률을 70~80% 수준으로 높였습니다.",
+    },
     role: "네이버 콘텐츠 SEO · 키워드 전략 · 콘텐츠 실험 · 성과 분석",
     contribution: "분석 기준 수립·운영·성과 검증 100%",
     operationPeriod:
@@ -459,6 +477,12 @@ export const projects: Project[] = [
     title: "도구가 없어서 측정하지 못한 것이 아니라, 측정하기 위해 도구를 만들었습니다.",
     summary:
       "2명이 하루를 사용하던 3,000건의 수작업을 평균 9,500건 무인 조사 체계로 전환하고, 10개월간 약 52만 건의 순위를 측정했습니다.",
+    brief: {
+      challenge: "매주 월요일 2명이 하루를 순위 조사에 사용해 다른 업무가 중단되고 후속 야근이 발생했습니다.",
+      decision: "검색 자동화가 아니라 업체 식별·순위 계산·예외 처리·보고 문장까지 끝나는 측정 체계가 필요하다고 판단했습니다.",
+      ownership: "필요한 결과 형식을 직접 정의하고 웹 자동화, 리포팅 설계, 테스트와 플랫폼 변화 대응을 100% 담당했습니다.",
+      outcome: "1회 평균 9,500건을 무인 조사하고 10개월간 약 52만 건을 측정해 순위 조사로 인한 야근을 없앴습니다.",
+    },
     role: "문제 정의 · 웹 자동화 · 리포팅 설계 · 유지보수",
     contribution: "기획·개발·테스트·운영·유지보수 100%",
     operationPeriod:
@@ -542,6 +566,12 @@ export const projects: Project[] = [
     title: "필요한 도구가 없으면 만들고, 환경이 바뀌면 다시 작동하게 했습니다.",
     summary:
       "콘텐츠 제작·검수, 키워드 분석, 순위 측정, 이미지 처리, 플레이스 리뷰 수와 인스타그램 게시물 모니터링 등 현장에서 발견한 반복 업무를 직접 자동화했습니다. 2025년 10월 실사용 가능한 형태로 배포한 뒤 10개월간 안정적으로 운영하며, 플랫폼 변화가 발생할 때마다 기능을 유지·보완했습니다.",
+    brief: {
+      challenge: "콘텐츠·이미지·측정·모니터링 수작업이 흩어져 있었고, 플랫폼이 바뀌면 기존 방식과 도구가 쉽게 멈췄습니다.",
+      decision: "일회성 도구가 아니라 실제 업무에서 반복 사용하고 변화에도 복구할 수 있는 운영 시스템으로 만들어야 했습니다.",
+      ownership: "문제 발견, 성공 기준 정의, 도구 설계·배포, 실무 운영과 유지보수까지 별도 지시 없이 100% 주도했습니다.",
+      outcome: "여러 반복 업무를 시스템으로 전환해 10개월간 안정 운영하고, 변경 유형에 맞춰 당일 또는 1주 이내 대응했습니다.",
+    },
     role: "문제 정의 · 업무 자동화 · 실무 운영 · 유지보수",
     contribution: "기획·개발·배포·운영·변화 대응 100%",
     operationPeriod:

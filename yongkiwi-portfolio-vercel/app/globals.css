@@ -578,11 +578,31 @@ button:focus-visible {
   line-height: 1.18;
 }
 
-.project-card-copy > p:not(.project-category) {
+.project-card-copy > p:not(.project-category):not(.project-card-role) {
   max-width: 720px;
   margin: 18px 0 0;
   color: rgb(255 255 255 / 66%);
   font-size: 15px;
+}
+
+.project-card-role {
+  max-width: 720px;
+  margin: 18px 0 0;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  color: rgb(255 255 255 / 82%);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.project-card-role span {
+  flex: 0 0 auto;
+  color: var(--kiwi);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.13em;
 }
 
 .tag-row {
@@ -1131,6 +1151,87 @@ footer p {
   color: var(--muted);
   font-size: 11px;
   font-weight: 750;
+}
+
+.project-brief {
+  padding: 76px 0 82px;
+  border-bottom: 1px solid var(--ink);
+  background: var(--kiwi-soft);
+}
+
+.project-brief-heading {
+  margin-bottom: 38px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  gap: 70px;
+  align-items: end;
+}
+
+.project-brief-heading h2 {
+  max-width: 720px;
+  margin: 0;
+  font-size: clamp(30px, 3.2vw, 46px);
+  letter-spacing: -0.055em;
+  line-height: 1.15;
+}
+
+.project-brief-heading > p {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.75;
+}
+
+.project-brief-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+}
+
+.project-brief-grid article {
+  min-height: 210px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.project-brief-grid article > span {
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.project-brief-grid article > strong {
+  margin-top: auto;
+  font-size: 20px;
+  letter-spacing: -0.035em;
+}
+
+.project-brief-grid article > p {
+  margin: 12px 0 0;
+  color: #40413b;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.project-brief-grid .project-brief-outcome {
+  background: var(--kiwi);
+}
+
+.project-brief-outcome > span,
+.project-brief-outcome > p {
+  color: var(--ink) !important;
+}
+
+.project-brief-meta {
+  display: none;
 }
 
 .project-layout {
@@ -1964,6 +2065,11 @@ footer p {
     gap: 60px;
   }
 
+  .project-brief-heading {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
   .project-aside {
     position: static;
     display: grid;
@@ -2279,19 +2385,74 @@ footer p {
     font-size: clamp(30px, 8.2vw, 34px);
   }
 
+  .project-brief {
+    padding: 50px 0 56px;
+  }
+
+  .project-brief-heading {
+    margin-bottom: 28px;
+  }
+
+  .project-brief-heading h2 {
+    font-size: 31px;
+  }
+
+  .project-brief-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-brief-grid article {
+    min-height: 0;
+    padding: 24px 22px;
+  }
+
+  .project-brief-grid article > strong {
+    margin-top: 24px;
+  }
+
+  .project-brief-meta {
+    margin: 28px 0 0;
+    display: grid;
+    border-top: 1px solid var(--ink);
+  }
+
+  .project-brief-meta div {
+    padding: 14px 0;
+    display: grid;
+    grid-template-columns: 74px 1fr;
+    gap: 12px;
+    border-bottom: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
+  }
+
+  .project-brief-meta dt,
+  .project-brief-meta dd {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  .project-brief-meta dt {
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  .project-brief-meta dd {
+    font-weight: 800;
+  }
+
   .project-metric-row {
     grid-template-columns: repeat(2, 1fr);
     margin-top: 50px;
   }
 
   .project-layout {
-    padding-top: 70px;
+    padding-top: 48px;
     padding-bottom: 90px;
     gap: 36px;
   }
 
   .project-aside {
-    grid-template-columns: 1fr;
+    display: none;
   }
 
   .project-toc {
@@ -2345,7 +2506,7 @@ footer p {
 
   .project-article section,
   .project-article blockquote {
-    margin-bottom: 80px;
+    margin-bottom: 64px;
   }
 
   .project-article blockquote {

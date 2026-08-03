@@ -91,6 +91,57 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </section>
 
+        <section className="project-brief" aria-labelledby="project-brief-title">
+          <div className="container">
+            <div className="project-brief-heading">
+              <div>
+                <p className="eyebrow">30 SECOND BRIEF</p>
+                <h2 id="project-brief-title">이 프로젝트의 핵심만 먼저 확인하세요.</h2>
+              </div>
+              <p>
+                고객 과제, 판단, 담당 범위와 결과를 먼저 요약했습니다. 아래에는
+                실행 과정과 측정 기준, 실제 운영 근거를 순서대로 공개합니다.
+              </p>
+            </div>
+            <div className="project-brief-grid">
+              <article>
+                <span>01 · CLIENT CHALLENGE</span>
+                <strong>고객·운영 과제</strong>
+                <p>{project.brief.challenge}</p>
+              </article>
+              <article>
+                <span>02 · KEY DECISION</span>
+                <strong>핵심 판단</strong>
+                <p>{project.brief.decision}</p>
+              </article>
+              <article>
+                <span>03 · AE OWNERSHIP</span>
+                <strong>담당 범위</strong>
+                <p>{project.brief.ownership}</p>
+              </article>
+              <article className="project-brief-outcome">
+                <span>04 · VERIFIED OUTCOME</span>
+                <strong>검증된 결과</strong>
+                <p>{project.brief.outcome}</p>
+              </article>
+            </div>
+            <dl className="project-brief-meta">
+              <div>
+                <dt>역할</dt>
+                <dd>{project.role}</dd>
+              </div>
+              <div>
+                <dt>기여 범위</dt>
+                <dd>{project.contribution}</dd>
+              </div>
+              <div>
+                <dt>운영 기간</dt>
+                <dd>{project.operationPeriod}</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
         <div className="container project-layout">
           <aside className="project-aside">
             <div>
@@ -352,7 +403,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             <section id="learning">
               <p className="section-index">06 · LEARNING</p>
-              <h2>배운 점과 후속 개선</h2>
+              <h2>인사이트와 다음 적용</h2>
               <p>{project.learning}</p>
             </section>
 
