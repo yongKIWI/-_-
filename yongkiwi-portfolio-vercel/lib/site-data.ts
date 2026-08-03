@@ -187,8 +187,8 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "operations-transformation",
-    category: "MARKETING OPERATIONS · AI AUTOMATION",
-    shortTitle: "현재 월 약 8,200건을 1인이 운영하는 콘텐츠 오퍼레이션",
+    category: "콘텐츠 운영 · 업무 자동화",
+    shortTitle: "현재 월 약 8,200건을 1인이 운영하는 콘텐츠 자동화 체계",
     title: "야근을 버티지 않고, 야근을 만드는 구조를 바꿨습니다.",
     summary:
       "2~3명이 월 약 2,000건을 실제 발행하던 업무를 현재 1인이 50~60개 고객사와 직접 소통하며 월 약 8,200건을 발행·운영하는 체계로 전환했습니다. 이 수치는 처리 한도가 아니라 2025년 11월 이후의 실제 운영량입니다.",
@@ -202,8 +202,8 @@ export const projects: Project[] = [
     contribution: "개선 프로젝트 기획·개발·운영·유지보수 100%",
     operationPeriod:
       "2025.10 실사용 시작 · 2025.11 이후 현재 성과 수준 안정 운영·지속 개선",
-    tools: ["GPT·Codex", "Google Sheets", "Apps Script", "내부 업무용 GUI"],
-    tags: ["Client Communication", "Workflow Design", "AI Automation"],
+    tools: ["OpenAI API", "Google Sheets", "Apps Script", "내부 업무용 GUI"],
+    tags: ["Client Communication", "Workflow Design", "Workflow Automation"],
     cardMetric: { label: "월 실제 발행량", value: "2,000 → 8,200" },
     metrics: [
       { label: "운영 인원", value: "2~3명 → 1명" },
@@ -224,6 +224,7 @@ export const projects: Project[] = [
       "중간 방향 변경과 세부 수정 요청, 발행·품질 관련 클레임을 직접 확인하고 운영 기준에 반영했습니다.",
       "전체 업무를 제작, 검수, 발행, 성과 확인 단계로 분해했습니다.",
       "반복 작업과 오류가 발생하는 지점을 정의하고 자동화 우선순위를 정했습니다.",
+      "필요한 입력·출력, 예외 조건과 검증 기준을 직접 정의하고 생성형 AI 기반 개발 도구를 활용해 실제 업무용 프로그램으로 구현했습니다.",
       "고객사별 작성 규칙을 데이터화해 반복 적용할 수 있도록 만들었습니다.",
       "AI 기반 원고·제목 제작과 이미지 처리, 품질 검수를 하나의 흐름으로 연결했습니다.",
       "실제 고객 업무에서 사용하며 수정 요청과 플랫폼 변화에 맞춰 계속 보완했습니다.",
@@ -561,7 +562,7 @@ export const projects: Project[] = [
   },
   {
     slug: "system-ownership",
-    category: "MARKETING OPERATIONS · SYSTEM OWNERSHIP",
+    category: "업무 자동화 · 시스템 구축·운영",
     shortTitle: "10개월간 안정 운영으로 검증된 통합 업무 시스템",
     title: "필요한 도구가 없으면 만들고, 환경이 바뀌면 다시 작동하게 했습니다.",
     summary:
@@ -576,8 +577,8 @@ export const projects: Project[] = [
     contribution: "기획·개발·배포·운영·변화 대응 100%",
     operationPeriod:
       "2025.10 실사용 배포 · 10개월간 안정 운영·플랫폼 변화 대응",
-    tools: ["AI 코딩", "Playwright", "Excel·Google Sheets", "Apps Script", "이미지 처리"],
-    tags: ["System Ownership", "Process Improvement", "Marketing Operations"],
+    tools: ["OpenAI API", "Playwright", "Excel·Google Sheets", "Apps Script", "이미지 처리"],
+    tags: ["System Ownership", "Process Improvement", "Workflow Automation"],
     cardMetric: { label: "업무 방식", value: "수작업 → 시스템 운영" },
     metrics: [
       { label: "개선 프로젝트 전 과정", value: "기여도 100%" },
@@ -597,6 +598,7 @@ export const projects: Project[] = [
     execution: [
       "지시받은 업무 범위를 넘어 실제 운영에서 반복되는 시간 낭비와 오류 지점을 자발적으로 찾았습니다.",
       "문제마다 필요한 입력, 원하는 결과 형식과 성공 기준을 먼저 정의했습니다.",
+      "코딩 자체를 전문 역량으로 내세우기보다, 현업 요구사항과 로직·예외·검증 기준을 직접 설계하고 생성형 AI 기반 개발 도구를 구현 수단으로 활용했습니다.",
       "콘텐츠 제작·검수, 키워드 분석, 순위 측정·보고, 이미지 처리와 모니터링 업무를 목적별 내부 도구로 만들었습니다.",
       "플레이스 리뷰 수와 인스타그램 게시물처럼 사람이 반복 확인하던 항목도 자동 수집·모니터링 구조로 전환했습니다.",
       "추가 가공 없이 바로 실무에 사용할 수 있는 결과와 약 20분 설명으로 사용할 수 있는 조작 흐름을 설계했습니다.",
@@ -655,7 +657,7 @@ export const projects: Project[] = [
     ],
     proofs: [
       {
-        title: "마케팅 운영 통합 워크플로",
+        title: "콘텐츠 운영 통합 워크플로",
         description:
           "사진 분류, 원고 변환, 검수, 제목 수정과 후속 작업을 하나의 흐름으로 연결한 실제 운영 도구입니다.",
         image: {

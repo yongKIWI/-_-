@@ -21,7 +21,7 @@ type SocialCard = {
 
 export const socialCards: Record<SocialCardKey, SocialCard> = {
   advertising: {
-    eyebrow: "ADVERTISING AE · MARKETING OPERATIONS",
+    eyebrow: "광고기획 AE · 콘텐츠 운영 혁신",
     title: "성과가 반복되는 구조를 만드는 AE",
     before: "약 2,000",
     after: "약 8,200",
@@ -35,8 +35,8 @@ export const socialCards: Record<SocialCardKey, SocialCard> = {
     label: "네이버 콘텐츠 SEO · TOP 7 진입률",
   },
   "operations-transformation": {
-    eyebrow: "MARKETING OPERATIONS · AI AUTOMATION",
-    title: "현재 월 약 8,200건을 1인이 운영하는 콘텐츠 오퍼레이션",
+    eyebrow: "콘텐츠 운영 · 업무 자동화",
+    title: "현재 월 약 8,200건을 1인이 운영하는 콘텐츠 자동화 체계",
     before: "약 2,000",
     after: "약 8,200",
     label: "월 실제 콘텐츠 발행량",
@@ -58,7 +58,7 @@ export const socialCards: Record<SocialCardKey, SocialCard> = {
     note: "10개월 누적 약 52만 건 측정",
   },
   "system-ownership": {
-    eyebrow: "MARKETING OPERATIONS · SYSTEM OWNERSHIP",
+    eyebrow: "업무 자동화 · 시스템 구축·운영",
     title: "10개월간 안정 운영으로 검증된 통합 업무 시스템",
     before: "수작업",
     after: "시스템 운영",

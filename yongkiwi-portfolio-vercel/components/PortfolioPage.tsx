@@ -19,7 +19,7 @@ type PortfolioPageProps = {
 
 const roleCopy = {
   advertising: {
-    eyebrow: "ADVERTISING AE · MARKETING OPERATIONS",
+    eyebrow: "광고기획 AE · 콘텐츠 운영 혁신",
     title: (
       <>
         광고 운영의 병목을 찾고,
@@ -379,8 +379,9 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               <p>
                 반복되는 야근, 수작업 검수, 성과를 알 수 없는 키워드, 하루를
                 사용해야 하는 순위 조사 업무를 하나씩 분석했습니다. 기존
-                도구로 해결할 수 없는 문제는 AI 코딩과 웹 자동화를 공부해
-                직접 시스템으로 만들었습니다.
+                도구로 해결할 수 없는 문제는 필요한 입력·출력과 검증 기준부터
+                정의하고, 생성형 AI 기반 개발 도구와 웹 자동화를 활용해 실제
+                업무 시스템으로 구현했습니다.
               </p>
               <p>
                 시스템 뒤에는 고객과의 대화가 있었습니다. 업체 대표와 직접
