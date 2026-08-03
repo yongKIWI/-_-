@@ -32,7 +32,7 @@ export const socialCards: Record<SocialCardKey, SocialCard> = {
     title: "측정 가능한 성과 구조를 만드는 AE",
     before: "30~40%",
     after: "70~80%",
-    label: "통합검색 1~7위 진입률",
+    label: "통합검색 콘텐츠 TOP 7 진입률",
   },
   "operations-transformation": {
     eyebrow: "MARKETING OPERATIONS · AI AUTOMATION",
@@ -43,11 +43,11 @@ export const socialCards: Record<SocialCardKey, SocialCard> = {
     note: "운영 인원 2~3명 → 1명",
   },
   "keyword-performance": {
-    eyebrow: "KEYWORD STRATEGY · PERFORMANCE CONTENT",
-    title: "조회수·경쟁도로 설계한 키워드 선별 시스템",
+    eyebrow: "KEYWORD STRATEGY · CONTENT EXPERIMENTATION",
+    title: "데이터 선별과 통제 실험을 연결한 검색 성과 시스템",
     before: "30~40%",
     after: "70~80%",
-    label: "통합검색 1~7위 진입률",
+    label: "통합검색 콘텐츠 TOP 7 진입률",
   },
   "rank-monitoring": {
     eyebrow: "MEASUREMENT SYSTEM · WEB AUTOMATION",
