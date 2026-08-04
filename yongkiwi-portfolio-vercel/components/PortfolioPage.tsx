@@ -161,18 +161,17 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
           <div className="container">
             <div className="section-heading split-heading">
               <div>
-                <p className="eyebrow">IMPACT AT A GLANCE</p>
+                <p className="eyebrow">AE OWNERSHIP AT A GLANCE</p>
                 <h2>
-                  숫자는 화려한 수사가 아니라
+                  성과를 만든 역할은
                   <br />
-                  바뀐 업무의 증거입니다.
+                  네 가지였습니다.
                 </h2>
               </div>
               <p>
-                고객의 요구를 듣고 방향을 기획하는 일부터 실행, 수정 대응과
-                성과 개선까지 직접 책임집니다. 50~60개 고객사의 대표와
-                콘텐츠 방향·시즌 키워드·세부 요구사항을 조율하고, 확보한
-                운영 시간을 다시 고객 관리와 SEO 개선에 투자했습니다.
+                고객과 방향을 정하고, 요구를 운영 기준으로 바꾸며, 실행
+                데이터를 다음 개선안으로 연결했습니다. 필요한 측정과 자동화
+                체계까지 직접 설계해 실제 업무에 적용했습니다.
               </p>
             </div>
             <div className="metric-grid">
@@ -204,7 +203,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
             <div className="project-list">
               {orderedProjects.map((project, index) => (
                 <Link
-                  aria-label={`${project.shortTitle} 상세 보기`}
+                  aria-label={`${project.cardTitle ?? project.shortTitle} 상세 보기`}
                   className="project-card"
                   href={`/projects/${project.slug}`}
                   key={project.slug}
@@ -214,12 +213,12 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                   </div>
                   <div className="project-card-copy">
                     <p className="project-category">{project.category}</p>
-                    <h3>{project.shortTitle}</h3>
+                    <h3>{project.cardTitle ?? project.shortTitle}</h3>
                     <p className="project-card-role">
                       <span>AE ROLE</span>
                       {project.role}
                     </p>
-                    <p>{project.summary}</p>
+                    <p>{project.cardSummary ?? project.summary}</p>
                     <div className="tag-row">
                       {project.tags.map((tag) => (
                         <span key={tag}>{tag}</span>

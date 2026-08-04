@@ -1,27 +1,27 @@
 export const commonMetrics = [
   {
-    value: "20~30개 → 50~60개",
-    label: "업체 대표와 콘텐츠 방향·요구사항을 직접 조율한 담당 고객사",
+    value: "대표와 직접 협의",
+    label: "콘텐츠 방향·시즌 키워드·수정사항 조율",
     project: "operations-transformation",
-    compact: false,
+    compact: true,
   },
   {
-    value: "2,000 → 8,200",
-    label: "기존 대비 현재 월 실제 콘텐츠 발행량",
+    value: "요구 → 운영 기준",
+    label: "고객별 요청을 제작 규칙과 검수 기준으로 전환",
     project: "operations-transformation",
-    compact: false,
+    compact: true,
   },
   {
-    value: "30~40% → 70~80%",
-    label: "네이버 콘텐츠 SEO · 통합검색 TOP 7 진입률",
+    value: "감지 → 실험 → 반영",
+    label: "SERP 변화에 맞춘 콘텐츠 SEO 개선 사이클",
     project: "keyword-performance",
-    compact: false,
+    compact: true,
   },
   {
-    value: "2인 → 무인 실행",
-    label: "매주 6~7시간 걸리던 키워드 순위 조사",
+    value: "입력 → 보고까지 무인",
+    label: "순위 조사와 보고 문장 생성을 연결한 측정 체계",
     project: "rank-monitoring",
-    compact: false,
+    compact: true,
   },
 ] as const;
 
@@ -120,8 +120,10 @@ export type Project = {
   slug: string;
   category: string;
   shortTitle: string;
+  cardTitle?: string;
   title: string;
   summary: string;
+  cardSummary?: string;
   brief: {
     challenge: string;
     decision: string;
@@ -203,9 +205,12 @@ export const projects: Project[] = [
     slug: "operations-transformation",
     category: "콘텐츠 운영 · 업무 자동화",
     shortTitle: "현재 월 약 8,200건을 1인이 운영하는 콘텐츠 자동화 체계",
+    cardTitle: "고객 대응과 대규모 운영을 함께 만든 콘텐츠 자동화 체계",
     title: "야근을 버티지 않고, 야근을 만드는 구조를 바꿨습니다.",
     summary:
       "2~3명이 월 약 2,000건을 실제 발행하던 업무를 현재 1인이 50~60개 고객사와 직접 소통하며 월 약 8,200건을 발행·운영하는 체계로 전환했습니다. 이 수치는 처리 한도가 아니라 2025년 11월 이후의 실제 운영량입니다.",
+    cardSummary:
+      "고객사별 요구를 운영 규칙으로 구조화하고, 원고·제목·이미지·검수를 하나의 흐름으로 연결했습니다. 자동 실행으로 확보한 시간을 고객 관리, 수정 대응과 SEO 개선에 재투자했습니다.",
     brief: {
       challenge: "인력과 야근을 늘려도 발행이 밀리고, 고객별 수정과 품질 대응에 쓸 시간이 부족했습니다.",
       decision: "제작 속도만 높이는 대신 고객 협의부터 제작·검수·성과 확인까지 전체 운영 흐름을 다시 설계했습니다.",
@@ -288,6 +293,8 @@ export const projects: Project[] = [
     title: "검색 수요와 SERP를 분석해, 네이버 상위 노출을 개선했습니다.",
     summary:
       "검색량·경쟁도 기반 키워드 리서치부터 네이버 통합검색 결과 페이지(SERP) 분석, 콘텐츠 실험과 랭크 트래킹까지 하나의 네이버 콘텐츠 SEO 사이클로 구축했습니다. 주차별 TOP 7 키워드 수·신규 진입·이탈·검색수요와 순위 가중 점수, 월 진입률을 직접 설계·기록하며 TOP 7 진입률을 30~40%에서 70~80% 수준으로 높였습니다.",
+    cardSummary:
+      "검색 수요·경쟁도 기반 선별, SERP 분석, 단일 변수 실험과 주간 랭크 트래킹을 연결했습니다. 성과 하락 원인을 데이터로 찾고 검증된 안만 콘텐츠 운영 규칙에 반영했습니다.",
     brief: {
       challenge: "검색 수요와 경쟁도를 확인하지 못한 채 키워드를 사용했고, 발행 후 성과도 체계적으로 기록·분석하지 않아 통합검색 콘텐츠 영역 TOP 7 진입률이 30~40%에 머물렀습니다.",
       decision: "무엇을 발행할지는 데이터로 선별하고, 어떻게 발행할지는 단일 변수 실험으로 검증하며, 결과는 직접 만든 지표로 계속 추적했습니다.",
@@ -522,9 +529,12 @@ export const projects: Project[] = [
     slug: "rank-monitoring",
     category: "MEASUREMENT SYSTEM · WEB AUTOMATION",
     shortTitle: "약 52만 건을 측정한 검색 순위 시스템",
+    cardTitle: "수작업 검색을 보고까지 연결한 무인 순위 측정 시스템",
     title: "도구가 없어서 측정하지 못한 것이 아니라, 측정하기 위해 도구를 만들었습니다.",
     summary:
       "2명이 하루를 사용하던 3,000건의 수작업을 평균 9,500건 무인 조사 체계로 전환하고, 10개월간 약 52만 건의 순위를 측정했습니다.",
+    cardSummary:
+      "검색, 고객사 콘텐츠 식별, 콘텐츠 영역 내 순위 계산과 보고 문장 출력을 하나의 흐름으로 연결했습니다. 담당자는 실행 중 고객 관리와 분석 업무를 계속할 수 있습니다.",
     brief: {
       challenge: "매주 월요일 2명이 하루를 순위 조사에 사용해 다른 업무가 중단되고 후속 야근이 발생했습니다.",
       decision: "검색 자동화가 아니라 업체 식별·순위 계산·예외 처리·보고 문장까지 끝나는 측정 체계가 필요하다고 판단했습니다.",
