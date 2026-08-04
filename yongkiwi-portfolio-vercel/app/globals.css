@@ -1823,6 +1823,80 @@ footer p {
   line-height: 1.7;
 }
 
+.decision-case {
+  margin-top: 72px;
+  padding: 32px;
+  border: 1px solid var(--ink);
+  background: var(--white);
+  box-shadow: 8px 8px 0 var(--kiwi);
+}
+
+.decision-case-heading {
+  max-width: 700px;
+}
+
+.decision-case-heading h3 {
+  margin: 0;
+  font-size: clamp(27px, 3vw, 40px);
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+}
+
+.decision-case-heading > p:last-child {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.decision-case-grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+}
+
+.decision-case-grid article {
+  min-width: 0;
+  padding: 22px;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.decision-case-grid article:nth-child(2),
+.decision-case-grid article:nth-child(3) {
+  background: var(--kiwi-soft);
+}
+
+.decision-case-grid span {
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.decision-case-grid h4 {
+  margin: 12px 0 0;
+  font-size: 19px;
+  letter-spacing: -0.04em;
+}
+
+.decision-case-grid p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.decision-case-disclosure {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
 .project-article .evidence-panel {
   padding: 34px;
   background: var(--ink);
@@ -2577,6 +2651,20 @@ footer p {
 
   .improvement-method-card > p {
     min-height: 0;
+  }
+
+  .decision-case {
+    margin-top: 54px;
+    padding: 22px 18px;
+    box-shadow: 6px 6px 0 var(--kiwi);
+  }
+
+  .decision-case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .decision-case-grid article {
+    padding: 20px 18px;
   }
 
   .experiment-log {

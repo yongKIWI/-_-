@@ -204,6 +204,29 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   </div>
                 </div>
               ) : null}
+              {project.decisionCase ? (
+                <div className="decision-case">
+                  <div className="decision-case-heading">
+                    <p className="section-index">{project.decisionCase.label}</p>
+                    <h3>{project.decisionCase.title}</h3>
+                    <p>{project.decisionCase.description}</p>
+                  </div>
+                  <div className="decision-case-grid">
+                    {project.decisionCase.steps.map((step) => (
+                      <article key={step.label}>
+                        <span>{step.label}</span>
+                        <h4>{step.title}</h4>
+                        <p>{step.description}</p>
+                      </article>
+                    ))}
+                  </div>
+                  {project.decisionCase.disclosure ? (
+                    <p className="decision-case-disclosure">
+                      {project.decisionCase.disclosure}
+                    </p>
+                  ) : null}
+                </div>
+              ) : null}
             </section>
 
             <section className="evidence-panel" id="change">
