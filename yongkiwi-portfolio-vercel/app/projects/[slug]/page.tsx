@@ -438,9 +438,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   <p className="section-index">WORKING EVIDENCE</p>
                   <h3>실제 운영 화면과 증거 자료</h3>
                   <p>
-                    고객사와 내부 정보를 보호하기 위해 식별 정보를 제거한 자료만
-                    제시합니다. 아직 교체가 필요한 화면에는 촬영 기준을 함께
-                    적었습니다.
+                    실제 업무에 사용한 실행 화면과 집계 자료를 통해 입력, 운영,
+                    결과와 성과 추적이 이어지는 과정을 보여드립니다.
                   </p>
                 </div>
                 <div
