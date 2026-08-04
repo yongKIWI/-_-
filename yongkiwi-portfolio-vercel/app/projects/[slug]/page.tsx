@@ -53,6 +53,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   const nextProject = projects[(projectIndex + 1) % projects.length];
+  const trackingMax = project.performanceTracking
+    ? Math.max(...project.performanceTracking.trend.map((item) => item.topSeven))
+    : 1;
+  const trackingFlowMax = project.performanceTracking
+    ? Math.max(
+        ...project.performanceTracking.trend.flatMap((item) => [
+          item.newEntries,
+          item.dropouts,
+        ]),
+      )
+    : 1;
   const projectJsonLd = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
@@ -220,6 +231,129 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+
+              {project.performanceTracking ? (
+                <div className="performance-tracking">
+                  <div className="performance-tracking-heading">
+                    <p className="section-index">PERFORMANCE MEASUREMENT</p>
+                    <h3>{project.performanceTracking.title}</h3>
+                    <p>{project.performanceTracking.description}</p>
+                  </div>
+
+                  <div className="performance-tracking-metrics">
+                    {project.performanceTracking.metrics.map((metric) => (
+                      <div key={metric.label}>
+                        <span>{metric.label}</span>
+                        <strong>{metric.value}</strong>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="performance-dimension-grid">
+                    {project.performanceTracking.dimensions.map((dimension) => (
+                      <article key={dimension.label}>
+                        <span>{dimension.label}</span>
+                        <h4>{dimension.title}</h4>
+                        <p>{dimension.description}</p>
+                      </article>
+                    ))}
+                  </div>
+
+                  <div className="performance-chart-grid">
+                    <article className="performance-chart-card performance-volume-chart">
+                      <div className="performance-chart-heading">
+                        <div>
+                          <span>WEEKLY TOP 7 KEYWORDS</span>
+                          <h4>주차별 상위 1~7위 키워드 수</h4>
+                        </div>
+                        <b>익명 전체 집계</b>
+                      </div>
+                      <div className="performance-column-chart">
+                        {project.performanceTracking.trend.map((item) => (
+                          <div
+                            aria-label={`${item.label} 상위 노출 키워드 ${item.topSeven.toLocaleString("ko-KR")}개${item.status ? `, ${item.status}` : ""}`}
+                            className={`performance-column${
+                              item.status ? " has-status" : ""
+                            }`}
+                            key={item.label}
+                          >
+                            <strong>{item.topSeven.toLocaleString("ko-KR")}</strong>
+                            <div className="performance-column-track">
+                              <span
+                                style={{
+                                  height: `${Math.max(
+                                    12,
+                                    (item.topSeven / trackingMax) * 100,
+                                  )}%`,
+                                }}
+                              />
+                            </div>
+                            <small>{item.label}</small>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="performance-milestones">
+                        {project.performanceTracking.trend
+                          .filter((item) => item.status)
+                          .map((item) => (
+                            <span key={`${item.label}-${item.status}`}>
+                              <b>{item.label}</b>
+                              {item.status}
+                            </span>
+                          ))}
+                      </div>
+                    </article>
+
+                    <article className="performance-chart-card performance-flow-chart">
+                      <div className="performance-chart-heading">
+                        <div>
+                          <span>NEW / DROPPED</span>
+                          <h4>신규 진입·탈락 키워드</h4>
+                        </div>
+                        <div className="performance-flow-legend">
+                          <span>신규</span>
+                          <span>탈락</span>
+                        </div>
+                      </div>
+                      <div className="performance-flow-list">
+                        {project.performanceTracking.trend.map((item) => (
+                          <div className="performance-flow-row" key={item.label}>
+                            <small>{item.label}</small>
+                            <div>
+                              <span
+                                className="is-new"
+                                style={{
+                                  width: `${Math.max(
+                                    4,
+                                    (item.newEntries / trackingFlowMax) * 100,
+                                  )}%`,
+                                }}
+                              >
+                                {item.newEntries.toLocaleString("ko-KR")}
+                              </span>
+                              <span
+                                className="is-dropped"
+                                style={{
+                                  width: `${Math.max(
+                                    4,
+                                    (item.dropouts / trackingFlowMax) * 100,
+                                  )}%`,
+                                }}
+                              >
+                                {item.dropouts.toLocaleString("ko-KR")}
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </article>
+                  </div>
+
+                  <p className="performance-tracking-note">
+                    {project.performanceTracking.note}
+                  </p>
+                </div>
+              ) : null}
 
               {project.experiments ? (
                 <div className="experiment-log">
