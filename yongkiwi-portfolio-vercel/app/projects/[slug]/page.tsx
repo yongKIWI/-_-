@@ -264,14 +264,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       <div className="performance-chart-heading">
                         <div>
                           <span>WEEKLY TOP 7 KEYWORDS</span>
-                          <h4>주차별 상위 1~7위 키워드 수</h4>
+                          <h4>주차별 SERP TOP 7 키워드 수</h4>
                         </div>
                         <b>익명 전체 집계</b>
                       </div>
                       <div className="performance-column-chart">
                         {project.performanceTracking.trend.map((item) => (
                           <div
-                            aria-label={`${item.label} 상위 노출 키워드 ${item.topSeven.toLocaleString("ko-KR")}개${item.status ? `, ${item.status}` : ""}`}
+                            aria-label={`${item.label} SERP TOP 7 진입 키워드 ${item.topSeven.toLocaleString("ko-KR")}개${item.status ? `, ${item.status}` : ""}`}
                             className={`performance-column${
                               item.status ? " has-status" : ""
                             }`}
@@ -307,12 +307,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <article className="performance-chart-card performance-flow-chart">
                       <div className="performance-chart-heading">
                         <div>
-                          <span>NEW / DROPPED</span>
-                          <h4>신규 진입·탈락 키워드</h4>
+                          <span>NEW ENTRY / EXIT</span>
+                          <h4>TOP 7 신규 진입·이탈 키워드</h4>
                         </div>
                         <div className="performance-flow-legend">
                           <span>신규</span>
-                          <span>탈락</span>
+                          <span>이탈</span>
                         </div>
                       </div>
                       <div className="performance-flow-list">

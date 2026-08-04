@@ -35,7 +35,7 @@ const roleCopy = {
       "90건 제작은 4시간의 수작업에서 약 50분의 무인 자동 실행으로 전환했고, 사람은 그 시간에 고객과 성과를 관리합니다.",
     measurement: [
       "월 약 8,200건은 2025.11 이후 실제 운영량",
-      "TOP 7 진입률은 네이버 통합검색 콘텐츠 영역 상위 7개 결과 기준",
+      "TOP 7 진입률은 업체별 월 발행 키워드 중 자사 콘텐츠가 네이버 통합검색 콘텐츠 영역 1~7위에 진입한 비율",
     ],
     switchHref: "/performance-ae",
     switchLabel: "퍼포먼스 관점으로 보기",
@@ -58,11 +58,11 @@ const roleCopy = {
       </>
     ),
     description:
-      "키워드 리서치, 상위 검색결과(SERP) 분석, 콘텐츠 최적화와 순위 측정을 하나의 네이버 콘텐츠 SEO 사이클로 설계했습니다.",
+      "키워드 리서치, 네이버 통합검색 결과 페이지(SERP) 분석, 콘텐츠 최적화와 랭크 트래킹을 하나의 네이버 콘텐츠 SEO 사이클로 설계했습니다.",
     statement:
       "검색량·경쟁도 기반 키워드 선별과 단일 변수 A/B 테스트를 결합해 네이버 통합검색 콘텐츠 TOP 7 진입률을 30~40%에서 70~80% 수준으로 높였습니다.",
     measurement: [
-      "TOP 7 진입률은 측정 키워드의 콘텐츠 영역 상위 7개 결과 진입 비율",
+      "TOP 7 진입률은 업체별 월 발행 키워드 중 자사 콘텐츠가 통합검색 콘텐츠 영역 1~7위에 진입한 비율",
       "70~80%는 2025.11 이후 실제 운영 수준",
     ],
     switchHref: "/",
@@ -131,7 +131,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 <strong>1명</strong>
               </div>
               <div className="visual-row">
-                <span>네이버 콘텐츠 SEO TOP 7 진입률</span>
+                <span>네이버 통합검색 콘텐츠 TOP 7 진입률</span>
                 <strong>30~40%</strong>
                 <b>→</b>
                 <strong>70~80%</strong>
