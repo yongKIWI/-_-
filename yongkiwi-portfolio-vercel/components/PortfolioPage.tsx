@@ -100,7 +100,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 <span>MEASUREMENT BASIS</span>
                 <p>
                   {copy.measurement.join(" · ")} · 세부 산식은 프로젝트 상세에서
-                  공개
+                  확인
                 </p>
               </div>
               <div className="hero-actions">

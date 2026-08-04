@@ -360,12 +360,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   <div className="experiment-log-heading">
                     <p className="section-index">CONTENT EXPERIMENT LOG</p>
                     <h3>
-                      반복해 온 콘텐츠 실험 중, 판단 근거가 분명한 대표 3건을
-                      공개합니다.
+                      반복해 온 콘텐츠 실험 중, 판단 근거가 분명한 대표 실험
+                      3건을 정리했습니다.
                     </h3>
                     <p>
-                      세 공개 사례의 A·B 변형안은 합계 1,480건입니다. 채택한
-                      사례뿐 아니라 효과가 미미해 롤백한 사례도 함께 기록했습니다.
+                      세 대표 실험의 A·B 변형안은 합계 1,480건입니다. 채택안뿐
+                      아니라 효과가 미미해 롤백한 실험도 함께 기록했습니다.
                     </p>
                   </div>
                   {project.experimentProtocol ? (
@@ -438,8 +438,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   <p className="section-index">WORKING EVIDENCE</p>
                   <h3>실제 운영 화면과 증거 자료</h3>
                   <p>
-                    고객사와 내부 정보를 보호할 수 있는 자료만 공개합니다.
-                    아직 교체가 필요한 화면에는 촬영 기준을 함께 적었습니다.
+                    고객사와 내부 정보를 보호하기 위해 식별 정보를 제거한 자료만
+                    제시합니다. 아직 교체가 필요한 화면에는 촬영 기준을 함께
+                    적었습니다.
                   </p>
                 </div>
                 <div

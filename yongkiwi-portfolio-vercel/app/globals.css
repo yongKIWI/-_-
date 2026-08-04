@@ -1555,24 +1555,26 @@ footer p {
   margin-top: 18px;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 7px;
+  gap: 10px;
 }
 
 .performance-milestones span {
   min-width: 0;
-  padding: 8px;
+  padding: 11px 12px;
   border-left: 3px solid var(--kiwi);
   background: var(--paper);
   color: var(--muted);
-  font-size: 8px;
-  line-height: 1.45;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .performance-milestones b {
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   display: block;
   color: var(--ink);
-  font-size: 9px;
+  font-size: 12px;
+  line-height: 1.2;
 }
 
 .performance-flow-legend {
