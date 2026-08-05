@@ -1,25 +1,25 @@
 export const commonMetrics = [
   {
-    value: "대표와 직접 협의",
-    label: "콘텐츠 방향·시즌 키워드·수정사항 조율",
+    value: "90건 · 약 50분 무인",
+    label: "원고·제목·이미지·검수를 연결한 콘텐츠 제작 통합앱",
     project: "operations-transformation",
     compact: true,
   },
   {
-    value: "요구 → 운영 기준",
-    label: "고객별 요청을 제작 규칙과 검수 기준으로 전환",
+    value: "월 약 8,200건",
+    label: "통합앱으로 1인이 50~60개 고객사를 실제 운영",
     project: "operations-transformation",
     compact: true,
   },
   {
-    value: "감지 → 실험 → 반영",
-    label: "SERP 변화에 맞춘 콘텐츠 SEO 개선 사이클",
+    value: "30~40% → 70~80%",
+    label: "네이버 통합검색 콘텐츠 TOP 7 진입률 개선",
     project: "keyword-performance",
     compact: true,
   },
   {
-    value: "입력 → 보고까지 무인",
-    label: "순위 조사와 보고 문장 생성을 연결한 측정 체계",
+    value: "10개월 · 약 52만 건",
+    label: "키워드 순위를 입력부터 보고까지 무인 측정",
     project: "rank-monitoring",
     compact: true,
   },
@@ -215,13 +215,13 @@ export const projects: Project[] = [
   {
     slug: "operations-transformation",
     category: "콘텐츠 운영 · 업무 자동화",
-    shortTitle: "현재 월 약 8,200건을 1인이 운영하는 콘텐츠 자동화 체계",
-    cardTitle: "고객 대응과 대규모 운영을 함께 만든 콘텐츠 자동화 체계",
+    shortTitle: "월 약 8,200건 운영을 만든 콘텐츠 제작 통합앱",
+    cardTitle: "1인이 월 약 8,200건을 운영하게 만든 콘텐츠 제작 통합앱",
     title: "야근을 버티지 않고, 야근을 만드는 구조를 바꿨습니다.",
     summary:
       "2~3명이 월 약 2,000건을 실제 발행하던 업무를 현재 1인이 50~60개 고객사와 직접 소통하며 월 약 8,200건을 발행·운영하는 체계로 전환했습니다. 이 수치는 처리 한도가 아니라 2025년 11월 이후의 실제 운영량입니다.",
     cardSummary:
-      "고객사별 요구를 운영 규칙으로 구조화하고, 원고·제목·이미지·검수를 하나의 흐름으로 연결했습니다. 자동 실행으로 확보한 시간을 고객 관리, 수정 대응과 SEO 개선에 재투자했습니다.",
+      "원고·제목·이미지·검수와 배포 관리를 하나의 앱으로 연결했습니다. 자동 실행으로 확보한 시간을 고객 관리, 수정 대응과 SEO 개선에 재투자했습니다.",
     brief: {
       challenge: "인력과 야근을 늘려도 발행이 밀리고, 고객별 수정과 품질 대응에 쓸 시간이 부족했습니다.",
       decision: "제작 속도만 높이는 대신 고객 협의부터 제작·검수·성과 확인까지 전체 운영 흐름을 다시 설계했습니다.",
@@ -306,9 +306,9 @@ export const projects: Project[] = [
     ],
     proofs: [
       {
-        title: "통합 콘텐츠 운영 대시보드",
+        title: "콘텐츠 제작·검수 통합앱",
         description:
-          "사진 분류, 원고 변환, 검수, 제목 수정과 후속 작업을 하나의 흐름으로 연결한 실제 운영 도구입니다.",
+          "사진 분류, 원고 변환, 검수, 제목 수정과 후속 작업을 한 화면의 흐름으로 연결한 실제 콘텐츠 제작 통합앱입니다.",
         image: {
           src: "/evidence/kiwi-workflow-dashboard.png",
           alt: "사진 분류부터 원고 변환, 검수와 제목 수정까지 다섯 단계로 연결한 KIWI Workflow Suite 대시보드",
