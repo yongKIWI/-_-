@@ -383,12 +383,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   <div className="experiment-log-heading">
                     <p className="section-index">CONTENT EXPERIMENT LOG</p>
                     <h3>
-                      반복해 온 콘텐츠 실험 중, 판단 근거가 분명한 대표 실험
-                      3건을 정리했습니다.
+                      수차례 진행한 콘텐츠 실험 중, 통제 조건과 결과가 명확한
+                      사례 3건을 선별했습니다.
                     </h3>
                     <p>
-                      세 대표 실험의 A·B 변형안은 합계 1,480건입니다. 채택안뿐
-                      아니라 효과가 미미해 롤백한 실험도 함께 기록했습니다.
+                      아래 3건에 한해 A·B 변형안은 합계 1,480건입니다. 전체
+                      실험 횟수나 키워드 수가 아니며, 채택안뿐 아니라 효과가
+                      미미해 롤백한 실험도 함께 기록했습니다.
                     </p>
                   </div>
                   {project.experimentProtocol ? (
