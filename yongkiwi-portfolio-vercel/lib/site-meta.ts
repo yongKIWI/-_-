@@ -21,22 +21,22 @@ type SocialCard = {
 
 export const socialCards: Record<SocialCardKey, SocialCard> = {
   advertising: {
-    eyebrow: "광고기획 AE · 콘텐츠 운영 혁신",
-    title: "성과가 반복되는 구조를 만드는 AE",
+    eyebrow: "광고기획 AE · 콘텐츠 운영·업무 개선",
+    title: "운영의 문제를 찾아 실제 결과를 바꾸는 AE",
     before: "약 2,000",
     after: "약 8,200",
     label: "월 실제 콘텐츠 발행량",
   },
   performance: {
     eyebrow: "PERFORMANCE MARKETING AE · NAVER CONTENT SEO",
-    title: "네이버 콘텐츠 SEO 성과 구조를 만든 AE",
+    title: "감으로 하던 콘텐츠 운영을 데이터로 개선한 AE",
     before: "30~40%",
     after: "70~80%",
     label: "네이버 콘텐츠 SEO · TOP 7 진입률",
   },
   "operations-transformation": {
     eyebrow: "콘텐츠 운영 · 업무 자동화",
-    title: "현재 월 약 8,200건을 1인이 운영하는 콘텐츠 자동화 체계",
+    title: "월 약 8,200건을 1인이 운영하게 만든 콘텐츠 제작 통합앱",
     before: "약 2,000",
     after: "약 8,200",
     label: "월 실제 콘텐츠 발행량",
@@ -44,7 +44,7 @@ export const socialCards: Record<SocialCardKey, SocialCard> = {
   },
   "keyword-performance": {
     eyebrow: "NAVER CONTENT SEO · CONTROLLED EXPERIMENTATION",
-    title: "키워드 리서치와 통제 실험으로 구축한 네이버 콘텐츠 SEO 시스템",
+    title: "키워드 선별부터 실험·추적까지 연결한 네이버 콘텐츠 SEO",
     before: "30~40%",
     after: "70~80%",
     label: "네이버 콘텐츠 SEO · TOP 7 진입률",

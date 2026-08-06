@@ -172,10 +172,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <div className="improvement-methods">
                   <div className="improvement-methods-heading">
                     <p className="section-index">TWO IMPROVEMENT LOOPS</p>
-                    <h3>문제의 성격에 따라 검증 방식을 달리했습니다.</h3>
+                    <h3>문제에 따라 해결 방법을 달리했습니다.</h3>
                     <p>
-                      성과를 높이는 실험과, 프로그램을 정상화하는 수정은
-                      목적과 판단 기준이 다릅니다.
+                      성과를 높이기 위한 실험과 프로그램 오류를 고치는 일은
+                      같은 방식으로 접근하지 않았습니다.
                     </p>
                   </div>
                   <div className="improvement-method-grid">
@@ -248,7 +248,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             <section id="result">
               <p className="section-index">04 · RESULT</p>
-              <h2>결과와 성과</h2>
+              <h2>성과</h2>
               <ul className="result-list">
                 {project.results.map((item) => (
                   <li key={item}>{item}</li>
@@ -460,10 +460,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <div className="project-proof">
                 <div className="project-proof-heading">
                   <p className="section-index">WORKING EVIDENCE</p>
-                  <h3>실제 운영 화면과 증거 자료</h3>
+                  <h3>실제 운영 화면과 결과 자료</h3>
                   <p>
-                    실제 업무에 사용한 실행 화면과 집계 자료를 통해 입력, 운영,
-                    결과와 성과 추적이 이어지는 과정을 보여드립니다.
+                    실제 업무에 사용한 화면과 리포트로 작업 흐름과 결과를
+                    보여드립니다.
                   </p>
                 </div>
                 <div
@@ -525,13 +525,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             <section id="learning">
               <p className="section-index">06 · LEARNING</p>
-              <h2>인사이트와 다음 적용</h2>
+              <h2>배운 점</h2>
               <p>{project.learning}</p>
             </section>
 
             <p className="security-note">
-              고객사 및 내부 정보 보호를 위해 일부 데이터와 화면은
-              익명화하거나 재구성했습니다.
+              화면은 실제 업무 자료를 기반으로 하며, 공개 범위에 맞춰 필요한
+              항목은 익명화하거나 재구성합니다.
             </p>
           </article>
         </div>

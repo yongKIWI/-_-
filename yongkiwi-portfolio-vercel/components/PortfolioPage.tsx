@@ -19,12 +19,12 @@ type PortfolioPageProps = {
 
 const roleCopy = {
   advertising: {
-    eyebrow: "광고기획 AE · 콘텐츠 운영 혁신",
+    eyebrow: "광고기획 AE · 콘텐츠 운영·업무 개선",
     title: (
       <>
-        광고 운영의 병목을 찾고,
+        광고 운영에서 막히는 지점을 찾아,
         <br />{" "}
-        고객 성과가 반복되는 구조로 바꾸는
+        더 효율적으로 일하고 성과를 높이는
         <br />{" "}
         <em>AE 이용택입니다.</em>
       </>
@@ -32,7 +32,7 @@ const roleCopy = {
     description:
       "2~3명이 월 약 2,000건을 발행하던 업무를, 현재 1인이 50~60개 고객사와 직접 소통하며 월 약 8,200건을 운영하는 체계로 전환했습니다.",
     statement:
-      "90건 제작은 4시간의 수작업에서 약 50분의 무인 자동 실행으로 전환했고, 사람은 그 시간에 고객과 성과를 관리합니다.",
+      "사람이 4시간 동안 붙잡고 있던 90건 제작을, 약 50분 동안 프로그램이 자동으로 처리하게 바꿨습니다. 그 시간은 고객 대응과 성과 개선에 씁니다.",
     measurement: [
       "월 약 8,200건은 2025.11 이후 실제 운영량",
       "TOP 7 진입률은 업체별 월 발행 키워드 중 자사 콘텐츠가 네이버 통합검색 콘텐츠 영역 1~7위에 진입한 비율",
@@ -50,9 +50,9 @@ const roleCopy = {
     eyebrow: "PERFORMANCE MARKETING AE · NAVER CONTENT SEO",
     title: (
       <>
-        측정할 수 없던 콘텐츠 운영에
+        감으로 운영하던 콘텐츠를,
         <br />{" "}
-        KPI와 데이터 수집체계를 만든
+        데이터로 판단할 수 있게 만든
         <br />{" "}
         <em>AE 이용택입니다.</em>
       </>
@@ -163,15 +163,15 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               <div>
                 <p className="eyebrow">AE OWNERSHIP AT A GLANCE</p>
                 <h2>
-                  성과를 만든 역할은
+                  제가 만든 변화를
                   <br />
-                  네 가지였습니다.
+                  숫자로 정리했습니다.
                 </h2>
               </div>
               <p>
-                고객과 방향을 정하고, 요구를 운영 기준으로 바꾸며, 실행
-                데이터를 다음 개선안으로 연결했습니다. 필요한 측정과 자동화
-                체계까지 직접 설계해 실제 업무에 적용했습니다.
+                고객사와 방향을 정하는 일부터 콘텐츠 제작, 성과 측정과
+                개선까지 직접 맡았습니다. 반복 업무는 자동화하고, 확보한
+                시간은 고객 대응과 성과 개선에 다시 썼습니다.
               </p>
             </div>
             <div className="metric-grid">
@@ -197,7 +197,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
           <div className="container">
             <div className="section-heading">
               <p className="eyebrow">SELECTED WORK</p>
-              <h2>도구가 아니라, 바뀐 결과를 보여드립니다.</h2>
+              <h2>문제를 어떻게 찾고, 결과를 어떻게 바꿨는지 보여드립니다.</h2>
             </div>
 
             <div className="project-list">
@@ -254,14 +254,14 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               <div>
                 <p className="eyebrow">HOW I WORK</p>
                 <h2>
-                  주어진 일을 끝내는 데서
+                  주어진 목표를 달성하는 데서 끝내지 않고,
                   <br />
-                  멈추지 않습니다.
+                  더 잘할 방법까지 직접 찾습니다.
                 </h2>
               </div>
               <blockquote>
-                “프로그램을 만드는 것이 끝이 아니라, 실제 업무에서 성과가
-                반복될 때까지 운영하는 것이 제 일입니다.”
+                “프로그램은 만드는 것으로 끝나지 않습니다. 실제 업무에서
+                계속 돌아가고, 결과가 좋아질 때까지 고칩니다.”
               </blockquote>
             </div>
             <ol className="process-grid">
@@ -282,9 +282,9 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
             <div className="systems-copy">
               <p className="eyebrow">KIWI WORKFLOW SUITE</p>
               <h2>
-                성과 뒤에는
+                한 번 잘하는 데서 끝나지 않도록,
                 <br />
-                반복 가능한 시스템이 있습니다.
+                업무 전체를 시스템으로 연결했습니다.
               </h2>
               <p>
                 네이버 콘텐츠 SEO의 키워드 리서치부터 콘텐츠 제작, 이미지
@@ -293,7 +293,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               </p>
               <div className="system-note">
                 <strong>약 20분</strong>
-                <span>설명으로 사용할 수 있는 운영형 도구</span>
+                <span>설명이면 사용할 수 있도록 단순화한 업무용 도구</span>
               </div>
             </div>
             <ul className="system-list">
@@ -311,7 +311,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
           <div className="container">
             <div className="section-heading">
               <p className="eyebrow">EXPERIENCE</p>
-              <h2>고객의 요구를 실행으로, 실행 데이터를 다음 기획으로 연결했습니다.</h2>
+              <h2>고객의 요구를 콘텐츠에 담고, 결과를 다음 기획에 반영했습니다.</h2>
             </div>
             <div className="career-list">
               {careers.map((career) => (
@@ -333,10 +333,10 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               <div className="background-heading">
                 <p className="eyebrow">SELECTED BACKGROUND</p>
                 <div>
-                  <h3>현재의 성과는, 광고 기획의 기반 위에 쌓였습니다.</h3>
+                  <h3>지금의 실무 역량은 광고 기획 경험에서 시작됐습니다.</h3>
                   <p>
-                    전공, 캠페인 수상과 실무교육 중 현재의 AE 역량을 설명하는
-                    경험만 선별했습니다.
+                    전공과 공모전, 실무교육을 통해 광고 전략과 캠페인 기획의
+                    기본기를 쌓았습니다.
                   </p>
                 </div>
               </div>
@@ -364,27 +364,26 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
             <div>
               <p className="eyebrow">ABOUT</p>
               <h2>
-                목표만 주어지면,
+                목표만 주어져도,
                 <br />
-                성과가 반복되는 방식까지 만듭니다.
+                더 잘할 방법을 스스로 찾고 끝까지 실행합니다.
               </h2>
             </div>
             <div className="about-copy">
               <p>
                 웨이팅리스트에서 처음 받은 역할은 고객사의 블로그 콘텐츠를
                 정해진 수량만큼 발행하는 것이었습니다. 하지만 발행량을
-                맞추는 것만으로는 고객과 조직의 문제가 해결되지 않았습니다.
+                맞추는 것만으로는 발행 지연과 품질 편차, 고객 요청 대응 문제를
+                해결할 수 없었습니다.
               </p>
               <p>
-                시스템 뒤에는 고객과의 대화가 있었습니다. 업체 대표와 직접
-                소통하며 블로그에 담을 내용, 원하는 키워드 방향과 시즌별
-                기획을 정하고, 중간 수정과 클레임까지 블로그 운영 전반을
-                책임졌습니다.
+                자동화만 한 것은 아닙니다. 업체 대표와 직접 소통하며 블로그에
+                담을 내용, 원하는 키워드 방향과 시즌별 기획을 정하고, 중간
+                수정과 클레임까지 블로그 운영 전반을 책임졌습니다.
               </p>
               <p className="about-emphasis">
-                저에게 자동화는 사람을 대신하는 기술이 아닙니다. 고객을 더
-                깊게 이해하고 더 나은 기획과 개선에 집중할 시간을 만드는
-                수단입니다.
+                제가 자동화한 이유는 사람을 줄이기 위해서가 아니라, 사람이
+                고객과 성과에 더 집중할 시간을 만들기 위해서였습니다.
               </p>
             </div>
           </div>
@@ -394,13 +393,13 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
           <div className="container contact-inner">
             <p className="eyebrow">LET&apos;S WORK TOGETHER</p>
             <h2>
-              운영과 성과가 함께 좋아지는
+              고객 대응은 더 세밀하게, 운영은 더 효율적으로,
               <br />
-              구조를 만들겠습니다.
+              성과는 데이터로 개선하겠습니다.
             </h2>
             <p>
-              고객의 목표를 이해하는 기획력과 필요한 실행체계를 직접 만드는
-              오너십으로 기여하겠습니다.
+              고객의 목표를 이해하고, 필요한 방법이 없으면 직접 만들며,
+              실제 결과가 나올 때까지 책임지겠습니다.
             </p>
             <ContactEmail />
             <div className="contact-role-links">
