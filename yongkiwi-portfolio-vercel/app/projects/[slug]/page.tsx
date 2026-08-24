@@ -146,7 +146,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <article className="project-article">
             <section id="problem">
-              <p className="section-index">01 · PROBLEM</p>
+              <p className="section-index">01 · 문제 정의 (수정필요)</p>
               <h2>문제 상황</h2>
               <ul className="article-list">
                 {project.problem.map((item) => (
@@ -158,7 +158,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <blockquote>{project.judgment}</blockquote>
 
             <section id="decision">
-              <p className="section-index">02 · DECISION</p>
+              <p className="section-index">02 · 분석과 실행 (수정필요)</p>
               <h2>분석과 실행</h2>
               <ol className="process-list">
                 {project.execution.map((item, index) => (
@@ -171,7 +171,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {project.improvementMethods ? (
                 <div className="improvement-methods">
                   <div className="improvement-methods-heading">
-                    <p className="section-index">TWO IMPROVEMENT LOOPS</p>
+                    <p className="section-index">두 가지 대응 방식 (수정필요)</p>
                     <h3>문제에 따라 해결 방법을 달리했습니다.</h3>
                     <p>
                       성과를 높이기 위한 실험과 프로그램 오류를 고치는 일은
@@ -231,7 +231,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             <section className="evidence-panel" id="change">
               <div>
-                <p className="section-index">03 · BEFORE → AFTER</p>
+                <p className="section-index">03 · 업무 변화 (수정필요)</p>
                 <h2>업무 방식의 변화</h2>
               </div>
               <div className="evidence-grid">
@@ -247,7 +247,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </section>
 
             <section id="result">
-              <p className="section-index">04 · RESULT</p>
+              <p className="section-index">04 · 성과 (수정필요)</p>
               <h2>성과</h2>
               <ul className="result-list">
                 {project.results.map((item) => (
@@ -258,7 +258,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {project.performanceTracking ? (
                 <div className="performance-tracking">
                   <div className="performance-tracking-heading">
-                    <p className="section-index">PERFORMANCE MEASUREMENT</p>
+                    <p className="section-index">성과 추적 지표 (수정필요)</p>
                     <h3>{project.performanceTracking.title}</h3>
                     <p>{project.performanceTracking.description}</p>
                   </div>
@@ -286,10 +286,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <article className="performance-chart-card performance-volume-chart">
                       <div className="performance-chart-heading">
                         <div>
-                          <span>WEEKLY TOP 7 KEYWORDS</span>
-                          <h4>주차별 SERP TOP 7 키워드 수</h4>
+                          <span>주간 상위 노출 키워드 (수정필요)</span>
+                          <h4>주차별 통합검색 콘텐츠 영역 1~7위 키워드 수 (수정필요)</h4>
                         </div>
-                        <b>익명 전체 집계</b>
+                        <b>전체 고객사 합산·익명 처리 (수정필요)</b>
                       </div>
                       <div className="performance-column-chart">
                         {project.performanceTracking.trend.map((item) => (
@@ -330,8 +330,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <article className="performance-chart-card performance-flow-chart">
                       <div className="performance-chart-heading">
                         <div>
-                          <span>NEW ENTRY / EXIT</span>
-                          <h4>TOP 7 신규 진입·이탈 키워드</h4>
+                          <span>신규 진입·이탈 (수정필요)</span>
+                          <h4>1~7위 신규 진입·이탈 키워드 (수정필요)</h4>
                         </div>
                         <div className="performance-flow-legend">
                           <span>신규</span>
@@ -381,15 +381,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {project.experiments ? (
                 <div className="experiment-log">
                   <div className="experiment-log-heading">
-                    <p className="section-index">CONTENT EXPERIMENT LOG</p>
+                    <p className="section-index">콘텐츠 실험 기록 (수정필요)</p>
                     <h3>
-                      수차례 진행한 콘텐츠 실험 중, 통제 조건과 결과가 명확한
-                      사례 3건을 선별했습니다.
+                      반복해서 진행한 콘텐츠 실험 중 통제 조건과 결과가 명확한
+                      사례 3건을 정리했습니다. (수정필요)
                     </h3>
                     <p>
-                      아래 3건에 한해 A·B 변형안은 합계 1,480건입니다. 전체
-                      실험 횟수나 키워드 수가 아니며, 채택안뿐 아니라 효과가
-                      미미해 롤백한 실험도 함께 기록했습니다.
+                      대표 실험 3건의 A·B 발행 표본은 합계 1,480건입니다.
+                      채택한 방식과 효과가 작아 기존 방식으로 되돌린 사례를
+                      함께 기록했습니다. (수정필요)
                     </p>
                   </div>
                   {project.experimentProtocol ? (
@@ -459,8 +459,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
               <div className="project-proof">
                 <div className="project-proof-heading">
-                  <p className="section-index">WORKING EVIDENCE</p>
-                  <h3>실제 운영 화면과 결과 자료</h3>
+                  <p className="section-index">실제 업무 자료 (수정필요)</p>
+                  <h3>업무에 사용한 화면과 결과 자료 (수정필요)</h3>
                   <p>
                     실제 업무에 사용한 화면과 리포트로 작업 흐름과 결과를
                     보여드립니다.
@@ -518,13 +518,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </section>
 
             <section className="proof-note" id="measurement">
-              <p className="section-index">05 · MEASUREMENT NOTE</p>
+              <p className="section-index">05 · 측정 기준 (수정필요)</p>
               <h2>성과 측정 기준</h2>
               <p>{project.measurement}</p>
             </section>
 
             <section id="learning">
-              <p className="section-index">06 · LEARNING</p>
+              <p className="section-index">06 · 배운 점 (수정필요)</p>
               <h2>배운 점</h2>
               <p>{project.learning}</p>
             </section>
@@ -542,7 +542,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             href={`/projects/${nextProject.slug}`}
           >
             <div className="container">
-              <p className="eyebrow">NEXT PROJECT</p>
+              <p className="eyebrow">다음 프로젝트 (수정필요)</p>
               <div className="next-project-row">
                 <span>{nextProject.shortTitle}</span>
                 <b aria-hidden="true">→</b>

@@ -61,7 +61,7 @@ export async function GET(
             }}
           >
             <div style={{ display: "flex", fontSize: 30, fontWeight: 800 }}>
-              이용택 · MARKETING AE
+              이용택 · 마케팅 AE (수정필요)
             </div>
             <div
               style={{
