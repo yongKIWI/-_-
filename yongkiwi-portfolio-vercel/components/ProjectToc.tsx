@@ -93,7 +93,7 @@ export function ProjectToc({ className }: { className: string }) {
       className={className}
       ref={navRef}
     >
-      <span>프로젝트 목차 (수정필요)</span>
+      <span>프로젝트 목차 (수정필요 229)</span>
       {projectSections.map((section, index) => {
         const isActive = activeSection === section.id;
 

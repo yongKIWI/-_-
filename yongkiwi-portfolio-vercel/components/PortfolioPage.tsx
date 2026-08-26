@@ -19,23 +19,23 @@ type PortfolioPageProps = {
 
 const roleCopy = {
   advertising: {
-    eyebrow: "광고기획 AE · 네이버 콘텐츠 운영·업무 개선 (수정필요)",
+    eyebrow: "광고기획 AE · 네이버 콘텐츠 운영·업무 개선 (수정필요 2)",
     title: (
       <>
         콘텐츠 운영의 병목을 찾아,
         <br />{" "}
         고객 대응과 검색 성과를 함께 개선한
         <br />{" "}
-        <em>AE 이용택입니다. (수정필요)</em>
+        <em>AE 이용택입니다. (수정필요 3)</em>
       </>
     ),
     description:
-      "2~3명이 월 약 2,000건을 발행하던 업무를 개선해, 현재는 1인이 50~60개 고객사와 소통하며 월 약 8,200건을 운영하고 있습니다. (수정필요)",
+      "2~3명이 월 약 2,000건을 발행하던 업무를 개선해, 현재는 1인이 50~60개 고객사와 소통하며 월 약 8,200건을 운영하고 있습니다. (수정필요 4)",
     statement:
-      "90건을 제작하는 데 사람이 약 4시간을 투입했지만, 현재는 프로그램이 약 50분 동안 자동으로 처리합니다. 실행 중 확보한 시간은 고객 대응과 성과 분석에 사용합니다. (수정필요)",
+      "90건을 제작하는 데 사람이 약 4시간을 투입했지만, 현재는 프로그램이 약 50분 동안 자동으로 처리합니다. 실행 중 확보한 시간은 고객 대응과 성과 분석에 사용합니다. (수정필요 5)",
     measurement: [
       "월 약 8,200건은 2025.11 이후 실제 운영량",
-      "진입률은 업체별 월 발행 키워드 중 자사 콘텐츠가 네이버 통합검색 콘텐츠 영역 1~7위에 진입한 비율 (수정필요)",
+      "진입률은 업체별 월 발행 키워드 중 자사 콘텐츠가 네이버 통합검색 콘텐츠 영역 1~7위에 진입한 비율 (수정필요 6)",
     ],
     switchHref: "/performance-ae",
     switchLabel: "퍼포먼스 관점으로 보기",
@@ -47,22 +47,22 @@ const roleCopy = {
     ],
   },
   performance: {
-    eyebrow: "퍼포먼스 마케팅 AE · 네이버 콘텐츠 SEO (수정필요)",
+    eyebrow: "퍼포먼스 마케팅 AE · 네이버 콘텐츠 SEO (수정필요 7)",
     title: (
       <>
         검색량과 경쟁도를 확인하지 않던 콘텐츠 운영을,
         <br />{" "}
         데이터로 선별하고 추적하는 방식으로 바꾼
         <br />{" "}
-        <em>AE 이용택입니다. (수정필요)</em>
+        <em>AE 이용택입니다. (수정필요 8)</em>
       </>
     ),
     description:
-      "키워드 리서치, 네이버 통합검색 결과 페이지(SERP) 분석, 콘텐츠 실험과 주간 순위 추적을 하나의 운영 과정으로 연결했습니다. (수정필요)",
+      "키워드 리서치, 네이버 통합검색 결과 페이지(SERP) 분석, 콘텐츠 실험과 주간 순위 추적을 하나의 운영 과정으로 연결했습니다. (수정필요 9)",
     statement:
-      "검색량·경쟁도 기반 키워드 선별과 단일 변수 A/B 테스트를 적용해 네이버 통합검색 콘텐츠 영역 1~7위 진입률을 30~40%에서 70~80% 수준으로 높였습니다. (수정필요)",
+      "검색량·경쟁도 기반 키워드 선별과 단일 변수 A/B 테스트를 적용해 네이버 통합검색 콘텐츠 영역 1~7위 진입률을 30~40%에서 70~80% 수준으로 높였습니다. (수정필요 10)",
     measurement: [
-      "진입률은 업체별 월 발행 키워드 중 자사 콘텐츠가 네이버 통합검색 콘텐츠 영역 1~7위에 진입한 비율 (수정필요)",
+      "진입률은 업체별 월 발행 키워드 중 자사 콘텐츠가 네이버 통합검색 콘텐츠 영역 1~7위에 진입한 비율 (수정필요 11)",
       "70~80%는 2025.11 이후 실제 운영 수준",
     ],
     switchHref: "/",
@@ -97,7 +97,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 className="hero-measurement"
                 aria-label="핵심 성과 측정 기준"
               >
-                <span>수치 기준 (수정필요)</span>
+                <span>수치 기준 (수정필요 12)</span>
                 <p>
                   {copy.measurement.join(" · ")} · 세부 산식은 프로젝트 상세에서
                   확인
@@ -117,7 +117,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
             </div>
 
             <div className="hero-visual" aria-label="핵심 성과 요약">
-              <div className="visual-label">주요 변화 (수정필요)</div>
+              <div className="visual-label">주요 변화 (수정필요 13)</div>
               <div className="visual-row visual-row-primary">
                 <span>월 실제 발행량</span>
                 <strong>2,000</strong>
@@ -131,29 +131,29 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 <strong>1명</strong>
               </div>
               <div className="visual-row">
-                <span>네이버 통합검색 콘텐츠 영역 1~7위 진입률 (수정필요)</span>
+                <span>네이버 통합검색 콘텐츠 영역 1~7위 진입률 (수정필요 14)</span>
                 <strong>30~40%</strong>
                 <b>→</b>
                 <strong>70~80%</strong>
               </div>
               <div className="visual-footer">
-                <span>고객사 협의 (수정필요)</span>
-                <span>콘텐츠 기획 (수정필요)</span>
-                <span>제작·운영 (수정필요)</span>
-                <span>성과 분석 (수정필요)</span>
+                <span>고객사 협의 (수정필요 15)</span>
+                <span>콘텐츠 기획 (수정필요 16)</span>
+                <span>제작·운영 (수정필요 17)</span>
+                <span>성과 분석 (수정필요 18)</span>
               </div>
             </div>
           </div>
           <div className="hero-marquee" aria-hidden="true">
-            <span>OBSERVE (수정필요)</span>
+            <span>OBSERVE (수정필요 19)</span>
             <b>→</b>
-            <span>DEFINE (수정필요)</span>
+            <span>DEFINE (수정필요 20)</span>
             <b>→</b>
-            <span>BUILD (수정필요)</span>
+            <span>BUILD (수정필요 21)</span>
             <b>→</b>
-            <span>OPERATE (수정필요)</span>
+            <span>OPERATE (수정필요 22)</span>
             <b>→</b>
-            <span>IMPROVE (수정필요)</span>
+            <span>IMPROVE (수정필요 23)</span>
           </div>
         </section>
 
@@ -161,11 +161,11 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
           <div className="container">
             <div className="section-heading split-heading">
               <div>
-                <p className="eyebrow">핵심 성과 (수정필요)</p>
+                <p className="eyebrow">핵심 성과 (수정필요 24)</p>
                 <h2>
                   업무 방식의 변화를
                   <br />
-                  주요 수치로 정리했습니다. (수정필요)
+                  주요 수치로 정리했습니다. (수정필요 25)
                 </h2>
               </div>
               <p>
@@ -196,8 +196,8 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
         <section className="projects section" id="projects">
           <div className="container">
             <div className="section-heading">
-              <p className="eyebrow">대표 프로젝트 (수정필요)</p>
-              <h2>문제 발견부터 실행과 결과까지 정리했습니다. (수정필요)</h2>
+              <p className="eyebrow">대표 프로젝트 (수정필요 26)</p>
+              <h2>문제 발견부터 실행과 결과까지 정리했습니다. (수정필요 27)</h2>
             </div>
 
             <div className="project-list">
@@ -215,7 +215,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                     <p className="project-category">{project.category}</p>
                     <h3>{project.cardTitle ?? project.shortTitle}</h3>
                     <p className="project-card-role">
-                      <span>담당 역할 (수정필요)</span>
+                      <span>담당 역할 (수정필요 28)</span>
                       {project.role}
                     </p>
                     <p>{project.cardSummary ?? project.summary}</p>
@@ -240,9 +240,9 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               className="support-project"
               href="/projects/system-ownership"
             >
-              <span>업무 자동화와 유지보수 (수정필요)</span>
-              <strong>반복 업무 자동화 도구 구축·운영 (수정필요)</strong>
-              <p>수작업 → 자동화 도구 운영 · 10개월 실사용 (수정필요)</p>
+              <span>업무 자동화와 유지보수 (수정필요 29)</span>
+              <strong>반복 업무 자동화 도구 구축·운영 (수정필요 30)</strong>
+              <p>수작업 → 자동화 도구 운영 · 10개월 실사용 (수정필요 31)</p>
               <b aria-hidden="true">→</b>
             </Link>
           </div>
@@ -252,16 +252,16 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
           <div className="container">
             <div className="section-heading split-heading">
               <div>
-                <p className="eyebrow">일하는 방식 (수정필요)</p>
+                <p className="eyebrow">일하는 방식 (수정필요 32)</p>
                 <h2>
                   주어진 목표를 수행하면서,
                   <br />
-                  반복되는 문제와 개선 기회를 함께 찾습니다. (수정필요)
+                  반복되는 문제와 개선 기회를 함께 찾습니다. (수정필요 33)
                 </h2>
               </div>
               <blockquote>
                 “자동화 도구는 실제 업무에 적용한 뒤에도 오류와 플랫폼 변화에
-                맞춰 수정하며 사용했습니다. (수정필요)”
+                맞춰 수정하며 사용했습니다. (수정필요 34)”
               </blockquote>
             </div>
             <ol className="process-grid">
@@ -280,20 +280,20 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
         <section className="systems section">
           <div className="container systems-grid">
             <div className="systems-copy">
-              <p className="eyebrow">KIWI 업무 도구 모음 (수정필요)</p>
+              <p className="eyebrow">KIWI 업무 도구 모음 (수정필요 35)</p>
               <h2>
                 반복 업무를 줄일 수 있도록,
                 <br />
-                콘텐츠 운영 과정을 여러 업무 도구로 연결했습니다. (수정필요)
+                콘텐츠 운영 과정을 여러 업무 도구로 연결했습니다. (수정필요 36)
               </h2>
               <p>
                 네이버 콘텐츠 SEO의 키워드 리서치부터 콘텐츠 제작, 이미지
                 처리, 품질 검수, 순위 측정과 보고까지 월 8,000건 이상을
-                운영하는 과정을 연결했습니다. (수정필요)
+                운영하는 과정을 연결했습니다. (수정필요 37)
               </p>
               <div className="system-note">
                 <strong>약 20분</strong>
-                <span>약 20분의 안내로 사용할 수 있도록 구성한 업무용 도구 (수정필요)</span>
+                <span>약 20분의 안내로 사용할 수 있도록 구성한 업무용 도구 (수정필요 38)</span>
               </div>
             </div>
             <ul className="system-list">
@@ -310,8 +310,8 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
         <section className="career section" id="career">
           <div className="container">
             <div className="section-heading">
-              <p className="eyebrow">경력 (수정필요)</p>
-              <h2>고객 협의부터 콘텐츠 운영과 성과 분석까지 담당했습니다. (수정필요)</h2>
+              <p className="eyebrow">경력 (수정필요 39)</p>
+              <h2>고객 협의부터 콘텐츠 운영과 성과 분석까지 담당했습니다. (수정필요 40)</h2>
             </div>
             <div className="career-list">
               {careers.map((career) => (
@@ -331,12 +331,12 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
 
             <div className="background-block" id="background">
               <div className="background-heading">
-                <p className="eyebrow">관련 경험 (수정필요)</p>
+                <p className="eyebrow">관련 경험 (수정필요 41)</p>
                 <div>
-                  <h3>광고 기획의 기본기를 쌓은 전공·공모전·교육 경험입니다. (수정필요)</h3>
+                  <h3>광고 기획의 기본기를 쌓은 전공·공모전·교육 경험입니다. (수정필요 42)</h3>
                   <p>
                     전공과 공모전, 실무 교육에서 광고 전략과 캠페인 기획을
-                    경험했습니다. (수정필요)
+                    경험했습니다. (수정필요 43)
                   </p>
                 </div>
               </div>
@@ -362,11 +362,11 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
         <section className="about section" id="about">
           <div className="container about-grid">
             <div>
-              <p className="eyebrow">업무 태도 (수정필요)</p>
+              <p className="eyebrow">업무 태도 (수정필요 44)</p>
               <h2>
                 주어진 발행 목표를 수행하면서,
                 <br />
-                고객 대응과 성과를 개선할 방법도 함께 찾았습니다. (수정필요)
+                고객 대응과 성과를 개선할 방법도 함께 찾았습니다. (수정필요 45)
               </h2>
             </div>
             <div className="about-copy">
@@ -379,11 +379,11 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               <p>
                 업체 대표와 소통하며 블로그에
                 담을 내용, 원하는 키워드 방향과 시즌별 기획을 정하고, 중간
-                수정과 클레임까지 블로그 운영 전반을 책임졌습니다. (수정필요)
+                수정과 클레임까지 블로그 운영 전반을 책임졌습니다. (수정필요 46)
               </p>
               <p className="about-emphasis">
                 자동화로 확보한 시간은 고객 요청 대응과 콘텐츠 성과 분석에
-                사용했습니다. (수정필요)
+                사용했습니다. (수정필요 47)
               </p>
             </div>
           </div>
@@ -391,15 +391,15 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
 
         <section className="contact section" id="contact">
           <div className="container contact-inner">
-            <p className="eyebrow">연락처 (수정필요)</p>
+            <p className="eyebrow">연락처 (수정필요 48)</p>
             <h2>
               고객의 요구를 실행 가능한 콘텐츠 기준으로 정리하고,
               <br />
-              운영 결과를 다음 기획에 반영하는 AE가 되겠습니다. (수정필요)
+              운영 결과를 다음 기획에 반영하는 AE가 되겠습니다. (수정필요 49)
             </h2>
             <p>
               고객 협의, 콘텐츠 운영과 성과 분석을 연결해 더 나은 실행안을
-              제안하겠습니다. (수정필요)
+              제안하겠습니다. (수정필요 50)
             </p>
             <ContactEmail />
             <div className="contact-role-links">
