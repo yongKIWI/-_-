@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { ProjectToc } from "@/components/ProjectToc";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { projects } from "@/lib/site-data";
+import { projects, type Project } from "@/lib/site-data";
 import {
   createSocialMetadata,
   type SocialCardKey,
@@ -16,6 +16,55 @@ import { siteUrl } from "@/lib/site-url";
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+function ProjectProofCard({
+  proof,
+  featured = false,
+}: {
+  proof: Project["proofs"][number];
+  featured?: boolean;
+}) {
+  return (
+    <article
+      className={`project-proof-card${proof.image ? " has-image" : " is-placeholder"}${featured ? " is-featured" : ""}`}
+    >
+      {proof.image ? (
+        <a
+          aria-label={`${proof.title} 원본 크기로 보기`}
+          className="project-proof-image"
+          href={proof.image.src}
+          rel="noreferrer"
+          target="_blank"
+        >
+          <Image
+            alt={proof.image.alt}
+            height={proof.image.height}
+            sizes={featured
+              ? "(max-width: 720px) calc(100vw - 60px), (max-width: 1100px) 55vw, 520px"
+              : "(max-width: 720px) calc(100vw - 60px), 390px"}
+            src={proof.image.src}
+            width={proof.image.width}
+          />
+          <span>원본 크기로 보기 ↗</span>
+        </a>
+      ) : (
+        <div className="project-proof-placeholder">
+          <span aria-hidden="true">＋</span>
+          <b>CAPTURE TO ADD</b>
+        </div>
+      )}
+      <div className="project-proof-copy">
+        <h4>{proof.title}</h4>
+        <p>{proof.description}</p>
+        {proof.image ? (
+          <small>{proof.image.caption}</small>
+        ) : (
+          <small><b>촬영 안내</b>{proof.captureGuide}</small>
+        )}
+      </div>
+    </article>
+  );
+}
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -53,6 +102,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   const nextProject = projects[(projectIndex + 1) % projects.length];
+  const featuredProof = project.featuredProofIndex !== undefined
+    ? project.proofs[project.featuredProofIndex]
+    : undefined;
+  const supportingProofs = project.proofs.filter(
+    (_, index) => index !== project.featuredProofIndex,
+  );
   const trackingMax = project.performanceTracking
     ? Math.max(...project.performanceTracking.trend.map((item) => item.topSeven))
     : 1;
@@ -157,25 +212,33 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             <blockquote>{project.judgment}</blockquote>
 
+            {featuredProof ? (
+              <div className="project-featured-proof">
+                <ProjectProofCard proof={featuredProof} featured />
+              </div>
+            ) : null}
+
             <section id="decision">
               <p className="section-index">02 · 분석과 실행 (수정필요 211)</p>
               <h2>분석과 실행</h2>
-              <ol className="process-list">
-                {project.execution.map((item, index) => (
-                  <li key={item}>
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <p>{item}</p>
-                  </li>
-                ))}
-              </ol>
+              {project.execution.length > 0 ? (
+                <ol className="process-list">
+                  {project.execution.map((item, index) => (
+                    <li key={item}>
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <p>{item}</p>
+                    </li>
+                  ))}
+                </ol>
+              ) : null}
               {project.improvementMethods ? (
                 <div className="improvement-methods">
                   <div className="improvement-methods-heading">
-                    <p className="section-index">성과 개선과 오류 해결 (수정필요 212)</p>
-                    <h3>문제에 따라 해결 방법을 달리했습니다.</h3>
+                    <p className="section-index">플랫폼 변경 대응 (수정필요 212)</p>
+                    <h3>오류가 생긴 조건을 찾고 수정 전후 결과를 확인했습니다.</h3>
                     <p>
-                      성과를 높이기 위한 실험과 프로그램 오류를 고치는 일은
-                      같은 방식으로 접근하지 않았습니다.
+                      검색결과의 구성이나 URL이 달라져도 필요한 대상과 순위를
+                      정확히 구분하도록 판정 규칙을 보완했습니다.
                     </p>
                   </div>
                   <div className="improvement-method-grid">
@@ -205,7 +268,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
               ) : null}
               {project.decisionCase ? (
-                <div className="decision-case">
+                <div className={`decision-case${project.execution.length === 0 ? " is-primary" : ""}`}>
                   <div className="decision-case-heading">
                     <p className="section-index">{project.decisionCase.label}</p>
                     <h3>{project.decisionCase.title}</h3>
@@ -464,51 +527,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   </p>
                 </div>
                 <div
-                  className={`project-proof-grid proof-count-${project.proofs.length}`}
+                  className={`project-proof-grid proof-count-${supportingProofs.length}`}
                 >
-                  {project.proofs.map((proof) => (
-                    <article
-                      className={`project-proof-card${
-                        proof.image ? " has-image" : " is-placeholder"
-                      }`}
-                      key={proof.title}
-                    >
-                      {proof.image ? (
-                        <a
-                          aria-label={`${proof.title} 원본 크기로 보기`}
-                          className="project-proof-image"
-                          href={proof.image.src}
-                          rel="noreferrer"
-                          target="_blank"
-                        >
-                          <Image
-                            alt={proof.image.alt}
-                            height={proof.image.height}
-                            sizes="(max-width: 720px) calc(100vw - 60px), 390px"
-                            src={proof.image.src}
-                            width={proof.image.width}
-                          />
-                          <span>원본 크기로 보기 ↗</span>
-                        </a>
-                      ) : (
-                        <div className="project-proof-placeholder">
-                          <span aria-hidden="true">＋</span>
-                          <b>CAPTURE TO ADD</b>
-                        </div>
-                      )}
-                      <div className="project-proof-copy">
-                        <h4>{proof.title}</h4>
-                        <p>{proof.description}</p>
-                        {proof.image ? (
-                          <small>{proof.image.caption}</small>
-                        ) : (
-                          <small>
-                            <b>촬영 안내</b>
-                            {proof.captureGuide}
-                          </small>
-                        )}
-                      </div>
-                    </article>
+                  {supportingProofs.map((proof) => (
+                    <ProjectProofCard key={proof.title} proof={proof} />
                   ))}
                 </div>
               </div>

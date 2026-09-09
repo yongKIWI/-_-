@@ -339,10 +339,6 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               <p>
                 키워드 분석, 콘텐츠 제작·검수, 순위 조사·보고까지 반복 작업을 자동화했습니다. 필요한 기능을 직접 조정하며 월 약 8,200건 운영에 사용합니다. (수정필요 37)
               </p>
-              <div className="system-note">
-                <strong>약 20분</strong>
-                <span>입력부터 결과 확인까지 기본 사용법 안내 (수정필요 38)</span>
-              </div>
             </div>
             <ul className="system-list">
               {supportingSystems.map((system, index) => (

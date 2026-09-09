@@ -760,24 +760,6 @@ button:focus-visible {
   font-weight: 650;
 }
 
-.system-note {
-  margin-top: 38px;
-  padding-top: 20px;
-  display: flex;
-  gap: 18px;
-  align-items: center;
-  border-top: 1px solid var(--ink);
-}
-
-.system-note strong {
-  font-size: 30px;
-}
-
-.system-note span {
-  font-size: 13px;
-  font-weight: 750;
-}
-
 .system-list {
   margin: 0;
   padding: 0;
@@ -1727,6 +1709,10 @@ footer p {
   gap: 18px;
 }
 
+.improvement-method-card:only-child {
+  grid-column: 1 / -1;
+}
+
 .improvement-method-card {
   min-width: 0;
   padding: 28px;
@@ -1829,6 +1815,10 @@ footer p {
   border: 1px solid var(--ink);
   background: var(--white);
   box-shadow: 8px 8px 0 var(--kiwi);
+}
+
+.decision-case.is-primary {
+  margin-top: 28px;
 }
 
 .decision-case-heading {
@@ -2171,6 +2161,27 @@ footer p {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.75;
+}
+
+.project-featured-proof {
+  margin: 0 0 52px;
+}
+
+.project-proof-card.is-featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+.is-featured .project-proof-image {
+  border-right: 1px solid var(--ink);
+  border-bottom: 0;
+}
+
+.is-featured .project-proof-image img {
+  height: auto;
+  max-height: 360px;
+  object-fit: contain;
 }
 
 .project-proof-grid {
@@ -2955,6 +2966,20 @@ footer p {
 
   .project-proof {
     margin-top: 54px;
+  }
+
+  .project-proof-card.is-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .is-featured .project-proof-image {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .is-featured .project-proof-image img {
+    height: auto;
+    max-height: none;
   }
 
   .project-proof-grid {
