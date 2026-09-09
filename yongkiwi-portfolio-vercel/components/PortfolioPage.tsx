@@ -248,6 +248,57 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
           </div>
         </section>
 
+        <section className="career section" id="career">
+          <div className="container">
+            <div className="section-heading">
+              <p className="eyebrow">경력 (수정필요 39)</p>
+              <h2>콘텐츠 운영과 행사 기획·운영을 경험했습니다. (수정필요 40)</h2>
+            </div>
+            <div className="career-list">
+              {careers.map((career) => (
+                <article key={career.company}>
+                  <div>
+                    <span>{career.period}</span>
+                    <b>{career.status}</b>
+                  </div>
+                  <div>
+                    <h3>{career.company}</h3>
+                    <p>{career.team}</p>
+                  </div>
+                  <p>{career.description}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="background-block" id="background">
+              <div className="background-heading">
+                <p className="eyebrow">관련 경험 (수정필요 41)</p>
+                <div>
+                  <h3>전공에서 배운 기획을 공모전과 실무 교육에 적용했습니다. (수정필요 42)</h3>
+                  <p>
+                    공모전에서는 타깃과 메시지를 기획하고, 실무 교육에서는 팀원들과 광고를 제작했습니다. (수정필요 43)
+                  </p>
+                </div>
+              </div>
+              <div className="career-list background-list">
+                {selectedBackground.map((item) => (
+                  <article key={`${item.period}-${item.title}`}>
+                    <div>
+                      <span>{item.period}</span>
+                      <b>{item.status}</b>
+                    </div>
+                    <div>
+                      <h3>{item.title}</h3>
+                      <p>{item.subtitle}</p>
+                    </div>
+                    <p>{item.description}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="process section" id="process">
           <div className="container">
             <div className="section-heading split-heading">
@@ -301,57 +352,6 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 </li>
               ))}
             </ul>
-          </div>
-        </section>
-
-        <section className="career section" id="career">
-          <div className="container">
-            <div className="section-heading">
-              <p className="eyebrow">경력 (수정필요 39)</p>
-              <h2>콘텐츠 운영과 행사 기획·운영을 경험했습니다. (수정필요 40)</h2>
-            </div>
-            <div className="career-list">
-              {careers.map((career) => (
-                <article key={career.company}>
-                  <div>
-                    <span>{career.period}</span>
-                    <b>{career.status}</b>
-                  </div>
-                  <div>
-                    <h3>{career.company}</h3>
-                    <p>{career.team}</p>
-                  </div>
-                  <p>{career.description}</p>
-                </article>
-              ))}
-            </div>
-
-            <div className="background-block" id="background">
-              <div className="background-heading">
-                <p className="eyebrow">관련 경험 (수정필요 41)</p>
-                <div>
-                  <h3>전공에서 배운 기획을 공모전과 실무 교육에 적용했습니다. (수정필요 42)</h3>
-                  <p>
-                    타깃을 분석하고 메시지를 정해 캠페인 기획서와 광고물로 만들었습니다. (수정필요 43)
-                  </p>
-                </div>
-              </div>
-              <div className="career-list background-list">
-                {selectedBackground.map((item) => (
-                  <article key={`${item.period}-${item.title}`}>
-                    <div>
-                      <span>{item.period}</span>
-                      <b>{item.status}</b>
-                    </div>
-                    <div>
-                      <h3>{item.title}</h3>
-                      <p>{item.subtitle}</p>
-                    </div>
-                    <p>{item.description}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
