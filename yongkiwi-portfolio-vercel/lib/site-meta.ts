@@ -53,9 +53,9 @@ export const socialCards: Record<SocialCardKey, SocialCard> = {
     eyebrow: "키워드 순위 조사 · 보고 자동화 (수정필요 241)",
     title: "키워드 순위 조사·보고 자동화 (수정필요 242)",
     before: "3,000",
-    after: "1만~1.2만",
+    after: "1.4만~1.5만",
     label: "1회 키워드 조사량",
-    note: "10개월 누적 약 52만 회 조사 · 추정 (수정필요 243)",
+    note: "현재 PC 1대 · 5~6시간 자동 조사 (수정필요 243)",
   },
   "system-ownership": {
     eyebrow: "업무 자동화 · 유지보수 (수정필요 244)",
