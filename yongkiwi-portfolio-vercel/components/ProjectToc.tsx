@@ -27,7 +27,7 @@ function useActiveProjectSection() {
       projectSections.forEach((item) => {
         const section = document.getElementById(item.id);
 
-        if (section && section.offsetTop <= marker) {
+        if (section && section.getBoundingClientRect().top + window.scrollY <= marker) {
           current = item.id;
         }
       });
@@ -47,6 +47,9 @@ function useActiveProjectSection() {
     window.addEventListener("scroll", requestUpdate, { passive: true });
     window.addEventListener("resize", requestUpdate);
     window.addEventListener("hashchange", requestUpdate);
+    const resizeObserver = new ResizeObserver(requestUpdate);
+    const article = document.querySelector(".project-article");
+    if (article) resizeObserver.observe(article);
 
     return () => {
       window.cancelAnimationFrame(frame);
@@ -54,6 +57,7 @@ function useActiveProjectSection() {
       window.removeEventListener("scroll", requestUpdate);
       window.removeEventListener("resize", requestUpdate);
       window.removeEventListener("hashchange", requestUpdate);
+      resizeObserver.disconnect();
     };
   }, []);
 

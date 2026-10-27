@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ContentDisclosure } from "@/components/ContentDisclosure";
+import { DisclosureNavigation } from "@/components/DisclosureNavigation";
 import { JsonLd } from "@/components/JsonLd";
 import { ProjectToc } from "@/components/ProjectToc";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -135,6 +137,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <>
+      <DisclosureNavigation />
       <JsonLd data={projectJsonLd} />
       <SiteHeader compact />
       <main className="project-page" id="main-content">
@@ -190,10 +193,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <span>운영 기간</span>
               <strong>{project.operationPeriod}</strong>
             </div>
-            <div>
-              <span>사용 도구</span>
-              <strong>{project.tools.join(" · ")}</strong>
-            </div>
+            <ContentDisclosure title="사용 도구">
+              <p>{project.tools.join(" · ")}</p>
+            </ContentDisclosure>
             <ProjectToc className="project-toc" />
           </aside>
 
@@ -212,24 +214,45 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             <blockquote>{project.judgment}</blockquote>
 
-            {featuredProof ? (
-              <div className="project-featured-proof">
-                <ProjectProofCard proof={featuredProof} featured />
-              </div>
-            ) : null}
-
             <section id="decision">
               <p className="section-index">02 · 분석과 실행 (수정필요 211)</p>
               <h2>분석과 실행</h2>
-              {project.execution.length > 0 ? (
-                <ol className="process-list">
-                  {project.execution.map((item, index) => (
-                    <li key={item}>
-                      <span>{String(index + 1).padStart(2, "0")}</span>
-                      <p>{item}</p>
-                    </li>
-                  ))}
-                </ol>
+              {project.clientExample ? (
+                <div className="decision-case">
+                  <div className="decision-case-heading">
+                    <p className="section-index">업체 요구에 대한 제안</p>
+                    <h3>{project.clientExample.title}</h3>
+                    <p>{project.clientExample.context}</p>
+                    <p>{project.clientExample.action}</p>
+                    <p>{project.clientExample.outcome}</p>
+                  </div>
+                </div>
+              ) : null}
+              {project.clientExample && project.execution.length > 0 ? (
+                <ContentDisclosure title="키워드 선별·실험·추적 과정" preview={project.cardSummary}>
+                  <ol className="process-list">
+                    {project.execution.map((item, index) => (
+                      <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>
+                    ))}
+                  </ol>
+                </ContentDisclosure>
+              ) : project.execution.length > 0 ? (
+                <>
+                  <ol className="process-list">
+                    {project.execution.slice(0, 3).map((item, index) => (
+                      <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>
+                    ))}
+                  </ol>
+                  {project.execution.length > 3 ? (
+                    <ContentDisclosure title="구현·운영 과정 더 보기">
+                      <ol className="process-list" start={4}>
+                        {project.execution.slice(3).map((item, index) => (
+                          <li key={item}><span>{String(index + 4).padStart(2, "0")}</span><p>{item}</p></li>
+                        ))}
+                      </ol>
+                    </ContentDisclosure>
+                  ) : null}
+                </>
               ) : null}
               {project.improvementMethods ? (
                 <div className="improvement-methods">
@@ -267,31 +290,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   </div>
                 </div>
               ) : null}
-              {project.clientExample ? (
-                <div className="decision-case">
-                  <div className="decision-case-heading">
-                    <p className="section-index">업체 요구에 대한 제안</p>
-                    <h3>{project.clientExample.title}</h3>
-                    <p>{project.clientExample.context}</p>
-                    <p>{project.clientExample.action}</p>
-                    <p>{project.clientExample.outcome}</p>
-                  </div>
-                </div>
-              ) : null}
               {project.decisionCase ? (
                 <div className={`decision-case${project.execution.length === 0 ? " is-primary" : ""}`}>
                   <div className="decision-case-heading">
                     <p className="section-index">{project.decisionCase.label}</p>
                     <h3>{project.decisionCase.title}</h3>
                     <p>{project.decisionCase.description}</p>
+                    {project.execution.length === 0 && project.cardSummary ? <p>{project.cardSummary}</p> : null}
                   </div>
                   <div className="decision-case-grid">
                     {project.decisionCase.steps.map((step) => (
-                      <article key={step.label}>
-                        <span>{step.label}</span>
-                        <h4>{step.title}</h4>
+                      <ContentDisclosure key={step.label} eyebrow={step.label} title={step.title}>
                         <p>{step.description}</p>
-                      </article>
+                      </ContentDisclosure>
                     ))}
                   </div>
                   {project.decisionCase.disclosure ? (
@@ -329,31 +340,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 ))}
               </ul>
 
+            {featuredProof ? (
+              <div className="project-featured-proof">
+                <ProjectProofCard proof={featuredProof} featured />
+              </div>
+            ) : null}
+
+
               {project.performanceTracking ? (
                 <div className="performance-tracking">
                   <div className="performance-tracking-heading">
                     <p className="section-index">주간 성과 추적 (수정필요 215)</p>
                     <h3>{project.performanceTracking.title}</h3>
                     <p>{project.performanceTracking.description}</p>
-                  </div>
-
-                  <div className="performance-tracking-metrics">
-                    {project.performanceTracking.metrics.map((metric) => (
-                      <div key={metric.label}>
-                        <span>{metric.label}</span>
-                        <strong>{metric.value}</strong>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="performance-dimension-grid">
-                    {project.performanceTracking.dimensions.map((dimension) => (
-                      <article key={dimension.label}>
-                        <span>{dimension.label}</span>
-                        <h4>{dimension.title}</h4>
-                        <p>{dimension.description}</p>
-                      </article>
-                    ))}
                   </div>
 
                   <div className="performance-chart-grid">
@@ -401,11 +400,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       </div>
                     </article>
 
+                    <ContentDisclosure title="TOP 7 신규 진입·이탈 수 (수정필요 220)" eyebrow="주간 변동 (수정필요 219)">
                     <article className="performance-chart-card performance-flow-chart">
                       <div className="performance-chart-heading">
                         <div>
-                          <span>주간 변동 (수정필요 219)</span>
-                          <h4>TOP 7 신규 진입·이탈 수 (수정필요 220)</h4>
+                          <h4>주별 신규 진입과 이탈 비교</h4>
                         </div>
                         <div className="performance-flow-legend">
                           <span>신규</span>
@@ -444,11 +443,33 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         ))}
                       </div>
                     </article>
+                    </ContentDisclosure>
+                  </div>
+
+                  <ContentDisclosure title="추적 지표와 관측 기준">
+                  <div className="performance-tracking-metrics">
+                    {project.performanceTracking.metrics.map((metric) => (
+                      <div key={metric.label}>
+                        <span>{metric.label}</span>
+                        <strong>{metric.value}</strong>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="performance-dimension-grid">
+                    {project.performanceTracking.dimensions.map((dimension) => (
+                      <article key={dimension.label}>
+                        <span>{dimension.label}</span>
+                        <h4>{dimension.title}</h4>
+                        <p>{dimension.description}</p>
+                      </article>
+                    ))}
                   </div>
 
                   <p className="performance-tracking-note">
                     {project.performanceTracking.note}
                   </p>
+                  </ContentDisclosure>
                 </div>
               ) : null}
 
@@ -464,6 +485,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     </p>
                   </div>
                   {project.experimentProtocol ? (
+                    <ContentDisclosure title="공통 실험 조건과 측정 방식">
                     <div className="experiment-protocol">
                       {project.experimentProtocol.map((item) => (
                         <div key={item.label}>
@@ -472,26 +494,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         </div>
                       ))}
                     </div>
+                    </ContentDisclosure>
                   ) : null}
                   <div className="experiment-log-list">
                     {project.experiments.map((experiment, experimentIndex) => (
-                      <article className="experiment-card" key={experiment.title}>
-                        <div className="experiment-card-topline">
-                          <span>
-                            {String(experimentIndex + 1).padStart(2, "0")} ·{" "}
-                            {experiment.period}
-                          </span>
-                          <b
-                            className={
-                              experiment.status === "채택"
-                                ? "is-adopted"
-                                : "is-rolled-back"
-                            }
-                          >
-                            {experiment.status}
-                          </b>
-                        </div>
-                        <h4>{experiment.title}</h4>
+                      <ContentDisclosure
+                        className="experiment-card"
+                        key={experiment.title}
+                        eyebrow={`${String(experimentIndex + 1).padStart(2, "0")} · ${experiment.period}`}
+                        title={<>{experiment.title}{" "}<span className={experiment.status === "채택" ? "experiment-status is-adopted" : "experiment-status is-rolled-back"}>{experiment.status}</span></>}
+                        preview={`${experiment.variants[0].description} ${experiment.variants[0].rate} → ${experiment.variants[1].description} ${experiment.variants[1].rate} · ${experiment.difference}`}
+                      >
                         <div className="experiment-context">
                           <div>
                             <b>변화 감지</b>
@@ -522,21 +535,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                           <strong>{experiment.difference}</strong>
                           <p>{experiment.decision}</p>
                         </div>
-                      </article>
+                      </ContentDisclosure>
                     ))}
                   </div>
                 </div>
               ) : null}
 
-              <div className="project-proof">
-                <div className="project-proof-heading">
-                  <p className="section-index">업무 자료 (수정필요 224)</p>
-                  <h3>사용한 도구와 결과물 (수정필요 225)</h3>
-                  <p>
-                    실제 업무에 사용한 화면과 리포트로 작업 흐름과 결과를
-                    보여드립니다.
-                  </p>
-                </div>
+              <ContentDisclosure className="project-proof" eyebrow="업무 자료 (수정필요 224)" title="사용한 도구와 결과물 (수정필요 225)" preview={`추가 자료 ${supportingProofs.length}건`}>
+
                 <div
                   className={`project-proof-grid proof-count-${supportingProofs.length}`}
                 >
@@ -544,14 +550,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <ProjectProofCard key={proof.title} proof={proof} />
                   ))}
                 </div>
-              </div>
+              </ContentDisclosure>
             </section>
 
-            <section className="proof-note" id="measurement">
-              <p className="section-index">05 · 측정 기준 (수정필요 226)</p>
-              <h2>성과 측정 기준</h2>
+            <ContentDisclosure id="measurement" className="proof-note" eyebrow="05 · 측정 기준 (수정필요 226)" title="성과 측정 기준" preview="집계 대상·기간·수치 해석">
               <p>{project.measurement}</p>
-            </section>
+            </ContentDisclosure>
 
             <section id="learning">
               <p className="section-index">06 · 실무에서 배운 점 (수정필요 227)</p>
