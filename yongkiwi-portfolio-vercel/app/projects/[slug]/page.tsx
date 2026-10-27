@@ -267,6 +267,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   </div>
                 </div>
               ) : null}
+              {project.clientExample ? (
+                <div className="decision-case">
+                  <div className="decision-case-heading">
+                    <p className="section-index">업체 요구에 대한 제안</p>
+                    <h3>{project.clientExample.title}</h3>
+                    <p>{project.clientExample.context}</p>
+                    <p>{project.clientExample.action}</p>
+                    <p>{project.clientExample.outcome}</p>
+                  </div>
+                </div>
+              ) : null}
               {project.decisionCase ? (
                 <div className={`decision-case${project.execution.length === 0 ? " is-primary" : ""}`}>
                   <div className="decision-case-heading">
@@ -352,7 +363,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                           <span>상위 노출 추이 (수정필요 216)</span>
                           <h4>주간 TOP 7 키워드 수 (수정필요 217)</h4>
                         </div>
-                        <b>전체 고객사 합산 (수정필요 218)</b>
+                        <b>전체 업체 합산 (수정필요 218)</b>
                       </div>
                       <div className="performance-column-chart">
                         {project.performanceTracking.trend.map((item) => (
@@ -449,7 +460,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       콘텐츠 실험에서 채택하거나 되돌린 사례입니다. (수정필요 222)
                     </h3>
                     <p>
-                      여러 차례 진행한 실험 중 세 사례를 담았습니다. 이 세 실험의 A·B 콘텐츠 발행량은 합계 1,480건이며, 각각의 조건과 4주 누적 결과를 비교했습니다. (수정필요 223)
+                      여러 차례 진행한 후속 개선 실험 중 세 사례입니다. 각 조건의 콘텐츠를 순차 발행하고 공통 4주 동안 주 1회 확인했습니다. 개별 실험 결과는 전체 운영의 진입률과 구분합니다. (수정필요 223)
                     </p>
                   </div>
                   {project.experimentProtocol ? (
