@@ -220,7 +220,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {project.clientExample ? (
                 <div className="decision-case">
                   <div className="decision-case-heading">
-                    <p className="section-index">업체 요구에 대한 제안</p>
+                    <p className="section-index">업체 제안 사례</p>
                     <h3>{project.clientExample.title}</h3>
                     <p>{project.clientExample.context}</p>
                     <p>{project.clientExample.action}</p>
@@ -258,11 +258,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <div className="improvement-methods">
                   <div className="improvement-methods-heading">
                     <p className="section-index">플랫폼 변경 대응 (수정필요 212)</p>
-                    <h3>오류가 생긴 조건을 찾고 수정 전후 결과를 확인했습니다.</h3>
-                    <p>
-                      검색결과의 구성이나 URL이 달라져도 필요한 대상과 순위를
-                      정확히 구분하도록 판정 규칙을 보완했습니다.
-                    </p>
+                    <h3>검색 결과·URL 변경 대응</h3>
                   </div>
                   <div className="improvement-method-grid">
                     {project.improvementMethods.map((method, methodIndex) => (
@@ -478,10 +474,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   <div className="experiment-log-heading">
                     <p className="section-index">A/B 테스트 사례 (수정필요 221)</p>
                     <h3>
-                      콘텐츠 실험에서 채택하거나 되돌린 사례입니다. (수정필요 222)
+                      채택한 안과 되돌린 안 (수정필요 222)
                     </h3>
                     <p>
-                      여러 차례 진행한 후속 개선 실험 중 세 사례입니다. 각 조건의 콘텐츠를 순차 발행하고 공통 4주 동안 주 1회 확인했습니다. 개별 실험 결과는 전체 운영의 진입률과 구분합니다. (수정필요 223)
+                      여러 후속 개선 실험 중 세 사례입니다. 순차 발행한 콘텐츠를 공통 4주간 주 1회 확인했으며, 아래 비율은 전체 운영 진입률과 구분합니다. (수정필요 223)
                     </p>
                   </div>
                   {project.experimentProtocol ? (
@@ -558,8 +554,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </ContentDisclosure>
 
             <section id="learning">
-              <p className="section-index">06 · 실무에서 배운 점 (수정필요 227)</p>
-              <h2>배운 점</h2>
+              <p className="section-index">06 · 운영 원칙 (수정필요 227)</p>
+              <h2>실무에 남긴 기준</h2>
               <p>{project.learning}</p>
             </section>
 

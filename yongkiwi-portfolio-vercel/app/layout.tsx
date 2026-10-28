@@ -8,7 +8,7 @@ import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import "./globals.css";
 
 const description =
-  "업무 자동화와 네이버 콘텐츠 SEO를 활용해 업체 콘텐츠 운영과 검색 노출 성과를 개선한 마케팅 AE 이용택의 포트폴리오입니다.";
+  "AE 이용택의 콘텐츠 기획·운영 포트폴리오. 업체별 맞춤 제작 자동화, 키워드 전략·콘텐츠 SEO, 순위 조사·보고 개선 사례.";
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,

@@ -21,20 +21,20 @@ type PortfolioPageProps = {
 
 const roleCopy = {
   advertising: {
-    eyebrow: "광고기획 AE · 업체 운영·콘텐츠 SEO (수정필요 2)",
+    eyebrow: "광고기획 AE · 콘텐츠 운영·SEO (수정필요 2)",
     title: (
       <>
-        업체와 콘텐츠 방향을 정하고,
+        콘텐츠 기획부터
         <br />{" "}
-        제작부터 성과 개선까지 맡는
+        제작과 성과 개선까지,
         <br />{" "}
         <em>AE 이용택입니다. (수정필요 3)</em>
       </>
     ),
     description:
-      "50~60개 업체의 대표와 콘텐츠 방향을 협의하고, 월 약 8,200건의 제작·배포·성과 확인을 담당합니다. (수정필요 4)",
+      "50~60개 업체 대표와 콘텐츠 방향을 협의하며, 월 약 8,200건의 제작·배포 관리와 성과 분석을 맡고 있습니다. (수정필요 4)",
     statement:
-      "직접 만든 제작 통합앱으로 90건 제작·검수를 4시간 수작업에서 약 30분 무인 실행으로 바꿨습니다. 사전 설정 5~10분은 별도입니다. 그동안 업체 요청을 반영하고 검색 성과를 분석합니다. (수정필요 5)",
+      "직접 만든 통합앱이 제작·검수를 자동 처리하는 동안 업체 응대와 검색 성과 분석을 진행합니다. (수정필요 5)",
     measurement: [
       "월 약 8,200건은 2025.11 이후 실제 운영량",
       "TOP 7 진입률: 업체별 월 발행 실수요 키워드 중 업체 콘텐츠가 네이버 통합검색 콘텐츠 영역 1~7위에 한 번 이상 노출된 비율 (수정필요 6)",
@@ -52,7 +52,7 @@ const roleCopy = {
     eyebrow: "네이버 콘텐츠 SEO · 데이터 분석·실험 (수정필요 7)",
     title: (
       <>
-        검색 수요로 키워드를 고르고,
+        키워드 분석과
         <br />{" "}
         콘텐츠 실험으로 성과를 높이는
         <br />{" "}
@@ -60,9 +60,9 @@ const roleCopy = {
       </>
     ),
     description:
-      "검색량과 경쟁도로 키워드를 선별하고, SERP(검색결과 페이지)에서 찾은 가설을 콘텐츠 실험으로 검증했습니다. 발행 후에는 순위와 신규 진입·이탈을 매주 추적했습니다. (수정필요 9)",
+      "검색량·경쟁도로 키워드를 선별하고 콘텐츠를 실험합니다. 발행 후 순위와 신규 진입·이탈을 매주 추적합니다. (수정필요 9)",
     statement:
-      "키워드 선별, 콘텐츠 A/B 테스트와 검색 변화 대응을 통해 실수요 키워드 TOP 7 진입률을 1~5%에서 40~60% 수준으로 높였습니다. (수정필요 10)",
+      "진입률 개선은 키워드 선별, 콘텐츠 A/B 테스트와 검색 변화 대응을 함께 적용한 결과입니다. (수정필요 10)",
     measurement: [
       "TOP 7 진입률: 업체별 월 발행 실수요 키워드 중 업체 콘텐츠가 네이버 통합검색 콘텐츠 영역 1~7위에 한 번 이상 노출된 비율 (수정필요 11)",
       "약 1~5% → 40~60%는 실수요 키워드 기준",
@@ -150,9 +150,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               <div>
                 <p className="eyebrow">핵심 성과 (수정필요 24)</p>
                 <h2>
-                  반복 작업은 줄이고,
-                  <br />
-                  실제 운영량과 검색 성과를 높였습니다. (수정필요 25)
+                  제작 효율과 검색 성과 (수정필요 25)
                 </h2>
               </div>
             </div>
@@ -179,7 +177,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
           <div className="container">
             <div className="section-heading">
               <p className="eyebrow">대표 프로젝트 (수정필요 26)</p>
-              <h2>제작 자동화부터 검색 성과 개선까지. (수정필요 27)</h2>
+              <h2>기획·제작·분석의 개선 사례 (수정필요 27)</h2>
             </div>
 
             <div className="project-list">
@@ -201,7 +199,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                       {project.role}
                     </p>
                     <p className={project.clientExample ? "project-card-example" : undefined}>
-                      {project.clientExample ? <span>업체 제안</span> : null}
+                      {project.clientExample ? <span>적용 사례</span> : null}
                       {project.clientExample?.title ?? project.cardSummary ?? project.summary}
                     </p>
                   </div>
@@ -221,8 +219,8 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               href="/projects/system-ownership"
             >
               <span>업무 도구 운영·유지보수 (수정필요 29)</span>
-              <strong>반복 작업을 줄이는 도구를 만들고, 변화에 맞춰 관리했습니다. (수정필요 30)</strong>
-              <p>사진 활용·리뷰 모니터링·업무 시트·Notion (수정필요 31)</p>
+              <strong>이미지 처리·모니터링·업무 관리 자동화 (수정필요 30)</strong>
+              <p>실무 도입부터 플랫폼 변경 대응까지 (수정필요 31)</p>
               <b aria-hidden="true">→</b>
             </Link>
           </div>
@@ -232,7 +230,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
           <div className="container">
             <div className="section-heading">
               <p className="eyebrow">경력 (수정필요 39)</p>
-              <h2>콘텐츠 운영과 행사 기획·운영을 경험했습니다. (수정필요 40)</h2>
+              <h2>콘텐츠 운영 · 행사 기획 (수정필요 40)</h2>
             </div>
             <div className="career-list">
               {careers.map((career) => (
@@ -254,9 +252,9 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               <div className="background-heading">
                 <p className="eyebrow">관련 경험 (수정필요 41)</p>
                 <div>
-                  <h3>전공에서 배운 기획을 공모전과 실무 교육에 적용했습니다. (수정필요 42)</h3>
+                  <h3>학력·수상·실무 교육 (수정필요 42)</h3>
                   <p>
-                    공모전에서는 타깃과 메시지를 기획하고, 실무 교육에서는 팀원들과 광고를 제작했습니다. (수정필요 43)
+                    캠페인 전략 기획과 팀 광고 제작 경험 (수정필요 43)
                   </p>
                 </div>
               </div>
@@ -285,20 +283,18 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               <div>
                 <p className="eyebrow">일하는 방식 (수정필요 32)</p>
                 <h2>
-                  문제를 찾고,
-                  <br />
-                  해결 방법을 실제 업무에서 검증합니다. (수정필요 33)
+                  발행 업무에서 시작한 개선 (수정필요 33)
                 </h2>
               </div>
-              <p>업무 개선과 프로그램 개발은 별도 지시 없이 시작했습니다. 필요한 기준을 정하고, 직접 만들고 운영하며 보완했습니다. (수정필요 47)</p>
+              <p>발행 지연과 반복 작업을 줄이기 위해, 별도 지시 없이 개선안을 기획하고 도구를 개발했습니다. (수정필요 47)</p>
             </div>
-            <ContentDisclosure title="업무 태도 (수정필요 44)" id="about" preview="업체 운영에서 개선 과제를 찾은 배경">
-              <h3>발행 업무를 맡으며, 개선이 필요한 일도 스스로 찾았습니다. (수정필요 45)</h3>
-              <p>웨이팅리스트에서 처음 받은 역할은 업체의 블로그 콘텐츠를 정해진 수량만큼 제작하고 배포를 관리하는 것이었습니다. 하지만 발행량을 맞추는 것만으로는 발행 지연과 품질 편차, 업체 요청 대응 문제를 해결할 수 없었습니다.</p>
-              <p>업체 대표와 홍보할 내용, 키워드 방향과 시즌별 주제를 협의하고, 수정 요청과 클레임도 직접 처리했습니다. (수정필요 46)</p>
+            <ContentDisclosure title="개선 배경 (수정필요 44)" id="about">
+              <h3>정해진 발행량, 반복되는 지연과 수정 (수정필요 45)</h3>
+              <p>처음 맡은 일은 정해진 수량의 블로그 제작·배포 관리였습니다. 수량을 맞추는 데 그치지 않고 발행 지연과 품질 편차, 요청 대응 문제를 개선했습니다.</p>
+              <p>업체 대표와 홍보 내용·키워드·시즌 주제를 협의하고, 수정 요청과 클레임을 직접 처리했습니다. (수정필요 46)</p>
             </ContentDisclosure>
-            <ContentDisclosure title="문제 발견부터 실무 적용까지" preview="판단 기준과 개선 과정">
-              <p>필요한 입력과 결과부터 정한 뒤 도구를 만들었습니다. 적용 후에도 업체 요청과 플랫폼 변화에 맞춰 수정했습니다. (수정필요 34)</p>
+            <ContentDisclosure title="개선 과정">
+              <p>입력·결과·검수 기준을 정해 구현하고, 적용 후 업체 요청과 플랫폼 변화에 맞춰 수정했습니다. (수정필요 34)</p>
               <div className="process-labels" aria-hidden="true">
                 <span>OBSERVE (수정필요 19)</span><span>DEFINE (수정필요 20)</span><span>BUILD (수정필요 21)</span><span>OPERATE (수정필요 22)</span><span>IMPROVE (수정필요 23)</span>
               </div>
@@ -313,14 +309,13 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               ))}
             </ol>
             </ContentDisclosure>
-            <ContentDisclosure title="KIWI 업무 도구 (수정필요 35)" preview="키워드 분석·제작·검수·보고에 사용하는 도구">
+            <ContentDisclosure title="KIWI 업무 도구 (수정필요 35)">
             <div className="systems-copy">
               <h3>
-                반복해서 하던 작업을
-                업무별 도구로 자동화했습니다. (수정필요 36)
+                분석부터 보고까지 사용하는 도구 (수정필요 36)
               </h3>
               <p>
-                키워드 분석, 콘텐츠 제작·검수, 순위 조사·보고까지 반복 작업을 자동화했습니다. 필요한 기능을 직접 조정하며 월 약 8,200건 운영에 사용합니다. (수정필요 37)
+                아래 도구를 직접 만들고, 필요한 기능을 수정하며 사용합니다. (수정필요 37)
               </p>
             </div>
             <ul className="system-list">
@@ -339,12 +334,10 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
           <div className="container contact-inner">
             <p className="eyebrow">연락처 (수정필요 48)</p>
             <h2>
-              업체와 정한 방향을 실행하고,
-              <br />
-              결과를 다음 기획에 반영하겠습니다. (수정필요 49)
+              AE 이용택 (수정필요 49)
             </h2>
             <p>
-              콘텐츠 기획·운영과 검색 성과 개선이 필요한 곳에서 함께하고 싶습니다. (수정필요 50)
+              채용 문의는 아래 이메일로 부탁드립니다. (수정필요 50)
             </p>
             <ContactEmail />
             <div className="contact-role-links">

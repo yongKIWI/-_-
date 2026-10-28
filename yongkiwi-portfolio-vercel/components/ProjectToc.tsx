@@ -8,7 +8,7 @@ const projectSections = [
   { id: "change", label: "변화" },
   { id: "result", label: "결과" },
   { id: "measurement", label: "측정" },
-  { id: "learning", label: "배운 점" },
+  { id: "learning", label: "운영 원칙" },
 ] as const;
 
 type ProjectSectionId = (typeof projectSections)[number]["id"];

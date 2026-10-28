@@ -3,7 +3,7 @@ import { PortfolioPage } from "@/components/PortfolioPage";
 import { createSocialMetadata } from "@/lib/site-meta";
 
 const description =
-  "업체와 직접 소통하며 콘텐츠 운영의 문제를 찾고, 업무 자동화와 성과 측정으로 실제 결과를 개선한 광고기획 AE 이용택의 포트폴리오입니다.";
+  "50~60개 업체의 콘텐츠 기획·제작·배포 관리와 검색 성과 분석을 맡은 AE 이용택. 제작 자동화와 네이버 콘텐츠 SEO 개선 사례를 소개합니다.";
 
 export const metadata: Metadata = {
   title: {
