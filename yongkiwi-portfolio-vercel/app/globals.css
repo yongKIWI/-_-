@@ -1942,7 +1942,7 @@ footer p {
   margin-bottom: 28px;
 }
 
-.experiment-log-heading h3 {
+.experiment-log-heading h2 {
   margin: 0;
   font-size: clamp(26px, 3vw, 40px);
   letter-spacing: -0.05em;
@@ -3177,6 +3177,67 @@ footer p {
   .metric-card strong {
     font-size: 28px;
   }
+}
+
+/* Consolidated overview: outcomes once, cases explain the work. */
+.hero-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+}
+.hero-impact { min-width: 0; scroll-margin-top: 100px; }
+.hero-impact-heading { margin-bottom: 18px; }
+.hero-impact-heading .eyebrow { margin-bottom: 8px; }
+.hero-impact-heading h2 { margin: 0; font-size: 25px; line-height: 1.4; letter-spacing: -0.04em; }
+.hero-impact-caption { margin: 6px 0 0; color: var(--muted); font-size: 12px; }
+.hero-impact .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); background: var(--white); }
+.hero-impact .metric-card { min-width: 0; min-height: 174px; padding: 20px 16px; }
+.hero-impact .metric-card strong,
+.hero-impact .metric-card.metric-card-compact strong { margin-top: 0; font-size: clamp(20px, 1.9vw, 28px); letter-spacing: -0.055em; }
+.hero-impact .metric-card p { margin: 12px 0 16px; font-size: 13px; line-height: 1.6; }
+.hero-impact .metric-card b { margin-top: auto; }
+.hero-metric-context { margin: 16px 0 0; font-size: 12px; line-height: 1.75; color: var(--muted); }
+.hero-impact .visual-footer { margin-top: 16px; padding: 12px 0 0; gap: 8px 16px; flex-wrap: wrap; }
+.project-card { grid-template-columns: 60px minmax(0, 1fr) 110px; min-height: 250px; gap: 28px; }
+.project-card-proof { text-align: right; }
+.project-scope-note { max-width: 850px; margin: 14px 0 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.project-article > .experiment-log:first-child { margin-top: 0; }
+.result-detail { margin-top: 28px; }
+.result-learning { margin-top: 28px; }
+.result-learning h3 { font-size: 18px; }
+.project-metric strong { font-size: clamp(23px, 2.1vw, 32px); }
+.metric-review-marker { margin-top: 6px; color: var(--muted); font-size: 11px; font-weight: 700; }
+
+@media (max-width: 1100px) {
+  .project-metric-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-grid { gap: 32px; }
+  .hero-impact .metric-card { padding: 18px 12px; }
+  .hero-impact .metric-card strong,
+  .hero-impact .metric-card.metric-card-compact strong { font-size: 21px; }
+}
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-impact .metric-card strong,
+  .hero-impact .metric-card.metric-card-compact strong { font-size: 28px; }
+}
+@media (max-width: 720px) {
+  .hero-impact-heading h2 { font-size: 23px; }
+  .hero-impact .metric-card { padding: 18px 14px; }
+  .hero-impact .metric-card strong,
+  .hero-impact .metric-card.metric-card-compact strong { font-size: clamp(19px, 4.8vw, 28px); }
+  .project-card { grid-template-columns: 32px minmax(0, 1fr); gap: 12px 16px; min-height: 0; padding: 28px 0; }
+  .project-card-proof { grid-column: 2; text-align: left; }
+  .project-mobile-toc[data-section-count="4"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 440px) {
+  .hero-impact .metric-grid { grid-template-columns: 1fr; }
+  .hero-impact .metric-card { min-height: 0; padding: 20px; }
+  .hero-impact .metric-card strong,
+  .hero-impact .metric-card.metric-card-compact strong { font-size: 28px; }
+  .hero-impact .metric-card p { margin: 10px 0; }
+}
+@media (max-width: 600px) {
+  .project-metric-row { grid-template-columns: 1fr; }
+  .project-metric strong { font-size: clamp(21px, 5.5vw, 28px); white-space: nowrap; }
 }
 
 @media (prefers-reduced-motion: reduce) {

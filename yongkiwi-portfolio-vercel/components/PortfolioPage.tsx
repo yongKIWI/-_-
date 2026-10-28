@@ -32,7 +32,7 @@ const roleCopy = {
       </>
     ),
     description:
-      "50~60개 업체 대표와 콘텐츠 방향을 협의하며, 월 약 8,200건의 제작·배포 관리와 성과 분석을 맡고 있습니다. (수정필요 4)",
+      "업체 대표와 네이버 블로그 콘텐츠 방향을 협의하고, 제작·배포 관리와 검색 성과 분석을 맡고 있습니다. (수정필요 4)",
     statement:
       "직접 만든 통합앱이 제작·검수를 자동 처리하는 동안 업체 응대와 검색 성과 분석을 진행합니다. (수정필요 5)",
     measurement: [
@@ -84,6 +84,10 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
     .map((slug) => projects.find((project) => project.slug === slug))
     .filter((project): project is (typeof projects)[number] => Boolean(project));
 
+  const orderedMetrics = role === "performance"
+    ? [commonMetrics[2], commonMetrics[0], commonMetrics[1], commonMetrics[3]]
+    : commonMetrics;
+
   return (
     <>
       <DisclosureNavigation />
@@ -114,61 +118,34 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               </ContentDisclosure>
             </div>
 
-            <div className="hero-visual" aria-label="핵심 성과 요약">
-              <div className="visual-label">운영 전후 (수정필요 13)</div>
-              <div className="visual-row visual-row-primary">
-                <span>월 제작·배포 관리량</span>
-                <strong>2,000</strong>
-                <b>→</b>
-                <strong>8,200</strong>
+            <div className="hero-impact" id="impact" aria-label="핵심 성과 요약">
+              <div className="hero-impact-heading">
+                <p className="eyebrow">핵심 성과 (수정필요 24)</p>
+                <h2>제작 효율과 검색 성과 (수정필요 25)</h2>
+                <p className="hero-impact-caption">운영 전후 (수정필요 13)</p>
               </div>
-              <div className="visual-row">
-                <span>운영 인원</span>
-                <strong>2~3명</strong>
-                <b>→</b>
-                <strong>1명</strong>
+              <div className="metric-grid">
+                {orderedMetrics.map((metric) => (
+                  <Link
+                    className={`metric-card${metric.compact ? " metric-card-compact" : ""}`}
+                    href={`/projects/${metric.project}`}
+                    key={metric.label}
+                  >
+                    <strong>{metric.value}</strong>
+                    <p>{metric.label}</p>
+                    <b>프로젝트 보기 →</b>
+                  </Link>
+                ))}
               </div>
-              <div className="visual-row">
-                <span>실수요 키워드 TOP 7 진입률 (수정필요 14)</span>
-                <strong>1~5%</strong>
-                <b>→</b>
-                <strong>40~60%</strong>
-              </div>
+              <p className="hero-metric-context">
+                TOP 7: 월 발행 실수요 키워드 중 네이버 통합검색 콘텐츠 1~7위에 한 번 이상 노출된 비율입니다. (수정필요 14)
+              </p>
               <div className="visual-footer">
                 <span>업체 소통 (수정필요 15)</span>
                 <span>콘텐츠 기획 (수정필요 16)</span>
                 <span>제작·운영 (수정필요 17)</span>
                 <span>성과 분석 (수정필요 18)</span>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="impact section" id="impact">
-          <div className="container">
-            <div className="section-heading impact-heading">
-              <div>
-                <p className="eyebrow">핵심 성과 (수정필요 24)</p>
-                <h2>
-                  제작 효율과 검색 성과 (수정필요 25)
-                </h2>
-              </div>
-            </div>
-            <div className="metric-grid">
-              {commonMetrics.map((metric, index) => (
-                <Link
-                  className={`metric-card${
-                    metric.compact ? " metric-card-compact" : ""
-                  }`}
-                  href={`/projects/${metric.project}`}
-                  key={metric.label}
-                >
-                  <span>0{index + 1}</span>
-                  <strong>{metric.value}</strong>
-                  <p>{metric.label}</p>
-                  <b>프로젝트 보기 →</b>
-                </Link>
-              ))}
             </div>
           </div>
         </section>
@@ -198,14 +175,9 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                       <span>담당 역할 (수정필요 28)</span>
                       {project.role}
                     </p>
-                    <p className={project.clientExample ? "project-card-example" : undefined}>
-                      {project.clientExample ? <span>적용 사례</span> : null}
-                      {project.clientExample?.title ?? project.cardSummary ?? project.summary}
-                    </p>
+                    <p>{project.cardSummary ?? project.summary}</p>
                   </div>
                   <div className="project-card-proof">
-                    <span>{project.cardMetric.label}</span>
-                    <strong>{project.cardMetric.value}</strong>
                     <span className="project-card-cta">
                       상세 보기 →
                     </span>

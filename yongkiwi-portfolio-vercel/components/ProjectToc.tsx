@@ -5,26 +5,29 @@ import { useEffect, useRef, useState } from "react";
 const projectSections = [
   { id: "problem", label: "문제" },
   { id: "decision", label: "실행" },
-  { id: "change", label: "변화" },
   { id: "result", label: "결과" },
   { id: "measurement", label: "측정" },
-  { id: "learning", label: "운영 원칙" },
 ] as const;
 
-type ProjectSectionId = (typeof projectSections)[number]["id"];
+const experimentSections = [
+  { id: "experiments", label: "실험" },
+  ...projectSections,
+] as const;
 
-function useActiveProjectSection() {
+type ProjectSectionId = (typeof experimentSections)[number]["id"];
+
+function useActiveProjectSection(hasExperiments: boolean) {
   const [activeSection, setActiveSection] =
-    useState<ProjectSectionId>("problem");
+    useState<ProjectSectionId>(hasExperiments ? "experiments" : "problem");
 
   useEffect(() => {
     let frame = 0;
 
     const updateActiveSection = () => {
       const marker = window.scrollY + 240;
-      let current: ProjectSectionId = "problem";
+      let current: ProjectSectionId = hasExperiments ? "experiments" : "problem";
 
-      projectSections.forEach((item) => {
+      (hasExperiments ? experimentSections : projectSections).forEach((item) => {
         const section = document.getElementById(item.id);
 
         if (section && section.getBoundingClientRect().top + window.scrollY <= marker) {
@@ -59,13 +62,14 @@ function useActiveProjectSection() {
       window.removeEventListener("hashchange", requestUpdate);
       resizeObserver.disconnect();
     };
-  }, []);
+  }, [hasExperiments]);
 
   return activeSection;
 }
 
-export function ProjectToc({ className }: { className: string }) {
-  const activeSection = useActiveProjectSection();
+export function ProjectToc({ className, hasExperiments = false }: { className: string; hasExperiments?: boolean }) {
+  const activeSection = useActiveProjectSection(hasExperiments);
+  const sections = hasExperiments ? experimentSections : projectSections;
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -95,10 +99,11 @@ export function ProjectToc({ className }: { className: string }) {
     <nav
       aria-label="프로젝트 목차"
       className={className}
+      data-section-count={sections.length}
       ref={navRef}
     >
       <span>프로젝트 목차 (수정필요 229)</span>
-      {projectSections.map((section, index) => {
+      {sections.map((section, index) => {
         const isActive = activeSection === section.id;
 
         return (

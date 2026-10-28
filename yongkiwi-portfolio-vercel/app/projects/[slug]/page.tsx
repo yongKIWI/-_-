@@ -149,10 +149,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <p className="eyebrow">{project.category}</p>
             <h1>{project.title}</h1>
             <p className="project-lead">{project.summary}</p>
+            {project.scopeNote ? <p className="project-scope-note">{project.scopeNote}</p> : null}
             <div className="project-metric-row">
               {project.metrics.map((metric) => (
                 <div className="project-metric" key={metric.label}>
-                  <strong>{metric.value}</strong>
+                  <strong>{metric.value.replace(/\s*\(수정필요 \d+\)/g, "")}</strong>
+                  {metric.value.match(/\(수정필요 \d+\)/g) ? (
+                    <small className="metric-review-marker">{metric.value.match(/\(수정필요 \d+\)/g)?.join(" ")}</small>
+                  ) : null}
                   <span>{metric.label}</span>
                 </div>
               ))}
@@ -196,14 +200,82 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <ContentDisclosure title="사용 도구">
               <p>{project.tools.join(" · ")}</p>
             </ContentDisclosure>
-            <ProjectToc className="project-toc" />
+            <ProjectToc className="project-toc" hasExperiments={Boolean(project.experiments?.length)} />
           </aside>
 
-          <ProjectToc className="project-mobile-toc" />
+          <ProjectToc className="project-mobile-toc" hasExperiments={Boolean(project.experiments?.length)} />
 
           <article className="project-article">
+              {project.experiments ? (
+                <section className="experiment-log" id="experiments">
+                  <div className="experiment-log-heading">
+                    <p className="section-index">A/B 테스트 사례 (수정필요 221)</p>
+                    <h2>
+                      채택한 안과 되돌린 안 (수정필요 222)
+                    </h2>
+                    <p>
+                      여러 후속 개선 실험 중 세 사례입니다. 순차 발행한 콘텐츠를 공통 4주간 주 1회 확인했으며, 아래 비율은 전체 운영 진입률과 구분합니다. (수정필요 223)
+                    </p>
+                  </div>
+                  {project.experimentProtocol ? (
+                    <ContentDisclosure title="공통 실험 조건과 측정 방식">
+                    <div className="experiment-protocol">
+                      {project.experimentProtocol.map((item) => (
+                        <div key={item.label}>
+                          <span>{item.label}</span>
+                          <strong>{item.value}</strong>
+                        </div>
+                      ))}
+                    </div>
+                    </ContentDisclosure>
+                  ) : null}
+                  <div className="experiment-log-list">
+                    {project.experiments.map((experiment, experimentIndex) => (
+                      <ContentDisclosure
+                        className="experiment-card"
+                        key={experiment.title}
+                        eyebrow={`${String(experimentIndex + 1).padStart(2, "0")} · ${experiment.period}`}
+                        title={<>{experiment.title}{" "}<span className={experiment.status === "채택" ? "experiment-status is-adopted" : "experiment-status is-rolled-back"}>{experiment.status}</span></>}
+                        preview={`${experiment.variants[0].description} ${experiment.variants[0].rate} → ${experiment.variants[1].description} ${experiment.variants[1].rate} · ${experiment.difference}`}
+                      >
+                        <div className="experiment-context">
+                          <div>
+                            <b>변화 감지</b>
+                            <p>{experiment.signal}</p>
+                          </div>
+                          <div>
+                            <b>가설</b>
+                            <p>{experiment.hypothesis}</p>
+                          </div>
+                        </div>
+                        <p className="experiment-control">
+                          <b>통제 조건</b>
+                          {experiment.control}
+                        </p>
+                        <div className="experiment-variants">
+                          {experiment.variants.map((variant) => (
+                            <div key={`${experiment.title}-${variant.label}`}>
+                              <span>{variant.label}안</span>
+                              <h5>{variant.description}</h5>
+                              <p>
+                                {variant.topSevenCount} / {variant.sampleSize}
+                              </p>
+                              <strong>{variant.rate}</strong>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="experiment-decision">
+                          <strong>{experiment.difference}</strong>
+                          <p>{experiment.decision}</p>
+                        </div>
+                      </ContentDisclosure>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
+
             <section id="problem">
-              <p className="section-index">01 · 문제 정의 (수정필요 210)</p>
+              <p className="section-index">문제 정의 (수정필요 210)</p>
               <h2>문제 상황</h2>
               <ul className="article-list">
                 {project.problem.map((item) => (
@@ -215,7 +287,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <blockquote>{project.judgment}</blockquote>
 
             <section id="decision">
-              <p className="section-index">02 · 분석과 실행 (수정필요 211)</p>
+              <p className="section-index">분석과 실행 (수정필요 211)</p>
               <h2>분석과 실행</h2>
               {project.clientExample ? (
                 <div className="decision-case">
@@ -310,25 +382,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               ) : null}
             </section>
 
-            <section className="evidence-panel" id="change">
-              <div>
-                <p className="section-index">03 · 도입 전후 (수정필요 213)</p>
-                <h2>업무 방식의 변화</h2>
-              </div>
-              <div className="evidence-grid">
-                {project.evidence.map((item) => (
-                  <div key={item.label}>
-                    <span>{item.label}</span>
-                    <strong>{item.before}</strong>
-                    <b>→</b>
-                    <strong>{item.after}</strong>
-                  </div>
-                ))}
-              </div>
-            </section>
-
             <section id="result">
-              <p className="section-index">04 · 성과 (수정필요 214)</p>
+              <p className="section-index">성과 (수정필요 214)</p>
               <h2>성과</h2>
               <ul className="result-list">
                 {project.results.map((item) => (
@@ -342,6 +397,23 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
             ) : null}
 
+
+              <ContentDisclosure id="change" className="result-detail" title="전후 비교와 운영 기준 (수정필요 213)">
+                <div className="evidence-grid">
+                  {project.evidence.map((item) => (
+                    <div key={item.label}>
+                      <span>{item.label}</span>
+                      <strong>{item.before}</strong>
+                      <b>→</b>
+                      <strong>{item.after}</strong>
+                    </div>
+                  ))}
+                </div>
+                <div className="result-learning" id="learning">
+                  <h3>실무에 남긴 기준 (수정필요 227)</h3>
+                  <p>{project.learning}</p>
+                </div>
+              </ContentDisclosure>
 
               {project.performanceTracking ? (
                 <div className="performance-tracking">
@@ -469,74 +541,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
               ) : null}
 
-              {project.experiments ? (
-                <div className="experiment-log">
-                  <div className="experiment-log-heading">
-                    <p className="section-index">A/B 테스트 사례 (수정필요 221)</p>
-                    <h3>
-                      채택한 안과 되돌린 안 (수정필요 222)
-                    </h3>
-                    <p>
-                      여러 후속 개선 실험 중 세 사례입니다. 순차 발행한 콘텐츠를 공통 4주간 주 1회 확인했으며, 아래 비율은 전체 운영 진입률과 구분합니다. (수정필요 223)
-                    </p>
-                  </div>
-                  {project.experimentProtocol ? (
-                    <ContentDisclosure title="공통 실험 조건과 측정 방식">
-                    <div className="experiment-protocol">
-                      {project.experimentProtocol.map((item) => (
-                        <div key={item.label}>
-                          <span>{item.label}</span>
-                          <strong>{item.value}</strong>
-                        </div>
-                      ))}
-                    </div>
-                    </ContentDisclosure>
-                  ) : null}
-                  <div className="experiment-log-list">
-                    {project.experiments.map((experiment, experimentIndex) => (
-                      <ContentDisclosure
-                        className="experiment-card"
-                        key={experiment.title}
-                        eyebrow={`${String(experimentIndex + 1).padStart(2, "0")} · ${experiment.period}`}
-                        title={<>{experiment.title}{" "}<span className={experiment.status === "채택" ? "experiment-status is-adopted" : "experiment-status is-rolled-back"}>{experiment.status}</span></>}
-                        preview={`${experiment.variants[0].description} ${experiment.variants[0].rate} → ${experiment.variants[1].description} ${experiment.variants[1].rate} · ${experiment.difference}`}
-                      >
-                        <div className="experiment-context">
-                          <div>
-                            <b>변화 감지</b>
-                            <p>{experiment.signal}</p>
-                          </div>
-                          <div>
-                            <b>가설</b>
-                            <p>{experiment.hypothesis}</p>
-                          </div>
-                        </div>
-                        <p className="experiment-control">
-                          <b>통제 조건</b>
-                          {experiment.control}
-                        </p>
-                        <div className="experiment-variants">
-                          {experiment.variants.map((variant) => (
-                            <div key={`${experiment.title}-${variant.label}`}>
-                              <span>{variant.label}안</span>
-                              <h5>{variant.description}</h5>
-                              <p>
-                                {variant.topSevenCount} / {variant.sampleSize}
-                              </p>
-                              <strong>{variant.rate}</strong>
-                            </div>
-                          ))}
-                        </div>
-                        <div className="experiment-decision">
-                          <strong>{experiment.difference}</strong>
-                          <p>{experiment.decision}</p>
-                        </div>
-                      </ContentDisclosure>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
-
               <ContentDisclosure className="project-proof" eyebrow="업무 자료 (수정필요 224)" title="사용한 도구와 결과물 (수정필요 225)" preview={`추가 자료 ${supportingProofs.length}건`}>
 
                 <div
@@ -549,15 +553,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </ContentDisclosure>
             </section>
 
-            <ContentDisclosure id="measurement" className="proof-note" eyebrow="05 · 측정 기준 (수정필요 226)" title="성과 측정 기준" preview="집계 대상·기간·수치 해석">
+            <ContentDisclosure id="measurement" className="proof-note" eyebrow="측정 기준 (수정필요 226)" title="성과 측정 기준" preview="집계 대상·기간·수치 해석">
               <p>{project.measurement}</p>
             </ContentDisclosure>
-
-            <section id="learning">
-              <p className="section-index">06 · 운영 원칙 (수정필요 227)</p>
-              <h2>실무에 남긴 기준</h2>
-              <p>{project.learning}</p>
-            </section>
 
             <p className="security-note">
               화면은 실제 업무 자료를 기반으로 하며, 공개 범위에 맞춰 필요한
