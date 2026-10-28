@@ -13,17 +13,17 @@ const description =
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
-    default: "이용택 포트폴리오 | 광고기획 AE",
+    default: "AE 이용택 | 포트폴리오",
     template: "%s | 이용택 포트폴리오",
   },
   description,
   authors: [{ name: "이용택" }],
   creator: "이용택",
   ...createSocialMetadata({
-    title: "광고기획 AE | 이용택 포트폴리오",
+    title: "AE 이용택 | 포트폴리오",
     description,
     path: "/",
-    card: "advertising",
+    card: "ae",
   }),
 };
 
@@ -37,7 +37,7 @@ const personJsonLd = {
   "@type": "Person",
   name: "이용택",
   url: siteUrl.toString(),
-  jobTitle: "광고기획 AE · 퍼포먼스 마케팅 AE",
+  jobTitle: "AE",
   worksFor: {
     "@type": "Organization",
     name: "웨이팅리스트",
@@ -48,7 +48,7 @@ const personJsonLd = {
   },
   knowsAbout: [
     "광고기획",
-    "퍼포먼스 마케팅",
+    "성과 분석",
     "네이버 콘텐츠 SEO",
     "SEO 키워드 리서치",
     "SERP 분석",

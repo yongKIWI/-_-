@@ -13,80 +13,40 @@ import {
   supportingSystems,
 } from "@/lib/site-data";
 
-type Role = "advertising" | "performance";
-
-type PortfolioPageProps = {
-  role: Role;
-};
-
-const roleCopy = {
-  advertising: {
-    eyebrow: "광고기획 AE · 콘텐츠 운영·SEO (수정필요 2)",
-    title: (
-      <>
-        콘텐츠 기획부터
-        <br />{" "}
-        제작과 성과 개선까지,
-        <br />{" "}
-        <em>AE 이용택입니다. (수정필요 3)</em>
-      </>
-    ),
-    description:
-      "업체 대표와 네이버 블로그 콘텐츠 방향을 협의하고, 제작·분석 도구를 직접 기획·개발해 운영과 성과 개선에 적용했습니다. (수정필요 4)",
-    statement:
-      "직접 만든 통합앱이 제작·검수를 자동 처리하는 동안 업체 응대와 검색 성과 분석을 진행합니다. (수정필요 5)",
-    measurement: [
-      "월 약 8,200건은 2025.11 이후 실제 운영량",
-      "실수요 키워드는 실제 조회수가 있는 키워드입니다. 진입률은 업체별 월 발행 실수요 키워드 중 업체 콘텐츠가 네이버 통합검색 SERP의 카페·블로그 콘텐츠 중 상위 7위에 한 번 이상 노출된 비율입니다. (수정필요 6)",
-    ],
-    switchHref: "/performance-ae",
-    switchLabel: "퍼포먼스 관점으로 보기",
-    resumeLabel: "이용택 AE 이력서",
-    projectOrder: [
-      "operations-transformation",
-      "keyword-performance",
-      "rank-monitoring",
-    ],
-  },
-  performance: {
-    eyebrow: "네이버 콘텐츠 SEO · 데이터 분석·실험 (수정필요 7)",
-    title: (
-      <>
-        키워드 분석과
-        <br />{" "}
-        콘텐츠 실험으로 성과를 높이는
-        <br />{" "}
-        <em>AE 이용택입니다. (수정필요 8)</em>
-      </>
-    ),
-    description:
-      "키워드를 분석하고 콘텐츠를 실험합니다. 제작·순위 조사 도구를 직접 기획·개발해 발행 후 성과까지 추적합니다. (수정필요 9)",
-    statement:
-      "진입률 개선은 키워드 선별, 콘텐츠 A/B 테스트와 검색 변화 대응을 함께 적용한 결과입니다. (수정필요 10)",
-    measurement: [
-      "실수요 키워드는 실제 조회수가 있는 키워드입니다. 진입률은 업체별 월 발행 실수요 키워드 중 업체 콘텐츠가 네이버 통합검색 SERP의 카페·블로그 콘텐츠 중 상위 7위에 한 번 이상 노출된 비율입니다. (수정필요 11)",
-      "약 1~5% → 40~60%는 실수요 키워드 기준",
-    ],
-    switchHref: "/",
-    switchLabel: "광고기획 관점으로 보기",
-    resumeLabel: "이용택 AE 이력서",
-    projectOrder: [
-      "keyword-performance",
-      "rank-monitoring",
-      "operations-transformation",
-    ],
-  },
+const portfolioCopy = {
+  eyebrow: "AE · 콘텐츠 기획·운영·성과 분석 (수정필요 2) (수정필요 7)",
+  title: (
+    <>
+      콘텐츠 기획부터
+      <br />{" "}
+      제작과 성과 개선까지,
+      <br />{" "}
+      <em>AE 이용택입니다.<span className="hero-review-markers">(수정필요 3) (수정필요 8)</span></em>
+    </>
+  ),
+  description:
+    "업체 대표와 네이버 블로그 콘텐츠 방향을 협의하고, 제작·분석 도구를 직접 기획·개발해 운영과 성과 개선에 적용했습니다. (수정필요 4) (수정필요 9)",
+  statements: [
+    "직접 만든 통합앱이 제작·검수를 자동 처리하는 동안 업체 응대와 검색 성과 분석을 진행합니다. (수정필요 5)",
+    "진입률 개선은 키워드 선별, 콘텐츠 A/B 테스트와 검색 변화 대응을 함께 적용한 결과입니다. (수정필요 10)",
+  ],
+  measurement: [
+    "월 약 8,200건은 2025.11 이후 실제 운영량",
+    "실수요 키워드는 실제 조회수가 있는 키워드입니다. 진입률은 업체별 월 발행 실수요 키워드 중 업체 콘텐츠가 네이버 통합검색 SERP의 카페·블로그 콘텐츠 중 상위 7위에 한 번 이상 노출된 비율입니다. (수정필요 6) (수정필요 11)",
+  ],
+  resumeLabel: "이용택 AE 이력서",
+  projectOrder: [
+    "operations-transformation",
+    "keyword-performance",
+    "rank-monitoring",
+  ],
 } as const;
 
-export function PortfolioPage({ role }: PortfolioPageProps) {
-  const copy = roleCopy[role];
+export function PortfolioPage() {
+  const copy = portfolioCopy;
   const orderedProjects = copy.projectOrder
     .map((slug) => projects.find((project) => project.slug === slug))
     .filter((project): project is (typeof projects)[number] => Boolean(project));
-
-  const orderedMetrics = role === "performance"
-    ? [commonMetrics[2], commonMetrics[0], commonMetrics[1], commonMetrics[3]]
-    : commonMetrics;
 
   return (
     <>
@@ -107,11 +67,8 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                   {copy.resumeLabel}
                 </Link>
               </div>
-              <Link className="role-switch" href={copy.switchHref}>
-                {copy.switchLabel} <span aria-hidden="true">→</span>
-              </Link>
               <ContentDisclosure className="hero-context" title="업무 범위와 성과 기준 (수정필요 12)">
-                <p>{copy.statement}</p>
+                {copy.statements.map((statement) => <p key={statement}>{statement}</p>)}
                 <ul>
                   {copy.measurement.map((item) => <li key={item}>{item}</li>)}
                 </ul>
@@ -125,7 +82,7 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
                 <p className="hero-impact-caption">운영 전후 (수정필요 13)</p>
               </div>
               <div className="metric-grid">
-                {orderedMetrics.map((metric) => (
+                {commonMetrics.map((metric) => (
                   <Link
                     className={`metric-card${metric.compact ? " metric-card-compact" : ""}`}
                     href={`/projects/${metric.project}`}
@@ -312,10 +269,6 @@ export function PortfolioPage({ role }: PortfolioPageProps) {
               채용 문의는 아래 이메일로 부탁드립니다. (수정필요 50)
             </p>
             <ContactEmail />
-            <div className="contact-role-links">
-              <Link href="/">광고기획 관점</Link>
-              <Link href="/performance-ae">퍼포먼스 관점</Link>
-            </div>
           </div>
         </section>
       </main>

@@ -71,7 +71,6 @@ npm run check
 ## 나중에 추가할 자료
 
 - 익명화한 프로그램·보고서·운영 화면
-- 광고기획 AE 이력서 PDF
-- 퍼포먼스 마케팅 AE 이력서 PDF
+- 이용택 AE 이력서 PDF (사이트에서는 한 개로 연결)
 
 `node_modules`, `.next`, `.vercel`, `.env.local` 폴더와 파일은 GitHub나 압축파일에 넣지 않습니다.

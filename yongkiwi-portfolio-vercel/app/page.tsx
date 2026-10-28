@@ -7,17 +7,17 @@ const description =
 
 export const metadata: Metadata = {
   title: {
-    absolute: "광고기획 AE | 이용택 포트폴리오",
+    absolute: "AE 이용택 | 포트폴리오",
   },
   description,
   ...createSocialMetadata({
-    title: "광고기획 AE | 이용택 포트폴리오",
+    title: "AE 이용택 | 포트폴리오",
     description,
     path: "/",
-    card: "advertising",
+    card: "ae",
   }),
 };
 
 export default function Home() {
-  return <PortfolioPage role="advertising" />;
+  return <PortfolioPage />;
 }

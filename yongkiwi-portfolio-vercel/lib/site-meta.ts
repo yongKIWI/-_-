@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { siteUrl } from "@/lib/site-url";
 
 export type SocialCardKey =
+  | "ae"
   | "advertising"
   | "performance"
   | "operations-transformation"
@@ -19,21 +20,19 @@ type SocialCard = {
   note?: string;
 };
 
-export const socialCards: Record<SocialCardKey, SocialCard> = {
-  advertising: {
-    eyebrow: "광고기획 AE · 콘텐츠 운영·SEO (수정필요 232)",
-    title: "콘텐츠 기획부터 제작과 성과 개선까지, AE 이용택 (수정필요 233)",
+const aeSocialCard: SocialCard = {
+    eyebrow: "AE · 콘텐츠 기획·운영·성과 분석 (수정필요 232) (수정필요 234)",
+    title: "콘텐츠 기획부터 제작과 성과 개선까지, AE 이용택 (수정필요 233) (수정필요 235)",
     before: "약 2,000",
     after: "약 8,200",
     label: "월 콘텐츠 제작·배포 관리량",
-  },
-  performance: {
-    eyebrow: "네이버 콘텐츠 SEO · 데이터 분석·실험 (수정필요 234)",
-    title: "키워드 분석과 콘텐츠 실험, AE 이용택 (수정필요 235)",
-    before: "1~5%",
-    after: "40~60%",
-    label: "실수요 키워드 TOP 7 진입률 (수정필요 236)",
-  },
+};
+
+export const socialCards: Record<SocialCardKey, SocialCard> = {
+  ae: aeSocialCard,
+  // Keep previously shared image URLs valid without retaining separate role views.
+  advertising: aeSocialCard,
+  performance: aeSocialCard,
   "operations-transformation": {
     eyebrow: "콘텐츠 운영 · 업무 자동화",
     title: "업체별 맞춤 제작·검수 자동화 (수정필요 237)",
@@ -47,7 +46,7 @@ export const socialCards: Record<SocialCardKey, SocialCard> = {
     title: "키워드 전략·콘텐츠 SEO 개선 (수정필요 239)",
     before: "1~5%",
     after: "40~60%",
-    label: "실수요 키워드 TOP 7 진입률 (수정필요 240)",
+    label: "실수요 키워드 TOP 7 진입률 (수정필요 236) (수정필요 240)",
   },
   "rank-monitoring": {
     eyebrow: "키워드 순위 조사 · 보고 자동화 (수정필요 241)",

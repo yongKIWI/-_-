@@ -144,15 +144,14 @@ export type Project = {
   improvementMethods?: {
     label: string;
     title: string;
-    description: string;
     steps: string[];
-    example: string;
+    cases: { title: string; description: string }[];
   }[];
   clientExample?: { title: string; context: string; action: string; outcome: string };
   decisionCase?: {
     label: string;
     title: string;
-    description: string;
+    description?: string;
     steps: {
       label: string;
       title: string;
@@ -252,7 +251,7 @@ export const projects: Project[] = [
       "발행 지연과 품질 편차로 수정 요청·클레임이 늘었습니다. (수정필요 73)",
     ],
     judgment:
-      "공통 제작·검수는 자동화하고, 문체·필수 내용·키워드는 업체별로 설정하도록 설계했습니다. (수정필요 74)",
+      "공통 제작·검수는 자동화하고, 문체·필수 내용·키워드는 업체별로 설정하도록 설계했습니다. (수정필요 74) (수정필요 84)",
     execution: [],
     clientExample: {
       title: "고단가 메뉴 홍보를 위한 키워드·콘텐츠 조정 (수정필요 261)",
@@ -263,8 +262,6 @@ export const projects: Project[] = [
     decisionCase: {
       label: "제작·배포 과정 (수정필요 82)",
       title: "콘텐츠 협의부터 대량 제작까지 (수정필요 83)",
-      description:
-        "반복 작업은 자동화하고, 업체별 요구는 설정으로 분리했습니다. (수정필요 84)",
       steps: [
         {
           label: "01 · 방향 협의 (수정필요 85)",
@@ -779,10 +776,8 @@ export const projects: Project[] = [
     ],
     improvementMethods: [
       {
-        label: "오류 대응 (수정필요 188)",
-        title: "원인 확인 → 수정 → 재검증 (수정필요 189)",
-        description:
-          "비대상 콘텐츠 혼입이나 실행 중단의 발생 조건을 확인했습니다. (수정필요 190)",
+        label: "실제 대응 사례 (수정필요 188)",
+        title: "비대상 콘텐츠와 실행 중단 대응 (수정필요 189) (수정필요 190)",
         steps: [
           "이상 징후 감지",
           "영향 범위 확인",
@@ -791,8 +786,16 @@ export const projects: Project[] = [
           "수정 전후 재검증",
           "재발 방지",
         ],
-        example:
-          "비대상 URL은 제외 규칙 추가 후 표본 재검증. 장시간 실행 중단에는 간격 제어·단계별 대기·재시도·오류 복구 적용.",
+        cases: [
+          {
+            title: "비대상 URL 혼입",
+            description: "순위 집계에 비대상 콘텐츠가 섞이는 조건을 확인했습니다. URL 제외 규칙을 추가하고 표본 결과를 재검증했습니다.",
+          },
+          {
+            title: "장시간 실행 중단",
+            description: "간격 제어·단계별 대기·재시도·오류 복구를 적용했습니다. 중단 시 확인 후 해당 키워드부터 작업을 이어가도록 보완했습니다.",
+          },
+        ],
       },
     ],
     evidence: [

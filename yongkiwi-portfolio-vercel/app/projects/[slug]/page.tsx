@@ -150,6 +150,23 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <h1>{project.title}</h1>
             <p className="project-lead">{project.summary}</p>
             {project.scopeNote ? <p className="project-scope-note">{project.scopeNote}</p> : null}
+            {project.slug === "keyword-performance" ? (
+              <div className="seo-results-overview">
+                <div className="seo-primary-metric">
+                  <p>{project.metrics[0].label}</p>
+                  <strong>{project.metrics[0].value}</strong>
+                  <a href="#experiments">실험 결과와 채택·롤백 보기 ↓</a>
+                </div>
+                <dl className="seo-supporting-metrics" aria-label="운영 규모 보조 지표">
+                  {project.metrics.slice(1).map((metric) => (
+                    <div key={metric.label}>
+                      <dt>{metric.label}</dt>
+                      <dd>{metric.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            ) : (
             <div className="project-metric-row">
               {project.metrics.map((metric) => (
                 <div className="project-metric" key={metric.label}>
@@ -161,6 +178,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
               ))}
             </div>
+            )}
           </div>
         </section>
 
@@ -217,18 +235,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       다른 조건을 고정하고 변수 하나씩 비교한 후속 개선 실험 중 세 사례입니다. 공통 4주간 주 1회 확인한 누적 진입률로, 전체 운영 진입률과 구분합니다. (수정필요 223)
                     </p>
                   </div>
-                  {project.experimentProtocol ? (
-                    <ContentDisclosure title="공통 실험 조건과 측정 방식">
-                    <div className="experiment-protocol">
-                      {project.experimentProtocol.map((item) => (
-                        <div key={item.label}>
-                          <span>{item.label}</span>
-                          <strong>{item.value}</strong>
-                        </div>
-                      ))}
-                    </div>
-                    </ContentDisclosure>
-                  ) : null}
                   <div className="experiment-log-list">
                     {project.experiments.map((experiment, experimentIndex) => (
                       <ContentDisclosure
@@ -277,6 +283,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       </ContentDisclosure>
                     ))}
                   </div>
+                  {project.experimentProtocol ? (
+                    <ContentDisclosure title="공통 실험 조건과 측정 방식">
+                    <div className="experiment-protocol">
+                      {project.experimentProtocol.map((item) => (
+                        <div key={item.label}>
+                          <span>{item.label}</span>
+                          <strong>{item.value}</strong>
+                        </div>
+                      ))}
+                    </div>
+                    </ContentDisclosure>
+                  ) : null}
                 </section>
               ) : null}
 
@@ -305,7 +323,41 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   </div>
                 </div>
               ) : null}
-              {project.clientExample && project.execution.length > 0 ? (
+              {project.improvementMethods ? (
+                <div className="improvement-methods is-case-led">
+                  <p className="section-index">플랫폼 변경 대응 (수정필요 212)</p>
+                  <div className="improvement-method-grid">
+                    {project.improvementMethods.map((method) => (
+                      <article className="improvement-method-card" key={method.title}>
+                        <p className="method-case-label">{method.label}</p>
+                        <h3>{method.title}</h3>
+                        <div className="method-case-list">
+                          {method.cases.map((item) => (
+                            <div key={item.title}>
+                              <h4>{item.title}</h4>
+                              <p>{item.description}</p>
+                            </div>
+                          ))}
+                        </div>
+                        <ContentDisclosure title="점검·수정 절차">
+                          <ol className="method-checklist">
+                            {method.steps.map((step) => <li key={step}>{step}</li>)}
+                          </ol>
+                        </ContentDisclosure>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+              {project.improvementMethods && project.execution.length > 0 ? (
+                <ContentDisclosure title="도구 기획·구현 과정">
+                  <ol className="process-list">
+                    {project.execution.map((item, index) => (
+                      <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>
+                    ))}
+                  </ol>
+                </ContentDisclosure>
+              ) : project.clientExample && project.execution.length > 0 ? (
                 <ContentDisclosure title="키워드 선별·실험·추적 과정" preview={project.cardSummary}>
                   <ol className="process-list">
                     {project.execution.map((item, index) => (
@@ -331,44 +383,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   ) : null}
                 </>
               ) : null}
-              {project.improvementMethods ? (
-                <div className="improvement-methods">
-                  <div className="improvement-methods-heading">
-                    <p className="section-index">플랫폼 변경 대응 (수정필요 212)</p>
-                    <h3>검색 결과·URL 변경 대응</h3>
-                  </div>
-                  <div className="improvement-method-grid">
-                    {project.improvementMethods.map((method, methodIndex) => (
-                      <article className="improvement-method-card" key={method.title}>
-                        <div className="improvement-method-card-heading">
-                          <span>{String(methodIndex + 1).padStart(2, "0")}</span>
-                          <p>{method.label}</p>
-                        </div>
-                        <h4>{method.title}</h4>
-                        <p>{method.description}</p>
-                        <ol>
-                          {method.steps.map((step, stepIndex) => (
-                            <li key={step}>
-                              <span>{String(stepIndex + 1).padStart(2, "0")}</span>
-                              {step}
-                            </li>
-                          ))}
-                        </ol>
-                        <div className="improvement-method-example">
-                          <b>실제 적용 예시</b>
-                          <p>{method.example}</p>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
               {project.decisionCase ? (
                 <div className={`decision-case${project.execution.length === 0 ? " is-primary" : ""}`}>
                   <div className="decision-case-heading">
                     <p className="section-index">{project.decisionCase.label}</p>
                     <h3>{project.decisionCase.title}</h3>
-                    <p>{project.decisionCase.description}</p>
+                    {project.decisionCase.description ? <p>{project.decisionCase.description}</p> : null}
                   </div>
                   <div className="decision-case-grid">
                     {project.decisionCase.steps.map((step) => (
