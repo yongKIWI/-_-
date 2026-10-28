@@ -2475,6 +2475,10 @@ footer p {
 .content-disclosure .experiment-protocol { margin: 0; }
 .experiment-card.content-disclosure { padding: 0; margin: 0; box-shadow: none; }
 .experiment-log-list { gap: 12px; }
+.experiment-card .disclosure-preview > span { display: block; }
+.experiment-sample { margin-top: 4px; color: var(--ink); font-weight: 750; }
+.experiment-conditions { margin-top: 3px; }
+.experiment-outcome { margin-top: 8px; color: var(--green); font-weight: 750; }
 .experiment-status { display: inline-block; margin-left: 12px; padding: 3px 9px; font-size: 11px; vertical-align: middle; }
 .experiment-status.is-adopted { background: var(--kiwi-soft); color: var(--green); }
 .experiment-status.is-rolled-back { background: var(--paper-deep); color: var(--ink); }

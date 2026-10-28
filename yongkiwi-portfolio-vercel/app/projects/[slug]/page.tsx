@@ -214,7 +214,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       채택한 안과 되돌린 안 (수정필요 222)
                     </h2>
                     <p>
-                      여러 후속 개선 실험 중 세 사례입니다. 순차 발행한 콘텐츠를 공통 4주간 주 1회 확인했으며, 아래 비율은 전체 운영 진입률과 구분합니다. (수정필요 223)
+                      다른 조건을 고정하고 변수 하나씩 비교한 후속 개선 실험 중 세 사례입니다. 공통 4주간 주 1회 확인한 누적 진입률로, 전체 운영 진입률과 구분합니다. (수정필요 223)
                     </p>
                   </div>
                   {project.experimentProtocol ? (
@@ -236,7 +236,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         key={experiment.title}
                         eyebrow={`${String(experimentIndex + 1).padStart(2, "0")} · ${experiment.period}`}
                         title={<>{experiment.title}{" "}<span className={experiment.status === "채택" ? "experiment-status is-adopted" : "experiment-status is-rolled-back"}>{experiment.status}</span></>}
-                        preview={`${experiment.variants[0].description} ${experiment.variants[0].rate} → ${experiment.variants[1].description} ${experiment.variants[1].rate} · ${experiment.difference}`}
+                        preview={
+                          <>
+                            <span className="experiment-sample">A·B안 각각 {experiment.variants[0].sampleSize}</span>
+                            <span className="experiment-conditions">{experiment.controlSummary}</span>
+                            <span className="experiment-outcome">{experiment.variants[0].description} {experiment.variants[0].rate} → {experiment.variants[1].description} {experiment.variants[1].rate} · {experiment.difference}</span>
+                          </>
+                        }
                       >
                         <div className="experiment-context">
                           <div>
@@ -287,8 +293,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <blockquote>{project.judgment}</blockquote>
 
             <section id="decision">
-              <p className="section-index">분석과 실행 (수정필요 211)</p>
-              <h2>분석과 실행</h2>
+              <h2>분석과 실행 (수정필요 211)</h2>
               {project.clientExample ? (
                 <div className="decision-case">
                   <div className="decision-case-heading">
@@ -364,7 +369,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <p className="section-index">{project.decisionCase.label}</p>
                     <h3>{project.decisionCase.title}</h3>
                     <p>{project.decisionCase.description}</p>
-                    {project.execution.length === 0 && project.cardSummary ? <p>{project.cardSummary}</p> : null}
                   </div>
                   <div className="decision-case-grid">
                     {project.decisionCase.steps.map((step) => (
@@ -383,8 +387,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </section>
 
             <section id="result">
-              <p className="section-index">성과 (수정필요 214)</p>
-              <h2>성과</h2>
+              <h2>성과 (수정필요 214)</h2>
               <ul className="result-list">
                 {project.results.map((item) => (
                   <li key={item}>{item}</li>
