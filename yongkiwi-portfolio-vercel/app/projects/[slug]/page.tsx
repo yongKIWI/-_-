@@ -594,10 +594,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <p>{project.measurement}</p>
             </ContentDisclosure>
 
-            <p className="security-note">
-              화면은 실제 업무 자료를 기반으로 하며, 공개 범위에 맞춰 필요한
-              항목은 익명화하거나 재구성합니다.
-            </p>
           </article>
         </div>
 
