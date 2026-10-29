@@ -323,30 +323,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   </div>
                 </div>
               ) : null}
-              {project.improvementMethods ? (
-                <div className="improvement-methods is-case-led">
-                  <p className="section-index">플랫폼 변경 대응 (수정필요 212)</p>
-                  <div className="improvement-method-grid">
-                    {project.improvementMethods.map((method) => (
-                      <article className="improvement-method-card" key={method.title}>
-                        <p className="method-case-label">{method.label}</p>
-                        <h3>{method.title}</h3>
-                        <div className="method-case-list">
-                          {method.cases.map((item) => (
-                            <div key={item.title}>
-                              <h4>{item.title}</h4>
-                              <p>{item.description}</p>
-                            </div>
-                          ))}
-                        </div>
-                        <ContentDisclosure title="점검·수정 절차">
-                          <ol className="method-checklist">
-                            {method.steps.map((step) => <li key={step}>{step}</li>)}
-                          </ol>
-                        </ContentDisclosure>
-                      </article>
-                    ))}
-                  </div>
+              {project.automationCases ? (
+                <div className="automation-case-list">
+                  {project.automationCases.map((item, index) => (
+                    <article className="automation-case" key={item.title}>
+                      <span className="automation-case-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                      <div>
+                        <h3>{item.title}</h3>
+                        <p>{item.description}</p>
+                      </div>
+                    </article>
+                  ))}
                 </div>
               ) : null}
               {project.improvementMethods && project.execution.length > 0 ? (
@@ -382,6 +369,33 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     </ContentDisclosure>
                   ) : null}
                 </>
+              ) : null}
+              {project.improvementMethods ? (
+                <ContentDisclosure className="maintenance-detail" title="기술적 유지보수 (수정필요 212)" preview="비대상 URL 혼입·장시간 실행 중단 대응">
+                  <div className="improvement-methods is-case-led">
+                    <div className="improvement-method-grid">
+                      {project.improvementMethods.map((method) => (
+                        <article className="improvement-method-card" key={method.title}>
+                          <p className="method-case-label">{method.label}</p>
+                          <h3>{method.title}</h3>
+                          <div className="method-case-list">
+                            {method.cases.map((item) => (
+                              <div key={item.title}>
+                                <h4>{item.title}</h4>
+                                <p>{item.description}</p>
+                              </div>
+                            ))}
+                          </div>
+                          <ContentDisclosure title="점검·수정 절차">
+                            <ol className="method-checklist">
+                              {method.steps.map((step) => <li key={step}>{step}</li>)}
+                            </ol>
+                          </ContentDisclosure>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+                </ContentDisclosure>
               ) : null}
               {project.decisionCase ? (
                 <div className={`decision-case${project.execution.length === 0 ? " is-primary" : ""}`}>

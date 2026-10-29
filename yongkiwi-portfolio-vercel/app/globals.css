@@ -3265,6 +3265,14 @@ footer p {
 .method-case-list h4 { margin: 0; font-size: 18px; }
 .method-case-list p { margin: 8px 0 0; color: #40413b; font-size: 15px; line-height: 1.8; }
 .method-checklist { padding-left: 22px; margin: 0; font-size: 14px; line-height: 2; }
+/* Supporting automation only: actual work first, technical detail on demand. */
+.automation-case-list { margin: 24px 0; border-top: 1px solid var(--line); }
+.automation-case { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 16px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+.automation-case-number { padding-top: 3px; color: var(--green); font-size: 13px; font-weight: 800; }
+.automation-case h3 { margin: 0; font-size: 20px; line-height: 1.5; letter-spacing: -0.03em; }
+.automation-case p { margin: 8px 0 0; font-size: 15px; line-height: 1.8; color: #40413b; }
+.maintenance-detail .improvement-methods { margin: 0; }
+.maintenance-detail .improvement-method-card { padding: 0; border: 0; background: transparent; }
 @media (max-width: 720px) {
   .seo-results-overview { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
   .seo-primary-metric strong { font-size: clamp(29px, 7.5vw, 42px); }
