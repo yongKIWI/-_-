@@ -237,19 +237,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   </div>
                   <div className="experiment-log-list">
                     {project.experiments.map((experiment, experimentIndex) => (
-                      <ContentDisclosure
-                        className="experiment-card"
-                        key={experiment.title}
-                        eyebrow={`${String(experimentIndex + 1).padStart(2, "0")} · ${experiment.period}`}
-                        title={<>{experiment.title}{" "}<span className={experiment.status === "채택" ? "experiment-status is-adopted" : "experiment-status is-rolled-back"}>{experiment.status}</span></>}
-                        preview={
-                          <>
-                            <span className="experiment-sample">A·B안 각각 {experiment.variants[0].sampleSize}</span>
-                            <span className="experiment-conditions">{experiment.controlSummary}</span>
-                            <span className="experiment-outcome">{experiment.variants[0].description} {experiment.variants[0].rate} → {experiment.variants[1].description} {experiment.variants[1].rate} · {experiment.difference}</span>
-                          </>
-                        }
-                      >
+                      <article className="experiment-case" key={experiment.title}>
+                        <header className="experiment-case-heading">
+                          <p>{String(experimentIndex + 1).padStart(2, "0")} · {experiment.period}</p>
+                          <h3>{experiment.title}<span className={experiment.status === "채택" ? "experiment-status is-adopted" : "experiment-status is-rolled-back"}>{experiment.status}</span></h3>
+                        </header>
+                        <div className="experiment-comparison" aria-label={`${experiment.title} 비교 결과`}>
+                          {experiment.variants.map((variant) => (
+                            <div key={variant.label}>
+                              <span>{variant.label}안 · {variant.description}</span>
+                              <strong>{variant.rate}</strong>
+                              <small>{variant.topSevenCount} / {variant.sampleSize}</small>
+                            </div>
+                          ))}
+                        </div>
+                        <p className="experiment-decision-line"><strong>{experiment.difference}</strong> {experiment.decision}</p>
                         <div className="experiment-context">
                           <div>
                             <b>변화 감지</b>
@@ -264,23 +266,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                           <b>통제 조건</b>
                           {experiment.control}
                         </p>
-                        <div className="experiment-variants">
-                          {experiment.variants.map((variant) => (
-                            <div key={`${experiment.title}-${variant.label}`}>
-                              <span>{variant.label}안</span>
-                              <h5>{variant.description}</h5>
-                              <p>
-                                {variant.topSevenCount} / {variant.sampleSize}
-                              </p>
-                              <strong>{variant.rate}</strong>
-                            </div>
-                          ))}
-                        </div>
-                        <div className="experiment-decision">
-                          <strong>{experiment.difference}</strong>
-                          <p>{experiment.decision}</p>
-                        </div>
-                      </ContentDisclosure>
+                      </article>
                     ))}
                   </div>
                   {project.experimentProtocol ? (
@@ -404,13 +390,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <h3>{project.decisionCase.title}</h3>
                     {project.decisionCase.description ? <p>{project.decisionCase.description}</p> : null}
                   </div>
-                  <div className="decision-case-grid">
+                  <ol className="decision-step-list">
                     {project.decisionCase.steps.map((step) => (
-                      <ContentDisclosure key={step.label} eyebrow={step.label} title={step.title}>
+                      <li key={step.label}>
+                        <p className="decision-step-label">{step.label}</p>
+                        <h4>{step.title}</h4>
                         <p>{step.description}</p>
-                      </ContentDisclosure>
+                      </li>
                     ))}
-                  </div>
+                  </ol>
                   {project.decisionCase.disclosure ? (
                     <p className="decision-case-disclosure">
                       {project.decisionCase.disclosure}

@@ -9,8 +9,7 @@ type NavigationProps = {
 };
 
 const navigation = [
-  { id: "impact", label: "성과" },
-  { id: "projects", label: "프로젝트" },
+  { id: "projects", label: "성과·프로젝트" },
   { id: "career", label: "경력" },
   { id: "process", label: "일하는 방식" },
   { id: "contact", label: "연락처" },

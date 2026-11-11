@@ -17,10 +17,7 @@ const portfolioCopy = {
   eyebrow: "AE · 콘텐츠 기획·운영·성과 분석 (수정필요 2) (수정필요 7)",
   title: (
     <>
-      콘텐츠 기획부터
-      <br />{" "}
-      제작과 성과 개선까지,
-      <br />{" "}
+      콘텐츠 기획부터 제작과 성과 개선까지,{" "}
       <em>AE 이용택입니다.<span className="hero-review-markers">(수정필요 3) (수정필요 8)</span></em>
     </>
   ),
@@ -32,7 +29,7 @@ const portfolioCopy = {
   ],
   measurement: [
     "월 약 8,200건은 2025.11 이후 실제 운영량",
-    "실수요 키워드는 실제 조회수가 있는 키워드입니다. 진입률은 업체별 월 발행 실수요 키워드 중 업체 콘텐츠가 네이버 통합검색 SERP의 카페·블로그 콘텐츠 중 상위 7위에 한 번 이상 노출된 비율입니다. (수정필요 6) (수정필요 11)",
+    "실수요 키워드는 실제 조회수가 있는 키워드입니다. 진입률은 업체별 월 발행 실수요 키워드 중 업체 콘텐츠가 네이버 통합검색 SERP의 카페·블로그 콘텐츠 중 상위 7위에 한 번 이상 노출된 비율입니다. (수정필요 6) (수정필요 11) (수정필요 14)",
   ],
   resumeLabel: "이용택 AE 이력서",
   projectOrder: [
@@ -52,93 +49,57 @@ export function PortfolioPage() {
     <>
       <DisclosureNavigation />
       <SiteHeader />
-      <main id="main-content">
-        <section className="hero">
+      <main id="main-content" className="portfolio-editorial">
+        <section className="hero editorial-hero">
           <div className="hero-grid container">
             <div className="hero-copy">
               <p className="eyebrow">{copy.eyebrow}</p>
               <h1>{copy.title}</h1>
+            </div>
+            <div className="hero-introduction">
               <p className="hero-description">{copy.description}</p>
               <div className="hero-actions">
                 <Link className="button button-dark" href="#projects">
                   대표 프로젝트 보기
                 </Link>
-                <Link className="button button-light" href="#career">
+                <Link className="resume-text-link" href="#career">
                   {copy.resumeLabel}
                 </Link>
-              </div>
-              <ContentDisclosure className="hero-context" title="업무 범위와 성과 기준 (수정필요 12)">
-                {copy.statements.map((statement) => <p key={statement}>{statement}</p>)}
-                <ul>
-                  {copy.measurement.map((item) => <li key={item}>{item}</li>)}
-                </ul>
-              </ContentDisclosure>
-            </div>
-
-            <div className="hero-impact" id="impact" aria-label="핵심 성과 요약">
-              <div className="hero-impact-heading">
-                <p className="eyebrow">핵심 성과 (수정필요 24)</p>
-                <h2>제작 효율과 검색 성과 (수정필요 25)</h2>
-                <p className="hero-impact-caption">운영 전후 (수정필요 13)</p>
-              </div>
-              <div className="metric-grid">
-                {commonMetrics.map((metric) => (
-                  <Link
-                    className={`metric-card${metric.compact ? " metric-card-compact" : ""}`}
-                    href={`/projects/${metric.project}`}
-                    key={metric.label}
-                  >
-                    <strong>{metric.value}</strong>
-                    <p>{metric.label}</p>
-                    <b>프로젝트 보기 →</b>
-                  </Link>
-                ))}
-              </div>
-              <p className="hero-metric-context">
-                실제 조회수가 있는 월 발행 키워드 중, 네이버 통합검색의 카페·블로그 콘텐츠 중 상위 7위에 업체 콘텐츠가 한 번 이상 노출된 비율입니다. (수정필요 14)
-              </p>
-              <div className="visual-footer">
-                <span>업체 소통 (수정필요 15)</span>
-                <span>콘텐츠 기획 (수정필요 16)</span>
-                <span>제작·운영 (수정필요 17)</span>
-                <span>성과 분석 (수정필요 18)</span>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="projects section" id="projects">
+        <section className="projects section editorial-projects" id="projects">
           <div className="container">
-            <div className="section-heading">
-              <p className="eyebrow">대표 프로젝트 (수정필요 26)</p>
-              <h2>기획·제작·분석의 개선 사례 (수정필요 27)</h2>
+            <div className="section-heading" id="impact">
+              <p className="eyebrow">핵심 성과 · 대표 프로젝트 (수정필요 24) (수정필요 26)</p>
+              <h2>제작 효율과 검색 성과 (수정필요 25) (수정필요 27)</h2>
+              <p className="case-comparison-label">운영 전후 (수정필요 13)</p>
             </div>
 
             <div className="project-list">
               {orderedProjects.map((project, index) => (
                 <Link
                   aria-label={`${project.cardTitle ?? project.shortTitle} 상세 보기`}
-                  className="project-card"
+                  className={`project-card case-entry${index === 0 ? " is-featured" : ""}`}
                   href={`/projects/${project.slug}`}
                   key={project.slug}
                 >
-                  <div className="project-card-number">
-                    {String(index + 1).padStart(2, "0")}
-                  </div>
-                  <div className="project-card-copy">
-                    <p className="project-category">{project.category}</p>
+                  <div className="case-heading">
+                    <p className="project-category"><span>{String(index + 1).padStart(2, "0")}</span>{project.category}</p>
                     <h3>{project.cardTitle ?? project.shortTitle}</h3>
-                    <p className="project-card-role">
-                      <span>담당 역할 (수정필요 28)</span>
-                      {project.role}
-                    </p>
-                    <p>{project.cardSummary ?? project.summary}</p>
                   </div>
-                  <div className="project-card-proof">
-                    <span className="project-card-cta">
-                      상세 보기 →
-                    </span>
-                  </div>
+                  <dl className="case-metrics">
+                    {commonMetrics.filter((metric) => metric.project === project.slug).map((metric) => (
+                      <div key={metric.label}>
+                        <dt>{metric.label}</dt>
+                        <dd>{metric.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <p className="case-summary">{project.cardSummary ?? project.summary}</p>
+                  <span className="project-card-cta">상세 보기 <span aria-hidden="true">→</span></span>
                 </Link>
               ))}
             </div>
@@ -152,6 +113,18 @@ export function PortfolioPage() {
               <p>실무 도입부터 플랫폼 변경 대응까지 (수정필요 31)</p>
               <b aria-hidden="true">→</b>
             </Link>
+            <ContentDisclosure className="home-scope" title="업무 범위와 성과 기준 (수정필요 12)">
+              <p className="scope-role-label">담당 역할 (수정필요 28)</p>
+              <p className="hero-roles">
+                <span>업체 소통 (수정필요 15)</span>
+                <span>콘텐츠 기획 (수정필요 16)</span>
+                <span>제작·운영 (수정필요 17)</span>
+                <span>성과 분석 (수정필요 18)</span>
+              </p>
+              <ul>{orderedProjects.map((project) => <li key={project.slug}>{project.role}</li>)}</ul>
+              {copy.statements.map((statement) => <p key={statement}>{statement}</p>)}
+              <ul>{copy.measurement.map((item) => <li key={item}>{item}</li>)}</ul>
+            </ContentDisclosure>
           </div>
         </section>
 

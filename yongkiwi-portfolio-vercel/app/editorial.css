@@ -1,0 +1,273 @@
+/* 2026-11: evidence-first presentation. Facts and review IDs live in site-data. */
+:root {
+  --focus-color: var(--green);
+  --type-title: clamp(32px, 3.8vw, 48px);
+  --type-section: clamp(25px, 2.5vw, 32px);
+  --type-project: clamp(22px, 2.2vw, 28px);
+  --type-body: 16px;
+  --type-label: 13px;
+}
+
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline-color: var(--focus-color);
+}
+.projects, .contact, footer { --focus-color: var(--kiwi); }
+.section { padding-block: 64px; }
+.section-heading { margin-bottom: 32px; }
+.section-heading h2, .project-article h2 {
+  font-size: var(--type-section);
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+.eyebrow, .section-index, .project-category {
+  font-size: var(--type-label);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+.eyebrow, .section-index { margin-bottom: 12px; }
+.button { min-height: 46px; font-weight: 600; transition: background 160ms ease; }
+.button:hover { transform: none; box-shadow: none; }
+.button-dark:hover { background: var(--green); }
+
+/* A short introduction, followed by one combined result/project index. */
+.editorial-hero .hero-grid {
+  min-height: 0;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 56px;
+  padding-block: 48px;
+  align-items: center;
+}
+.hero-copy h1 {
+  max-width: 620px;
+  font-size: var(--type-title);
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.hero-copy h1 em { display: block; }
+.hero-description { margin: 0; font-size: 17px; font-weight: 400; line-height: 1.75; }
+.hero-roles { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 16px 0 0; color: var(--muted); font-size: 13px; }
+.hero-actions { align-items: center; margin-top: 20px; gap: 12px 22px; }
+.resume-text-link { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; text-underline-offset: 5px; text-decoration: underline; }
+.editorial-projects { padding-top: 40px; }
+#impact { scroll-margin-top: 16px; }
+.case-comparison-label { margin: 10px 0 0; color: #bebfb8; font-size: 13px; }
+.project-card.case-entry {
+  min-height: 0;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-areas: "heading metrics" "summary metrics" "cta metrics";
+  gap: 12px 64px;
+  padding: 32px 0;
+  align-items: start;
+  transition: background 160ms ease;
+}
+.project-card.case-entry:hover { padding-inline: 0; background: rgb(255 255 255 / 4%); }
+.case-heading { grid-area: heading; min-width: 0; }
+.case-heading .project-category { display: flex; align-items: baseline; gap: 14px; margin-bottom: 10px; }
+.case-entry h3 { font-size: var(--type-project); font-weight: 600; line-height: 1.4; letter-spacing: -0.025em; text-wrap: balance; }
+.case-summary { grid-area: summary; margin: 0; color: #ced0c8; font-size: 16px; line-height: 1.7; }
+.case-entry .project-card-cta { grid-area: cta; display: inline-flex; align-items: center; gap: 16px; justify-self: start; font-size: 14px; font-weight: 500; }
+.case-metrics { grid-area: metrics; align-self: center; min-width: 0; display: grid; gap: 22px; margin: 0; }
+.case-metrics > div { display: flex; flex-direction: column; gap: 8px; }
+.case-metrics dt { order: 2; color: #d0d2c9; font-size: 13px; line-height: 1.65; }
+.case-metrics dd { order: 1; margin: 0; color: var(--kiwi); font-size: clamp(30px, 2.8vw, 38px); font-weight: 650; letter-spacing: -0.025em; line-height: 1.25; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.case-metrics > div + div dd { font-size: 26px; color: var(--white); }
+.support-project { margin-top: 24px; padding: 24px 0; border-width: 0 0 1px; background: transparent; box-shadow: none; }
+.support-project strong { font-size: 20px; font-weight: 600; line-height: 1.5; }
+.support-project > span, .support-project p { font-size: 13px; font-weight: 400; }
+.home-scope.content-disclosure { margin-top: 24px; border-color: rgb(255 255 255 / 25%); background: transparent; }
+.home-scope .disclosure-copy > strong, .home-scope .disclosure-toggle { color: #e3e4dd; }
+.home-scope > summary:hover, .home-scope[open] > summary { background: rgb(255 255 255 / 5%); border-color: rgb(255 255 255 / 25%); }
+.home-scope .disclosure-body p, .home-scope .disclosure-body li { color: #ced0c8; font-size: 14px; }
+.home-scope ul { padding-left: 20px; }
+.scope-role-label { font-weight: 600; }
+
+/* Secondary sections remain readable without competing with project results. */
+.career-list article { padding-block: 26px; }
+.career-list h3 { font-size: 22px; font-weight: 600; }
+.career-list p { font-size: 15px; line-height: 1.75; font-weight: 400; }
+.career-list span, .career-list b { font-size: 13px; font-weight: 500; }
+.background-heading h3 { font-size: 25px; line-height: 1.4; letter-spacing: -0.025em; }
+.split-heading > p { font-size: 16px; font-weight: 400; line-height: 1.75; }
+.working-summary .process-grid { gap: 20px; border: 0; }
+.working-summary .process-grid li { padding: 16px 0; border: 0; border-top: 1px solid var(--line); background: transparent; }
+.working-summary .process-grid strong { font-size: 18px; font-weight: 600; }
+.working-summary .process-grid p { font-size: 14px; }
+.working-summary .process-grid b { font-size: 12px; letter-spacing: 0.025em; }
+.working-summary .system-list strong { font-size: 16px; font-weight: 500; }
+.systems-copy h3 { font-size: 24px; }
+
+/* Project copy uses one scale; side notes never receive display-heading weight. */
+.project-hero { padding-block: 36px 44px; }
+.project-hero h1 { max-width: 920px; font-size: var(--type-title); font-weight: 650; line-height: 1.3; letter-spacing: -0.03em; text-wrap: balance; }
+.project-lead { font-size: 17px; font-weight: 400; line-height: 1.75; }
+.project-scope-note { font-size: 14px; line-height: 1.75; }
+.project-layout { gap: 64px; padding-block: 56px 64px; }
+.project-aside strong { font-size: 14px; font-weight: 500; line-height: 1.7; }
+.project-aside span { font-size: 12px; font-weight: 500; }
+.project-metric-row { margin-top: 32px; }
+.project-metric { padding: 20px 16px; background: transparent; border-color: var(--line); }
+.project-metric strong { font-size: clamp(24px, 2.3vw, 32px); font-weight: 650; letter-spacing: -0.025em; }
+.project-metric > span { font-size: 13px; font-weight: 500; }
+.seo-primary-metric strong { font-size: clamp(30px, 3.2vw, 42px); letter-spacing: -0.025em; font-weight: 650; }
+.seo-primary-metric p { font-weight: 600; }
+.seo-supporting-metrics dt { font-size: 13px; }
+.seo-supporting-metrics dd { font-weight: 600; }
+.project-article section { margin-bottom: 48px; }
+.project-article h2 { margin-bottom: 24px; }
+.project-article blockquote { padding: 18px 24px; margin-bottom: 40px; border: 0; border-left: 3px solid var(--green); box-shadow: none; background: color-mix(in srgb, var(--kiwi-soft) 40%, var(--paper)); font-size: 18px; font-weight: 500; letter-spacing: -0.015em; line-height: 1.75; }
+.decision-case { padding: 24px 0; border: 0; border-top: 1px solid var(--line); background: transparent; box-shadow: none; }
+.decision-case-heading h3, .performance-tracking-heading h3, .is-case-led .improvement-method-card > h3 { font-size: 24px; font-weight: 600; letter-spacing: -0.025em; line-height: 1.45; }
+.decision-case-heading > p:not(.section-index), .automation-case p, .method-case-list p, .process-list p { font-size: 16px; line-height: 1.75; font-weight: 400; }
+.decision-step-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; list-style: none; padding: 0; margin: 28px 0 0; }
+.decision-step-list li { padding-top: 16px; border-top: 1px solid var(--line); min-width: 0; }
+.decision-step-list h4 { margin: 8px 0; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.decision-step-list p { margin: 8px 0 0; font-size: 16px; line-height: 1.75; color: #40413b; }
+.decision-step-list .decision-step-label { margin: 0; color: var(--green); font-size: 13px; font-weight: 500; }
+.improvement-method-card { background: transparent; box-shadow: none; border-color: var(--line); }
+.performance-chart-card, .project-proof-card { box-shadow: none; border-color: var(--line); }
+.performance-chart-heading h4 { font-size: 22px; line-height: 1.4; font-weight: 600; }
+.performance-milestones > span { font-size: 13px; }
+
+/* Expand only secondary material. Primary decisions are ordinary document content. */
+.content-disclosure { border-width: 1px 0; background: transparent; box-shadow: none; }
+.content-disclosure > summary { min-height: 56px; padding: 16px 4px; }
+.content-disclosure > summary:hover, .content-disclosure[open] > summary { background: var(--paper-deep); }
+.disclosure-copy > strong { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+.disclosure-eyebrow, .disclosure-preview, .disclosure-toggle { font-size: 13px; font-weight: 500; }
+.disclosure-body { padding: 20px 4px; }
+.disclosure-body p { font-size: 16px; line-height: 1.75; }
+.disclosure-body h3 { font-size: 21px; font-weight: 600; }
+.proof-note.content-disclosure { background: transparent; }
+.project-proof .disclosure-body { padding-inline: 0; }
+.project-aside .disclosure-body p { font-size: 13px; }
+.project-aside .project-toc-links { padding: 0; border: 0; }
+.project-toc-links > span { display: block; margin-bottom: 10px; color: var(--green); font-size: 13px; font-weight: 500; letter-spacing: 0; }
+.project-toc a { min-height: 44px; font-size: 13px; font-weight: 500; }
+.project-toc a.is-active { font-weight: 600; }
+
+/* Experiments: direct comparison, decision, then the reason and controlled variable. */
+.experiment-log-list { gap: 32px; }
+.experiment-case { padding: 24px 0; border-top: 1px solid var(--line); }
+.experiment-case-heading p { margin: 0 0 10px; font-size: 13px; color: var(--muted); }
+.experiment-case-heading h3 { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 0; font-size: 22px; font-weight: 600; line-height: 1.45; letter-spacing: -0.02em; }
+.experiment-status { margin: 0; font-size: 13px; font-weight: 500; }
+.experiment-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 20px; }
+.experiment-comparison > div { display: grid; align-content: start; gap: 6px; }
+.experiment-comparison span { font-size: 14px; color: #40413b; }
+.experiment-comparison strong { font-size: 32px; font-weight: 650; line-height: 1.3; font-variant-numeric: tabular-nums; }
+.experiment-comparison > div:last-child strong { color: var(--green); }
+.experiment-comparison small { font-size: 13px; color: var(--muted); }
+.experiment-decision-line { margin: 18px 0 0; font-size: 16px; line-height: 1.75; }
+.experiment-decision-line > strong { font-size: 14px; color: var(--green); font-weight: 600; margin-right: 8px; white-space: nowrap; }
+.experiment-context { margin-top: 20px; gap: 18px; border: 0; background: transparent; }
+.experiment-context > div { padding: 0; background: transparent; }
+.experiment-context b, .experiment-control b { color: var(--muted); font-size: 13px; font-weight: 500; letter-spacing: 0; }
+.experiment-context p { margin-top: 5px; color: #40413b; font-size: 15px; line-height: 1.75; }
+.experiment-control { padding: 0; margin-top: 16px; border: 0; background: transparent; font-size: 13px; font-weight: 400; color: var(--muted); }
+
+/* Navigation and contact are useful utilities, not a second hero. */
+.next-project { background: var(--paper-deep); border-color: var(--line); }
+.next-project-link { padding-block: 28px; }
+.next-project-link:focus-visible { outline-offset: -5px; }
+.next-project-link:hover { background: var(--kiwi-soft); }
+.next-project .eyebrow { margin-bottom: 10px; font-size: 13px; font-weight: 500; }
+.next-project span { font-size: 26px; font-weight: 600; letter-spacing: -0.025em; line-height: 1.4; }
+.next-project b { font-size: 28px; font-weight: 400; }
+.contact.section { padding-block: 40px; }
+.contact-inner { text-align: left; }
+.contact h2 { font-size: 30px; font-weight: 600; line-height: 1.4; letter-spacing: -0.025em; }
+.contact-inner > p:not(.eyebrow) { margin: 12px 0 0; color: #c5c7bd; }
+.contact-email-row { margin-top: 20px; justify-content: flex-start; }
+.contact-mail { font-size: 23px; font-weight: 500; padding: 8px 0; border-bottom-width: 1px; }
+.contact-copy { font-size: 13px; font-weight: 500; }
+.floating-back-to-top { background: var(--paper); color: var(--ink); border-color: #888a7e; box-shadow: none; min-height: 44px; font-weight: 500; }
+.floating-back-to-top:hover { transform: none; box-shadow: none; background: var(--paper-deep); }
+footer { padding-block: 20px; }
+footer span, footer p { font-size: 12px; color: #b4b6ac; }
+
+@media (max-width: 1000px) {
+  .project-layout { grid-template-columns: 210px minmax(0, 1fr); gap: 32px; }
+  .project-card.case-entry { column-gap: 32px; }
+  .editorial-hero .hero-grid { gap: 32px; }
+}
+
+@media (max-width: 720px) {
+  :root { --type-title: 32px; --type-section: 25px; --type-project: 23px; }
+  .section { padding-block: 40px; }
+  .section-heading { margin-bottom: 24px; }
+  .editorial-hero .hero-grid { grid-template-columns: 1fr; padding-block: 28px; gap: 20px; }
+  .hero-description { font-size: 16px; }
+  .hero-review-markers { margin-top: 8px; }
+  .hero-roles { gap: 4px 12px; font-size: 12px; margin-top: 12px; }
+  .hero-actions { display: flex; margin-top: 16px; gap: 8px 18px; }
+  .hero-actions .button { width: auto; }
+  .editorial-projects { padding-top: 28px; }
+  .project-card.case-entry { grid-template-columns: 1fr; grid-template-areas: "heading" "metrics" "summary" "cta"; padding-block: 24px; gap: 18px; }
+  .case-metrics { gap: 16px; }
+  .case-metrics dd { font-size: 29px; }
+  .case-metrics > div + div dd { font-size: 24px; }
+  .case-summary { font-size: 16px; }
+  .case-entry .project-card-cta { min-height: 44px; }
+  .support-project { margin-top: 12px; padding-block: 20px; }
+  .support-project strong { font-size: 18px; }
+  .background-heading h3 { font-size: 23px; }
+  .career-list h3 { font-size: 21px; }
+  .working-summary .process-grid { grid-template-columns: 1fr; }
+  .project-hero { padding-block: 24px 32px; }
+  .project-lead { font-size: 16px; }
+  .project-layout { grid-template-columns: 1fr; gap: 28px; padding-block: 28px 40px; }
+  .project-brief-meta { margin-top: 0; }
+  .project-brief-meta dt, .project-brief-meta dd { font-size: 13px; font-weight: 400; line-height: 1.7; }
+  .project-metric-row { margin-top: 24px; }
+  .project-metric { padding: 16px 12px; }
+  .project-metric strong { font-size: 24px; }
+  .seo-primary-metric strong { font-size: 30px; }
+  .seo-results-overview { gap: 20px; }
+  .project-mobile-toc {
+    display: block;
+    position: sticky;
+    top: 66px;
+    width: calc(100% + 30px);
+    padding: 0 15px;
+    margin-inline: -15px;
+    overflow: visible;
+    background: var(--paper);
+    backdrop-filter: none;
+    border-block: 1px solid var(--line);
+  }
+  .project-toc-trigger { width: 100%; min-height: 50px; padding: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: transparent; border: 0; color: var(--ink); font: inherit; font-size: 14px; cursor: pointer; }
+  .toc-current { color: var(--muted); }
+  .project-mobile-toc .project-toc-links { position: absolute; inset: 100% 0 auto; padding: 12px 15px; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 8px 16px rgb(23 24 21 / 10%); max-height: calc(100dvh - 142px); overflow-y: auto; }
+  .project-mobile-toc .project-toc-links[hidden] { display: none; }
+  .project-mobile-toc a { justify-content: flex-start; border: 0; border-top: 1px solid var(--line); font-size: 14px; font-weight: 500; padding: 8px 12px; min-height: 46px; }
+  .project-mobile-toc a.is-active { background: var(--kiwi-soft); font-weight: 600; }
+  .project-article section, .project-article blockquote, .content-disclosure { scroll-margin-top: 48px; }
+  .project-article h2 { margin-bottom: 20px; }
+  .project-article blockquote { padding: 16px; font-size: 17px; }
+  .decision-case { padding-block: 20px; }
+  .decision-case-heading h3, .performance-tracking-heading h3, .is-case-led .improvement-method-card > h3 { font-size: 22px; }
+  .decision-step-list { grid-template-columns: 1fr; gap: 16px; margin-top: 20px; }
+  .content-disclosure > summary { padding: 16px 4px; }
+  .disclosure-body { padding: 18px 4px; }
+  .experiment-case { padding-block: 20px; }
+  .experiment-case-heading h3 { font-size: 21px; }
+  .experiment-comparison { gap: 16px; }
+  .experiment-comparison strong { font-size: 28px; }
+  .experiment-context { grid-template-columns: 1fr; gap: 12px; }
+  .next-project-link { padding-block: 24px; }
+  .next-project span { font-size: 22px; }
+  .contact.section { padding-block: 32px; }
+  .contact h2 { font-size: 26px; }
+  .contact-mail { font-size: 21px; overflow-wrap: anywhere; }
+  .floating-back-to-top { right: max(14px, env(safe-area-inset-right)); bottom: max(14px, env(safe-area-inset-bottom)); }
+  footer { padding-bottom: max(84px, calc(env(safe-area-inset-bottom) + 72px)); }
+}
+
+@media (min-width: 721px) and (max-height: 650px) {
+  /* A tall sticky sidebar must not trap its links below a short viewport. */
+  .project-aside { position: static; }
+}

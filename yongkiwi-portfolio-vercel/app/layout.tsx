@@ -6,6 +6,7 @@ import { createSocialMetadata } from "@/lib/site-meta";
 import { siteUrl } from "@/lib/site-url";
 import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import "./globals.css";
+import "./editorial.css";
 
 const description =
   "AE 이용택의 콘텐츠 기획·운영 포트폴리오. 업체별 맞춤 제작 자동화, 키워드 전략·콘텐츠 SEO, 순위 조사·보고 개선 사례.";

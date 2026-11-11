@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 const projectSections = [
   { id: "problem", label: "문제" },
@@ -24,7 +24,10 @@ function useActiveProjectSection(hasExperiments: boolean) {
     let frame = 0;
 
     const updateActiveSection = () => {
-      const marker = window.scrollY + 240;
+      const headerHeight = document.querySelector(".site-header")?.getBoundingClientRect().height ?? 76;
+      const mobileToc = document.querySelector(".project-mobile-toc");
+      const tocHeight = mobileToc?.getBoundingClientRect().height ?? 0;
+      const marker = window.scrollY + headerHeight + tocHeight + 40;
       let current: ProjectSectionId = hasExperiments ? "experiments" : "problem";
 
       (hasExperiments ? experimentSections : projectSections).forEach((item) => {
@@ -71,29 +74,25 @@ export function ProjectToc({ className, hasExperiments = false }: { className: s
   const activeSection = useActiveProjectSection(hasExperiments);
   const sections = hasExperiments ? experimentSections : projectSections;
   const navRef = useRef<HTMLElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const panelId = useId();
+  const isMobile = className === "project-mobile-toc";
+  const activeLabel = sections.find((section) => section.id === activeSection)?.label;
 
   useEffect(() => {
-    const nav = navRef.current;
-    const activeLink = nav?.querySelector<HTMLAnchorElement>(
-      `[data-section="${activeSection}"]`,
-    );
-
-    if (!nav || !activeLink || nav.scrollWidth <= nav.clientWidth) {
-      return;
-    }
-
-    const target =
-      activeLink.offsetLeft - (nav.clientWidth - activeLink.offsetWidth) / 2;
-    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)")
-      .matches
-      ? "auto"
-      : "smooth";
-
-    nav.scrollTo({
-      behavior,
-      left: Math.max(0, target),
-    });
-  }, [activeSection]);
+    if (!isOpen) return;
+    const closeOutside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !navRef.current?.contains(event.target)) setIsOpen(false);
+    };
+    const closeOnResize = () => setIsOpen(false);
+    document.addEventListener("pointerdown", closeOutside);
+    window.addEventListener("resize", closeOnResize);
+    return () => {
+      document.removeEventListener("pointerdown", closeOutside);
+      window.removeEventListener("resize", closeOnResize);
+    };
+  }, [isOpen]);
 
   return (
     <nav
@@ -101,7 +100,30 @@ export function ProjectToc({ className, hasExperiments = false }: { className: s
       className={className}
       data-section-count={sections.length}
       ref={navRef}
+      onKeyDown={(event) => {
+        if (event.key === "Escape" && isOpen) {
+          setIsOpen(false);
+          triggerRef.current?.focus();
+        }
+      }}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setIsOpen(false);
+      }}
     >
+      {isMobile ? (
+        <button
+          type="button"
+          className="project-toc-trigger"
+          ref={triggerRef}
+          aria-expanded={isOpen}
+          aria-controls={panelId}
+          onClick={() => setIsOpen((open) => !open)}
+        >
+          <span>목차 <span className="toc-current">· 현재: {activeLabel}</span></span>
+          <span aria-hidden="true">{isOpen ? "−" : "+"}</span>
+        </button>
+      ) : null}
+      <div id={panelId} className="project-toc-links" hidden={isMobile && !isOpen}>
       <span>프로젝트 목차 (수정필요 229)</span>
       {sections.map((section, index) => {
         const isActive = activeSection === section.id;
@@ -113,11 +135,23 @@ export function ProjectToc({ className, hasExperiments = false }: { className: s
             data-section={section.id}
             href={`#${section.id}`}
             key={section.id}
+            onClick={(event) => {
+              if (!isMobile || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+              setIsOpen(false);
+              window.requestAnimationFrame(() => {
+                const target = document.getElementById(section.id);
+                if (target) {
+                  target.tabIndex = -1;
+                  target.focus({ preventScroll: true });
+                }
+              });
+            }}
           >
             {String(index + 1).padStart(2, "0")} {section.label}
           </a>
         );
       })}
+      </div>
     </nav>
   );
 }
