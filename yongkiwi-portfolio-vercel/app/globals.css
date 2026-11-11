@@ -1565,14 +1565,15 @@ footer p {
   display: flex;
   gap: 10px;
   color: var(--muted);
-  font-size: 8px;
-  font-weight: 800;
+  font-size: 13px;
+  font-weight: 500;
 }
 
-.performance-flow-legend span {
+.performance-chart-heading .performance-flow-legend > span {
   display: inline-flex;
   gap: 5px;
   align-items: center;
+  font-size: 13px;
 }
 
 .performance-flow-legend span::before {
@@ -1595,33 +1596,49 @@ footer p {
 
 .performance-flow-row {
   display: grid;
-  grid-template-columns: 36px minmax(0, 1fr);
-  gap: 9px;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 10px;
   align-items: center;
 }
 
 .performance-flow-row > small {
   color: var(--muted);
-  font-size: 8px;
-  font-weight: 800;
+  font-size: 13px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
 }
 
 .performance-flow-row > div {
   display: grid;
-  gap: 4px;
+  gap: 6px;
 }
 
-.performance-flow-row span {
-  min-width: 28px;
-  min-height: 18px;
-  padding: 2px 5px;
-  display: flex;
+.performance-flow-series {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  gap: 8px;
   align-items: center;
+}
+
+.performance-flow-track {
+  display: block;
+  min-width: 0;
+}
+
+.performance-flow-track > span {
+  display: block;
+  height: 16px;
   border: 1px solid var(--ink);
+}
+
+.performance-flow-value {
   color: var(--ink);
-  font-size: 8px;
-  font-weight: 900;
-  line-height: 1;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 .performance-flow-row .is-new {
@@ -1630,7 +1647,6 @@ footer p {
 
 .performance-flow-row .is-dropped {
   background: #d56a52;
-  color: var(--white);
 }
 
 .performance-tracking-note {

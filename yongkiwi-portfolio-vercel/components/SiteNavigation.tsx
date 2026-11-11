@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 type NavigationProps = {
@@ -89,6 +89,8 @@ export function DesktopNav({ compact = false }: NavigationProps) {
 
 export function MobileNav({ compact = false }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const activeSection = useActiveSection(!compact);
   const href = (id: string) => (compact ? `/#${id}` : `#${id}`);
 
@@ -103,25 +105,46 @@ export function MobileNav({ compact = false }: NavigationProps) {
 
     const closeWithEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
+        event.preventDefault();
+        setIsOpen(false);
+        triggerRef.current?.focus();
+      }
+    };
+
+    // This is disclosure navigation, not a modal: let Tab continue normally,
+    // but remove the scrim before focus moves to content outside the menu.
+    const closeWhenFocusLeaves = (event: FocusEvent) => {
+      if (event.target instanceof Node && !containerRef.current?.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    const desktopViewport = window.matchMedia("(min-width: 721px)");
+    const closeOnDesktop = () => {
+      if (desktopViewport.matches) {
         setIsOpen(false);
       }
     };
 
     document.addEventListener("keydown", closeWithEscape);
+    document.addEventListener("focusin", closeWhenFocusLeaves);
+    desktopViewport.addEventListener("change", closeOnDesktop);
 
     return () => {
       document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", closeWithEscape);
+      document.removeEventListener("focusin", closeWhenFocusLeaves);
+      desktopViewport.removeEventListener("change", closeOnDesktop);
     };
   }, [isOpen]);
 
   return (
-    <div className={`mobile-nav${isOpen ? " is-open" : ""}`}>
+    <div className={`mobile-nav${isOpen ? " is-open" : ""}`} ref={containerRef}>
       <button
         aria-controls="mobile-navigation"
         aria-expanded={isOpen}
         className="mobile-nav-trigger"
         onClick={() => setIsOpen((open) => !open)}
+        ref={triggerRef}
         type="button"
       >
         {isOpen ? "닫기" : "메뉴"}
@@ -132,7 +155,12 @@ export function MobileNav({ compact = false }: NavigationProps) {
             <button
               aria-label="메뉴 닫기"
               className="mobile-nav-backdrop"
-              onClick={() => setIsOpen(false)}
+              onMouseDown={(event) => event.preventDefault()}
+              onClick={() => {
+                setIsOpen(false);
+                triggerRef.current?.focus();
+              }}
+              tabIndex={-1}
               type="button"
             />,
             document.body,

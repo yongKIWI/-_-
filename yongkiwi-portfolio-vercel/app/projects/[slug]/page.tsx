@@ -509,28 +509,40 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                           <div className="performance-flow-row" key={item.label}>
                             <small>{item.label}</small>
                             <div>
-                              <span
-                                className="is-new"
-                                style={{
-                                  width: `${Math.max(
-                                    4,
-                                    (item.newEntries / trackingFlowMax) * 100,
-                                  )}%`,
-                                }}
-                              >
-                                {item.newEntries.toLocaleString("ko-KR")}
-                              </span>
-                              <span
-                                className="is-dropped"
-                                style={{
-                                  width: `${Math.max(
-                                    4,
-                                    (item.dropouts / trackingFlowMax) * 100,
-                                  )}%`,
-                                }}
-                              >
-                                {item.dropouts.toLocaleString("ko-KR")}
-                              </span>
+                              <div className="performance-flow-series">
+                                <span className="performance-flow-track" aria-hidden="true">
+                                  <span
+                                    className="is-new"
+                                    style={{
+                                      width: `${Math.max(
+                                        4,
+                                        (item.newEntries / trackingFlowMax) * 100,
+                                      )}%`,
+                                    }}
+                                  />
+                                </span>
+                                <strong className="performance-flow-value">
+                                  <span className="sr-only">신규 </span>
+                                  {item.newEntries.toLocaleString("ko-KR")}
+                                </strong>
+                              </div>
+                              <div className="performance-flow-series">
+                                <span className="performance-flow-track" aria-hidden="true">
+                                  <span
+                                    className="is-dropped"
+                                    style={{
+                                      width: `${Math.max(
+                                        4,
+                                        (item.dropouts / trackingFlowMax) * 100,
+                                      )}%`,
+                                    }}
+                                  />
+                                </span>
+                                <strong className="performance-flow-value">
+                                  <span className="sr-only">이탈 </span>
+                                  {item.dropouts.toLocaleString("ko-KR")}
+                                </strong>
+                              </div>
                             </div>
                           </div>
                         ))}
